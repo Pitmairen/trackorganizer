@@ -1,33 +1,27 @@
-
 /**
- * Write a description of class Advertisement here.
+ * Represents advertisement content.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Kristian Honningsvag
+ * @version 0.1
  */
+
 public class Advertisement extends Track
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    // Instance variables
+    private String company;
+    private String product;
 
     /**
-     * Constructor for objects of class Advertisement
-     */
-    public Advertisement()
-    {
-        // initialise instance variables
-        x = 0;
-    }
-
-    /**
-     * An example of a method - replace this comment with your own
+     * Constructor.
      * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
+     * @param title Name of the commercial.
+     * @param company Name of the company.
+     * @param product Name of the product.
      */
-    public int sampleMethod(int y)
+    public Advertisement(String title, String company, String product)
     {
-        // put your code here
-        return x + y;
+        super(title);
+        this.company = company;
+        this.product = product;
     }
 }

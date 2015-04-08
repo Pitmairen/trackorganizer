@@ -1,33 +1,26 @@
-
 /**
- * Write a description of class File here.
+ * Represents an audio file.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Kristian Honningsvag
+ * @version 0.1
  */
+
 public class File
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    // Instance variables
+    private Track track;
+    private String filePath;
+    private int filesize;
 
     /**
-     * Constructor for objects of class File
-     */
-    public File()
-    {
-        // initialise instance variables
-        x = 0;
-    }
-
-    /**
-     * An example of a method - replace this comment with your own
+     * Constructor.
      * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
+     * @param track The audio track.
+     * @param filePath The file path.
      */
-    public int sampleMethod(int y)
+    public File(Track track, String filePath)
     {
-        // put your code here
-        return x + y;
+        this.track = track;
+        this.filePath = filePath;
     }
 }

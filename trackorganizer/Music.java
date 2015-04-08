@@ -1,33 +1,44 @@
-
 /**
- * Write a description of class Music here.
+ * Represents music content.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Kristian Honningsvag
+ * @version 0.1
  */
+
 public class Music extends Track
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    // Instance variables
+    private String artist;
 
     /**
-     * Constructor for objects of class Music
+     * Constructor.
+     * 
+     * @param title Name of the melody.
+     * @param artist Name of the srtist.
      */
-    public Music()
+    public Music(String title, String artist)
     {
-        // initialise instance variables
-        x = 0;
+        super(title);
+        this.artist = artist;
     }
 
     /**
-     * An example of a method - replace this comment with your own
+     * Returns artist name.
      * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
+     * @return Artist name
      */
-    public int sampleMethod(int y)
+    public String getArtist()
     {
-        // put your code here
-        return x + y;
+        return artist;
+    }
+
+    /**
+     * Sets the artist name.
+     * 
+     * @param artist Artist name.
+     */
+    public void setArtist(String artist)
+    {
+        this.artist = artist;
     }
 }

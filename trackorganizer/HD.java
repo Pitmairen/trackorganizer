@@ -1,33 +1,26 @@
+import java.util.ArrayList;
 
 /**
- * Write a description of class HD here.
+ * Represents a hard drive used for storing audio files.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Kristian Honningsvag
+ * @version 0.1
  */
+
 public class HD extends Media
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    // Instance variables
+    private String name;
+    private ArrayList<File> files;
 
     /**
-     * Constructor for objects of class HD
-     */
-    public HD()
-    {
-        // initialise instance variables
-        x = 0;
-    }
-
-    /**
-     * An example of a method - replace this comment with your own
+     * Constructor.
      * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
+     * @param name Name of the hard drive.
      */
-    public int sampleMethod(int y)
+    public HD(String name)
     {
-        // put your code here
-        return x + y;
+        super(name);
+        files = new ArrayList<File>();
     }
 }

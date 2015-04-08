@@ -1,20 +1,24 @@
-/**
- * Write a description of class LP here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
-public class LP extends Release
-{
-    // instance variables - replace the example below with your own
-    private int x;
+import java.util.ArrayList;
 
+/**
+ * Represents a vinyl LP.
+ * 
+ * @author Kristian Honningsvag
+ * @version 0.1
+ */
+
+public class LP extends PhysicalRelease
+{
+    // Instance variables
+    private String format;
+    
     /**
-     * Constructor for objects of class LP
+     * Constructor.
+     * 
+     * @param name Album name.
      */
-    public LP()
+    public LP(String name)
     {
-        // initialise instance variables
-        x = 0;
+        super(name);
     }
 }

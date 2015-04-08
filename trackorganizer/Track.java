@@ -1,20 +1,46 @@
-
 /**
  * Represents an audio track.
+ * It can be any kind of audio content.
  * 
  * @author Kristian Honningsvag
  * @version 0.1
  */
+
 public class Track
 {
-    private int x;
+    // Instance variables    
+    private String title;
+    private int duration;
+    private int lastPlayed;
+    private int timesPlayed;
 
     /**
-     * Constructor for objects of class Track
+     * Constructor.
+     * 
+     * @param title Title of the track.
      */
-    public Track()
+    public Track(String title)
     {
-        // initialise instance variables
-        x = 0;
+        this.title = title;
+    }
+
+    /**
+     * Returns track title.
+     * 
+     * @return Title
+     */
+    public String getTitle()
+    {
+        return title;
+    }
+
+    /**
+     * Sets the track title.
+     * 
+     * @param title Track title.
+     */
+    public void setTitle(String title)
+    {
+        this.title = title;
     }
 }

@@ -1,10 +1,13 @@
---------------------------------
-This is the project README file.
---------------------------------
+----------------------
+Track organizer - v0.1
+----------------------
 
-PROJECT TITLE:		Track organizer
-PURPOSE OF PROJECT:	School project
-VERSION or DATE:	0.1
-HOW TO START THIS PROJECT:
-AUTHORS:		Kristian Honningsvag, Per Myren, Tor-Martin Holen
-USER INSTRUCTIONS:
+This is a school project in the course "Object oriented programming"
+at Aalesund University College.
+The program mimics a track organizer like those used by small local
+radio stations wich have their media stored partially digital, and
+partially on several different physical mediums.
+
+AUTHORS:    Kristian Honningsvag
+            Per Myren
+            Tor-Martin Holen

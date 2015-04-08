@@ -1,33 +1,44 @@
-
 /**
- * Write a description of class SFX here.
+ * Represents sound effect content.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Kristian Honningsvag
+ * @version 0.1
  */
+
 public class SoundEffect extends Track
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    // Instance variables
+    private String description;
 
     /**
-     * Constructor for objects of class SFX
+     * Constructor.
+     * 
+     * @param title Name of the sound effect.
+     * @param description A short description.
      */
-    public SoundEffect()
+    public SoundEffect(String title, String description)
     {
-        // initialise instance variables
-        x = 0;
+        super(title);
+        this.description = description;
     }
 
     /**
-     * An example of a method - replace this comment with your own
+     * Returns sound effect description.
      * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
+     * @return Description
      */
-    public int sampleMethod(int y)
+    public String getDescription()
     {
-        // put your code here
-        return x + y;
+        return description;
+    }
+
+    /**
+     * Sets the sound effect description.
+     * 
+     * @param description Description
+     */
+    public void setDescription(String description)
+    {
+        this.description = description;
     }
 }

@@ -1,33 +1,69 @@
-
 /**
- * Write a description of class News here.
+ * Represents news content.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Kristian Honningsvag
+ * @version 0.1
  */
+
 public class News extends Track
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    // Instance variables    
+    private String description;
+    private String journalistName;
+    private int dateProduced;
+    private int dateFirstAired;
 
     /**
-     * Constructor for objects of class News
+     * Constructor.
+     * 
+     * @param title Name of the sound effect.
+     * @param description A short description.
+     * @param journalistName Name of the journalist.
      */
-    public News()
+    public News(String title, String description, String journalistName)
     {
-        // initialise instance variables
-        x = 0;
+        super(title);
+        this.description = description;
+        this.journalistName = journalistName;
     }
 
     /**
-     * An example of a method - replace this comment with your own
+     * Returns news content description.
      * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
+     * @return Description
      */
-    public int sampleMethod(int y)
+    public String getDescription()
     {
-        // put your code here
-        return x + y;
+        return description;
+    }
+
+    /**
+     * Sets the news contents description.
+     * 
+     * @param description Description
+     */
+    public void setDescription(String description)
+    {
+        this.description = description;
+    }
+
+    /**
+     * Returns the name of the journalist.
+     * 
+     * @return Journalist name
+     */
+    public String getjournalistName()
+    {
+        return journalistName;
+    }
+
+    /**
+     * Sets the name of the journalist.
+     * 
+     * @param journalistName Name of the journalist.
+     */
+    public void setjournalistName(String journalistName)
+    {
+        this.journalistName = journalistName;
     }
 }

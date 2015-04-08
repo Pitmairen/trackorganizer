@@ -1,33 +1,23 @@
+import java.util.ArrayList;
 
 /**
- * Write a description of class CD here.
+ * Represents a CD.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Kristian Honningsvag
+ * @version 0.1
  */
-public class CD extends Release
+
+public class CD extends PhysicalRelease
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    // Instance variables
 
     /**
-     * Constructor for objects of class CD
-     */
-    public CD()
-    {
-        // initialise instance variables
-        x = 0;
-    }
-
-    /**
-     * An example of a method - replace this comment with your own
+     * Constructor.
      * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
+     * @param name Album name
      */
-    public int sampleMethod(int y)
+    public CD(String name)
     {
-        // put your code here
-        return x + y;
+        super(name);
     }
 }
