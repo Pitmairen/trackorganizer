@@ -1,3 +1,5 @@
+package backend;
+
 /**
  * Represents advertisement content.
  * 

@@ -1,3 +1,6 @@
+package backend;
+
+import backend.PhysicalRelease;
 import java.util.ArrayList;
 
 /**
