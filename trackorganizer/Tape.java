@@ -23,4 +23,24 @@ public class Tape extends PhysicalRelease
         super(name);
         this.tapeType = tapeType;
     }
+
+    /**
+     * Returns tape type.
+     * 
+     * @return Tape type.
+     */
+    public String getTapeType()
+    {
+        return tapeType;
+    }
+
+    /**
+     * Sets the tape type.
+     * 
+     * @param tapeType The tape type.
+     */
+    public void setTapeType(String tapeType)
+    {
+        this.tapeType = tapeType;
+    }
 }

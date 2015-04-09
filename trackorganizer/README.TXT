@@ -8,6 +8,6 @@ The program mimics a track organizer like those used by small local
 radio stations wich have their media stored partially digital, and
 partially on several different physical mediums.
 
-AUTHORS:    Kristian Honningsvag
+Authors:    Kristian Honningsvag
             Per Myren
             Tor-Martin Holen

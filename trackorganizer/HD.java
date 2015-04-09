@@ -10,7 +10,6 @@ import java.util.ArrayList;
 public class HD extends Media
 {
     // Instance variables
-    private String name;
     private ArrayList<File> files;
 
     /**

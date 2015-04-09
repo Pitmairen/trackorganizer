@@ -52,7 +52,7 @@ public class News extends Track
      * 
      * @return Journalist name
      */
-    public String getjournalistName()
+    public String getJournalistName()
     {
         return journalistName;
     }
@@ -62,7 +62,7 @@ public class News extends Track
      * 
      * @param journalistName Name of the journalist.
      */
-    public void setjournalistName(String journalistName)
+    public void setJournalistName(String journalistName)
     {
         this.journalistName = journalistName;
     }

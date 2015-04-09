@@ -23,4 +23,44 @@ public class File
         this.track = track;
         this.filePath = filePath;
     }
+
+    /**
+     * Returns track.
+     * 
+     * @return Track
+     */
+    public Track getTrack()
+    {
+        return track;
+    }
+
+    /**
+     * Sets the track.
+     * 
+     * @param track The track..
+     */
+    public void setTrack(Track track)
+    {
+        this.track = track;
+    }
+
+    /**
+     * Returns file path.
+     * 
+     * @return File path
+     */
+    public String getFilePath()
+    {
+        return filePath;
+    }
+
+    /**
+     * Sets the file path.
+     * 
+     * @param filePath The file path.
+     */
+    public void setFilePath(String filePath)
+    {
+        this.filePath = filePath;
+    }
 }
