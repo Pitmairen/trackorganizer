@@ -1,5 +1,6 @@
 package backend;
 
+import java.time.Duration;
 import java.util.Date;
 
 /**
@@ -12,7 +13,7 @@ public class Track {
 
     // Instance variable
     private String title;
-    private int duration;
+    private Duration duration;
     private Date lastPlayed;
     private int timesPlayed;
 
@@ -20,9 +21,15 @@ public class Track {
      * Constructor.
      *
      * @param title Title of the track.
+     * @param duration Duration of the track.
+     * @param lastPlayed Date track was last played.
+     * @param timesPlayed Number of times track has been played.
      */
-    public Track(String title) {
+    public Track(String title, Duration duration, Date lastPlayed, int timesPlayed) {
         this.title = title;
+        this.duration = duration;
+        this.lastPlayed = lastPlayed;
+        this.timesPlayed = timesPlayed;
     }
 
     //Getters

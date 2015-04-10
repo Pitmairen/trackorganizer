@@ -1,5 +1,7 @@
 package backend;
 
+import java.time.Duration;
+import java.time.Year;
 import java.util.ArrayList;
 
 /**
@@ -17,12 +19,17 @@ public class LP extends PhysicalRelease
     /**
      * Constructor.
      * 
-     * @param name Album name.
+     * @param artistName
+     * @param releaseYear
+     * @param recordLabel
+     * @param totalDuration
+     * @param tracks
+     * @param archiveNR
      * @param format Format of the LP.
      */
-    public LP(String name, String format)
+    public LP(String artistName, Year releaseYear, String recordLabel, Duration totalDuration,  ArrayList<Track>tracks, int archiveNR, String format)
     {
-        super(name);
+        super(artistName, releaseYear, recordLabel, totalDuration,  tracks, archiveNR);
         this.format = format;
     }
 
