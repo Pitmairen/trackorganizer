@@ -1,6 +1,9 @@
 package backend;
 
+
 import java.time.LocalDateTime;
+import java.time.Duration;
+
 
 /**
  * Represents an audio track. It can be any kind of audio content.
@@ -12,17 +15,24 @@ public class Track {
 
     // Instance variable
     private String title;
-    private int duration;
     private LocalDateTime lastPlayed;
+    private Duration duration;
+
     private int timesPlayed;
 
     /**
      * Constructor.
      *
      * @param title Title of the track.
+     * @param duration Duration of the track.
+     * @param lastPlayed Date track was last played.
+     * @param timesPlayed Number of times track has been played.
      */
-    public Track(String title) {
+    public Track(String title, Duration duration, LocalDateTime lastPlayed, int timesPlayed) {
         this.title = title;
+        this.duration = duration;
+        this.lastPlayed = lastPlayed;
+        this.timesPlayed = timesPlayed;
     }
 
     //Getters
@@ -40,7 +50,7 @@ public class Track {
      *
      * @return duration
      */
-    public int getDuration() {
+    public Duration getDuration() {
         return duration;
     }
 
@@ -77,7 +87,7 @@ public class Track {
      *
      * @param duration
      */
-    public void setDuration(int duration) {
+    public void setDuration(Duration duration) {
         this.duration = duration;
     }
 

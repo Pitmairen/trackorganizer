@@ -1,6 +1,8 @@
 package backend;
 
 import backend.PhysicalRelease;
+import java.time.Duration;
+import java.time.Year;
 import java.util.ArrayList;
 
 /**
@@ -21,9 +23,9 @@ public class Tape extends PhysicalRelease
      * @param name Name of the Tape
      * @param tapeType Type of tape. Digital or analog.
      */
-    public Tape(String name, String tapeType)
+    public Tape(String artistName, Year releaseYear, String recordLabel, Duration totalDuration,  ArrayList<Track>tracks, int archiveNR, String tapeType)
     {
-        super(name);
+        super(artistName, releaseYear, recordLabel, totalDuration,  tracks, archiveNR);
         this.tapeType = tapeType;
     }
 

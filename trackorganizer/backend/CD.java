@@ -1,5 +1,7 @@
 package backend;
 
+import java.time.Duration;
+import java.time.Year;
 import java.util.ArrayList;
 
 /**
@@ -18,8 +20,8 @@ public class CD extends PhysicalRelease
      * 
      * @param name Album name
      */
-    public CD(String name)
+    public CD(String artistName, Year releaseYear, String recordLabel, Duration totalDuration,  ArrayList<Track>tracks, int archiveNR)
     {
-        super(name);
+        super(artistName, releaseYear, recordLabel, totalDuration,  tracks, archiveNR);
     }
 }
