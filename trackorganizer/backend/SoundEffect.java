@@ -1,5 +1,8 @@
 package backend;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
+
 /**
  * Represents sound effect content.
  * 
@@ -14,13 +17,15 @@ public class SoundEffect extends Track
 
     /**
      * Constructor.
-     * 
-     * @param title Name of the sound effect.
+      * @param title Title of the track.
+     * @param duration Duration of the track.
+     * @param lastPlayed Date track was last played.
+     * @param timesPlayed Number of times track has been played.
      * @param description A short description.
      */
-    public SoundEffect(String title, String description)
+    public SoundEffect(String title, Duration duration, LocalDateTime lastPlayed, int timesPlayed, String description)
     {
-        super(title);
+        super(title, duration, lastPlayed, timesPlayed);
         this.description = description;
     }
 

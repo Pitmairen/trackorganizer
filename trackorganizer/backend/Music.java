@@ -1,5 +1,8 @@
 package backend;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
+
 /**
  * Represents music content.
  * 
@@ -15,12 +18,15 @@ public class Music extends Track
     /**
      * Constructor.
      * 
-     * @param title Name of the melody.
-     * @param artist Name of the srtist.
+     * @param title Title of the track.
+     * @param duration Duration of the track.
+     * @param lastPlayed Date track was last played.
+     * @param timesPlayed Number of times track has been played.
+     * @param artist Name of the artist..
      */
-    public Music(String title, String artist)
+    public Music(String title, Duration duration, LocalDateTime lastPlayed, int timesPlayed, String artist)
     {
-        super(title);
+        super(title, duration, lastPlayed, timesPlayed);
         this.artist = artist;
     }
 

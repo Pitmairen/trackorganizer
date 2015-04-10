@@ -1,5 +1,8 @@
 package backend;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
+
 /**
  * Represents advertisement content.
  * 
@@ -16,13 +19,16 @@ public class Advertisement extends Track
     /**
      * Constructor.
      * 
-     * @param title Name of the commercial.
+     * @param title Title of the track.
+     * @param duration Duration of the track.
+     * @param lastPlayed Date track was last played.
+     * @param timesPlayed Number of times track has been played.
      * @param company Name of the company.
      * @param product Name of the product.
      */
-    public Advertisement(String title, String company, String product)
+    public Advertisement(String title, Duration duration, LocalDateTime lastPlayed, int timesPlayed, String company, String product)
     {
-        super(title);
+        super(title, duration, lastPlayed, timesPlayed);
         this.company = company;
         this.product = product;
     }

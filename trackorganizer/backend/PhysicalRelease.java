@@ -26,7 +26,6 @@ public class PhysicalRelease extends Media {
      * @param artistName Artist name of the physical release.
      * @param releaseYear Year the release was released.
      * @param recordLabel The record label behind the release.
-     * @param totalDuration The duration of the release.
      * @param tracks The tracks of the release
      * @param archiveNR The archive number where the release is stored.
      */
@@ -129,7 +128,7 @@ public class PhysicalRelease extends Media {
      *
      * @param releaseYear
      */
-    public void setReleaseYear(int releaseYear) {
+    public void setReleaseYear(Year releaseYear) {
         this.releaseYear = releaseYear;
     }
 
@@ -147,7 +146,7 @@ public class PhysicalRelease extends Media {
      *
      * @param totalDuration
      */
-    public void setTotalDuration(int totalDuration) {
+    public void setTotalDuration(Duration totalDuration) {
         this.totalDuration = totalDuration;
     }
 

@@ -1,5 +1,7 @@
 package backend;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -19,12 +21,17 @@ public class News extends Track {
     /**
      * Constructor.
      *
-     * @param title Name of the sound effect.
+     * @param title Title of the track.
+     * @param duration Duration of the track.
+     * @param lastPlayed Date track was last played.
+     * @param timesPlayed Number of times track has been played.
      * @param description A short description.
-     * @param journalistName Name of the journalist.
+     * @param journalistName Name of the journalist..
+     * @param dateProduced The date the track was produced.
+     * @param dateFirstAired The date the track was aired.
      */
-    public News(String title, String description, String journalistName) {
-        super(title);
+    public News(String title, Duration duration, LocalDateTime lastPlayed, int timesPlayed, String description, String journalistName, Date dateProduced, Date dateFirstAired) {
+        super(title, duration, lastPlayed, timesPlayed);
         this.description = description;
         this.journalistName = journalistName;
     }
