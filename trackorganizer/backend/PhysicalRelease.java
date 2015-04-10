@@ -1,5 +1,7 @@
 package backend;
 
+import java.time.Duration;
+import java.time.Year;
 import java.util.ArrayList;
 
 /**
@@ -12,20 +14,31 @@ public class PhysicalRelease extends Media {
 
     // Instance variables
     private String artistName;
-    private int releaseYear;
+    private Year releaseYear;
     private String recordLabel;
-    private int totalDuration;
+    private Duration totalDuration;
     private ArrayList<Track> tracks;
     private int archiveNR;
 
     /**
      * Constructor.
      *
-     * @param name Name of the physical release.
+     * @param artistName Artist name of the physical release.
+     * @param releaseYear Year the release was released.
+     * @param recordLabel The record label behind the release.
+     * @param totalDuration The duration of the release.
+     * @param tracks The tracks of the release
+     * @param archiveNR The archive number where the release is stored.
      */
-    public PhysicalRelease(String name) {
-        super(name);
-        tracks = new ArrayList<Track>();
+    public PhysicalRelease(String artistName, Year releaseYear, String recordLabel, Duration totalDuration,  ArrayList<Track>tracks, int archiveNR) {
+        super(artistName);
+        this.artistName = artistName;
+        this.releaseYear = releaseYear;
+        this.recordLabel = recordLabel;
+        this.totalDuration = totalDuration;
+        this.tracks = tracks;
+        this.archiveNR = archiveNR;
+        
     }
 
     //Getters
@@ -43,7 +56,7 @@ public class PhysicalRelease extends Media {
      *
      * @return releaseYear
      */
-    public int getReleaseYear() {
+    public Year getReleaseYear() {
         return releaseYear;
     }
 
@@ -61,7 +74,7 @@ public class PhysicalRelease extends Media {
      *
      * @return totalDuration
      */
-    public int getTotalDuration() {
+    public Duration getTotalDuration() {
         return totalDuration;
     }
 
