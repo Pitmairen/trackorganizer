@@ -18,10 +18,13 @@ public class CD extends PhysicalRelease
     /**
      * Constructor.
      * 
-     * @param name Album name
+     * @param artistName artist name of the release.
+     * @param releaseYear release year of the release.
+     * @param recordLabel record label behind the release.
+     * @param archiveNR archive number where archive is stored.
      */
-    public CD(String artistName, Year releaseYear, String recordLabel, Duration totalDuration,  ArrayList<Track>tracks, int archiveNR)
+    public CD(String artistName, Year releaseYear, String recordLabel, int archiveNR)
     {
-        super(artistName, releaseYear, recordLabel, totalDuration,  tracks, archiveNR);
+        super(artistName, releaseYear, recordLabel, archiveNR);
     }
 }

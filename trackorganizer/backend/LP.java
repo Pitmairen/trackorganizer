@@ -22,14 +22,12 @@ public class LP extends PhysicalRelease
      * @param artistName
      * @param releaseYear
      * @param recordLabel
-     * @param totalDuration
-     * @param tracks
      * @param archiveNR
      * @param format Format of the LP.
      */
-    public LP(String artistName, Year releaseYear, String recordLabel, Duration totalDuration,  ArrayList<Track>tracks, int archiveNR, String format)
+    public LP(String artistName, Year releaseYear, String recordLabel, int archiveNR, String format)
     {
-        super(artistName, releaseYear, recordLabel, totalDuration,  tracks, archiveNR);
+        super(artistName, releaseYear, recordLabel, archiveNR);
         this.format = format;
     }
 
