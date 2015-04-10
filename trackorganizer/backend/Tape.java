@@ -20,12 +20,15 @@ public class Tape extends PhysicalRelease
     /**
      * Constructor.
      * 
-     * @param name Name of the Tape
-     * @param tapeType Type of tape. Digital or analog.
+     * @param artistName artist name of the release.
+     * @param releaseYear release year of the release.
+     * @param recordLabel record label behind the release.
+     * @param archiveNR archive number where archive is stored.
+     * @param tapeType The type of the tape, digital or analog.
      */
-    public Tape(String artistName, Year releaseYear, String recordLabel, Duration totalDuration,  ArrayList<Track>tracks, int archiveNR, String tapeType)
+    public Tape(String artistName, Year releaseYear, String recordLabel, int archiveNR, String tapeType)
     {
-        super(artistName, releaseYear, recordLabel, totalDuration,  tracks, archiveNR);
+        super(artistName, releaseYear, recordLabel, archiveNR);
         this.tapeType = tapeType;
     }
 
