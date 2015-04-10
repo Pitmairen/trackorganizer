@@ -1,6 +1,6 @@
 package backend;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 /**
  * Represents an audio track. It can be any kind of audio content.
@@ -13,7 +13,7 @@ public class Track {
     // Instance variable
     private String title;
     private int duration;
-    private Date lastPlayed;
+    private LocalDateTime lastPlayed;
     private int timesPlayed;
 
     /**
@@ -49,7 +49,7 @@ public class Track {
      *
      * @return lastPlayed
      */
-    public Date getLastPlayed() {
+    public LocalDateTime getLastPlayed() {
         return lastPlayed;
     }
 
@@ -86,7 +86,7 @@ public class Track {
      *
      * @param lastPlayed
      */
-    public void setLastPlayed(Date lastPlayed) {
+    public void setLastPlayed(LocalDateTime lastPlayed) {
         this.lastPlayed = lastPlayed;
     }
 
