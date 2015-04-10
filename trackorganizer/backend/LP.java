@@ -39,7 +39,7 @@ public class LP extends PhysicalRelease
     /**
      * Sets the format of the LP.
      * 
-     * @param The format of the LP.
+     * @param format The format of the LP.
      */
     public void setFormat(String format)
     {
