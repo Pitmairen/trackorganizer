@@ -1,0 +1,29 @@
+@startuml
+class backend.Advertisement
+class backend.CD
+class backend.File
+class backend.HD
+class backend.LP
+class backend.Media
+class backend.Music
+class backend.News
+class backend.PhysicalRelease
+class backend.SoundEffect
+class backend.Tape
+class backend.Track
+class java.util.ArrayList
+backend.Advertisement --|> backend.Track
+backend.CD --|> backend.PhysicalRelease
+backend.CD ..> java.util.ArrayList
+backend.HD --|> backend.Media
+backend.HD ..> java.util.ArrayList
+backend.LP --|> backend.PhysicalRelease
+backend.LP ..> java.util.ArrayList
+backend.Music --|> backend.Track
+backend.News --|> backend.Track
+backend.PhysicalRelease --|> backend.Media
+backend.PhysicalRelease ..> java.util.ArrayList
+backend.SoundEffect --|> backend.Track
+backend.Tape --|> backend.PhysicalRelease
+backend.Tape ..> java.util.ArrayList
+@enduml
