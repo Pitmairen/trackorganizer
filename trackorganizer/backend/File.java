@@ -65,4 +65,20 @@ public class File
     {
         this.filePath = filePath;
     }
+    
+    /**
+     * Returns the file size of the file.
+     * @return 
+     */
+    public int getFilesize() {
+        return filesize;
+    }
+
+    /**
+     * Sets the file size of the file.
+     * @param filesize 
+     */
+    public void setFilesize(int filesize) {
+        this.filesize = filesize;
+    }
 }
