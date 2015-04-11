@@ -1,10 +1,9 @@
 package backend;
 
-
 import java.time.Duration;
 
 /**
- * 
+ *
  * @author Tor-Martin Holen
  */
 public class DurationHandler {
@@ -12,51 +11,65 @@ public class DurationHandler {
     private Duration duration;
 
     DurationHandler(long seconds) {
-        this.duration = this.duration.plusSeconds(seconds);
+        duration = Duration.ofSeconds(seconds);
     }
 
     /**
+     * Returns the duration in a unformatted duration
+     * 
+     * @return duration.toString() Returns a unformatted duration.
+     */
+    public String getUnformattedString() {
+        return duration.toString();
+    }
+
+    /**
+     * Returns a string usable to display the duration of the different medias in a easily read format,
+     * ex: "04:53:21"
      *
-     * @return formatedString Returns a string containing duration ex:
-     * "04:53:21"
+     * @return formattedString Returns a string containing duration.
      */
     public String formatDuration() {
         String hourValue = "", minuteValue = "", secondValue = "";
 
-        formatValue(hourValue, "T", "H");
-        formatValue(minuteValue, "H", "M");
-        formatValue(secondValue, "M", "S");
+        hourValue = formatValue(hourValue, "T", "H");
+        minuteValue = formatValue(minuteValue, "H", "M");
+        secondValue = formatValue(secondValue, "M", "S");
 
-        String formatedString = hourValue + ":" + minuteValue + ":" + secondValue;
-        
-        return formatedString;
+        String formattedString = hourValue + ":" + minuteValue + ":" + secondValue;
+
+        return formattedString;
     }
 
     /**
-     *  Function used to format and fill in strings containing hour, minute or second values. 
-     *  The function gets the values from a duration string.
-     * 
+     * Function used to format and fill in strings containing hour, minute or
+     * second values. The function gets the values from a duration string.
+     *
      * @param value The value we want to format
      * @param startAfterLetter A substring is started after this letter
      * @param endBeforeLetter The substring ends before this letter
-     * @return value Returns the value formated
+     * @return value Returns the value formatted
      */
     private String formatValue(String value, String startAfterLetter, String endBeforeLetter) {
-        
-        String unformatedString = duration.toString();  //Current format: PTnHnMnS
-        
-        int startIndex = unformatedString.lastIndexOf(startAfterLetter) + 1;
-        int endIndex = unformatedString.lastIndexOf(endBeforeLetter) - 1;
-        value = unformatedString.substring(startIndex, endIndex);
-        
+
+        String unformattedString = duration.toString();  //Current format: PTnHnMnS
+
+        int startIndex = unformattedString.lastIndexOf(startAfterLetter) + 1;
+        int endIndex = unformattedString.lastIndexOf(endBeforeLetter);
+
+       // System.out.println(startIndex);
+        //System.out.println(endIndex);
+        value = unformattedString.substring(startIndex, endIndex);
+
         if (value.length() == 1) {
             value = "0" + value;
         }
-        
+
         if (value.length() > 2) {
-            value = unformatedString.substring(0, 2);
+            value = unformattedString.substring(0, 2);
         }
-        
+
+        //System.out.println(value);
         return value;
     }
 }
