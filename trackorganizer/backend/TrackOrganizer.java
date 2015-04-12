@@ -71,7 +71,7 @@ public class TrackOrganizer {
      * @param title The title to search for.
      * @return Array with the matching tracks
      */
-    public ArrayList<Track> findTracksByTitle(String title) {
+    public ArrayList<Track> findTracksByTitleExact(String title) {
         ArrayList<Track> result = new ArrayList<>();
         for (Media media : medias) {
             for(Track track: media.getTracks()){
