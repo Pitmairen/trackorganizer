@@ -35,7 +35,7 @@ public class News extends Track {
         this.description = description;
         this.journalistName = journalistName;
     }
-
+    
     //Getters
     /**
      * Returns news content description.

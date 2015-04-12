@@ -29,6 +29,19 @@ public class Music extends Track
         super(title, duration, lastPlayed, timesPlayed);
         this.artist = artist;
     }
+    
+    
+        /**
+     * Constructor.
+     * 
+     * @param artist Name of the artist..
+     * @param title Title of the track.
+     * @param duration Duration of the track.
+     */
+    public Music(String artist, String title, Duration duration)
+    {
+        this(title, duration, null, 0, artist);
+    }
 
     /**
      * Returns artist name.
