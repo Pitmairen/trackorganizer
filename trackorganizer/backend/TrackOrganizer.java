@@ -62,6 +62,27 @@ public class TrackOrganizer {
         }
         return searchHits;
     }
+    
+    
+     /**
+     * Searches through entire collection. Returns an array with the matching
+     * tracks
+     *
+     * @param title The title to search for.
+     * @return Array with the matching tracks
+     */
+    public ArrayList<Track> findTracksByTitle(String title) {
+        ArrayList<Track> result = new ArrayList<>();
+        for (Media media : medias) {
+            for(Track track: media.getTracks()){
+                if (track.getTitle().equals(title)){
+                    result.add(track);
+                }
+            }
+        }
+        return result;
+    }
+
 
     /**
      * Adds a CD to the media collection.

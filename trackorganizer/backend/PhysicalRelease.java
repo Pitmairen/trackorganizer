@@ -100,6 +100,7 @@ public class PhysicalRelease extends Media {
      *
      * @return tracks
      */
+    @Override
     public ArrayList<Track> getTracks() {
         return tracks;
     }
@@ -166,6 +167,17 @@ public class PhysicalRelease extends Media {
      */
     public void setArchiveNR(int archiveNR) {
         this.archiveNR = archiveNR;
+    }
+    
+    
+    /**
+     * Adds a track to this media.
+     * 
+     * @param track The track to add
+     */
+    @Override
+    public void addTrack(Track track){
+        tracks.add(track);
     }
 
 }

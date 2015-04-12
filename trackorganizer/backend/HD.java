@@ -39,4 +39,29 @@ public class HD extends Media {
     public void setFiles(ArrayList<File> files) {
         this.files = files;
     }
+    
+    
+    /**
+     * Returns the tracks associated with this media.
+     * 
+     * @return tracks
+     */
+    @Override
+    public ArrayList<Track> getTracks(){
+        // Dummy value for now
+        return new ArrayList<>();
+    }
+   
+    
+    /**
+     * Adds a track to this media.
+     * 
+     * @param track The track to add
+     */
+    @Override
+    public void addTrack(Track track){
+        
+   
+    }
+    
 }

@@ -1,5 +1,7 @@
 package backend;
 
+import java.util.ArrayList;
+
 /**
  * Represents a media container.
  * 
@@ -7,7 +9,7 @@ package backend;
  * @version 0.1
  */
 
-public class Media
+public abstract class Media
 {
     // Instance variables
     String name;
@@ -41,4 +43,20 @@ public class Media
     {
         this.name = name;
     }
+    
+    
+    /**
+     * Returns the tracks associated with this media.
+     * 
+     * @return tracks
+     */
+    public abstract ArrayList<Track> getTracks();
+   
+    
+    /**
+     * Adds a track to this media.
+     * 
+     * @param track The track to add
+     */
+    public abstract void addTrack(Track track);
 }
