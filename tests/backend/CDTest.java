@@ -5,9 +5,12 @@
  */
 package backend;
 
+import java.time.Duration;
+import java.time.Year;
 import java.util.ArrayList;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.Before;
 
 /**
  *
@@ -15,17 +18,22 @@ import static org.junit.Assert.*;
  */
 public class CDTest {
     
+    private CD cd;
 
+    @Before
+    public void setUp() {
+        cd = new CD("Artist1", Year.of(2014), "Sony", 10001);
+    }
+
+    
     @Test
     public void testCDName() {
 
-        CD cd = new CD("Test1");
+        assertEquals(cd.getName(), "Artist1");
         
-        assertEquals(cd.getName(), "Test1");
+        cd.setName("Artist2");
         
-        cd.setName("Test2");
-        
-        assertEquals(cd.getName(), "Test2");
+        assertEquals(cd.getName(), "Artist2");
         
     }
     
@@ -33,16 +41,17 @@ public class CDTest {
     @Test
     public void testGettersAndSetters() {
 
-        CD cd = new CD("Test1");
-        
-        cd.setRecordLabel("Sony");
-        cd.setArtistName("TestArtist");
-        cd.setReleaseYear(1971);
-  
         assertEquals(cd.getRecordLabel(), "Sony");
-        assertEquals(cd.getArtistName(), "TestArtist");
-        assertEquals(cd.getReleaseYear(), 1971);
-     
+        assertEquals(cd.getArtistName(), "Artist1");
+        assertEquals(cd.getReleaseYear(), Year.of(2014));
+        
+        cd.setRecordLabel("Universal");
+        cd.setArtistName("Artist2");
+        cd.setReleaseYear(Year.of(1971));
+        
+        assertEquals(cd.getRecordLabel(), "Universal");
+        assertEquals(cd.getArtistName(), "Artist2");
+        assertEquals(cd.getReleaseYear(), Year.of(1971));
         
     }
     
@@ -50,9 +59,7 @@ public class CDTest {
     @Test
     public void testCDAddTrack() {
 
-        CD cd = new CD("Test");
-        
-        Track t1 = new Track("T1");
+        Track t1 = new Music("Artist1", "Song1", Duration.ofSeconds(100));
         
         cd.addTrack(t1);
         

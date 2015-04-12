@@ -5,6 +5,7 @@
  */
 package backend;
 
+import java.time.Year;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -19,7 +20,7 @@ public class TapeTest {
      */
     @Test
     public void testGetTapeType() {
-         Tape benKing = new Tape("Stand by me","4 track");
+         Tape benKing = new Tape("Stand by me", Year.of(1961), "Atco", "4 track");
          assertEquals(benKing.getTapeType(), "4 track");
 }
 
@@ -28,7 +29,7 @@ public class TapeTest {
      */
     @Test
     public void testSetTapeType() {
-         Tape benKing = new Tape("Stand by me","4 track");
+         Tape benKing = new Tape("Stand by me", Year.of(1961), "Atco", "4 track");
          benKing.setTapeType("8 track");
          assertEquals(benKing.getTapeType(), "8 track");
     }
@@ -37,7 +38,7 @@ public class TapeTest {
      */    
     @Test
     public void testGetName() {
-         Tape benKing = new Tape("Stand by me","8 track");
+         Tape benKing = new Tape("Stand by me", Year.of(1961), "Atco", "8 track");
          assertEquals(benKing.getName(), "Stand by me");
     }
      /**
@@ -45,7 +46,7 @@ public class TapeTest {
      */    
     @Test
     public void testSetName() {
-         Tape benKing = new Tape("Stand by me","8 track");
+         Tape benKing = new Tape("Stand by me", Year.of(1961), "Atco", "8 track");
          benKing.setName("This magic moment");
          assertEquals(benKing.getName(), "This magic moment");
     }
