@@ -13,6 +13,10 @@ import java.util.ArrayList;
 
 public class CD extends PhysicalRelease
 {
+    
+    private static int nextArchiveNumber = 10001;
+    
+    
     // Instance variables
 
     /**
@@ -27,4 +31,18 @@ public class CD extends PhysicalRelease
     {
         super(artistName, releaseYear, recordLabel, archiveNR);
     }
+    
+    /**
+     * Constructor. Will auto generate the next archive number-
+     * 
+     * @param artistName artist name of the release.
+     * @param releaseYear release year of the release.
+     * @param recordLabel record label behind the release.
+     */
+    public CD(String artistName, Year releaseYear, String recordLabel)
+    {
+        this(artistName, releaseYear, recordLabel, nextArchiveNumber++);
+    }
+    
+
 }

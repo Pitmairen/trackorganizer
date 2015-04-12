@@ -13,6 +13,9 @@ import java.util.ArrayList;
 
 public class LP extends PhysicalRelease
 {
+    private static int nextArchiveNumber = 20001;
+    
+    
     // Instance variables
     private String format;
 
@@ -31,6 +34,20 @@ public class LP extends PhysicalRelease
         this.format = format;
     }
 
+    
+     /**
+     * Constructor.
+     * 
+     * @param artistName
+     * @param releaseYear
+     * @param recordLabel
+     * @param format Format of the LP.
+     */
+    public LP(String artistName, Year releaseYear, String recordLabel, String format)
+    {
+        this(artistName, releaseYear, recordLabel, LP.nextArchiveNumber++, format);
+    }
+    
     /**
      * Returns the format of the LP.
      * 
