@@ -52,6 +52,7 @@ public class PhysicalRelease extends Media {
         this.releaseYear = releaseYear;
         this.recordLabel = recordLabel;
         this.archiveNR = archiveNR;
+        this.tracks = new ArrayList<>();
     }
 
 //    public Duration calculateTotalDuration() {
