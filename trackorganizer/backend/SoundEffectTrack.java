@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
  * @version 0.1
  */
 
-public class SoundEffect extends Track
+public class SoundEffectTrack extends Track
 {
     // Instance variables
     private String description;
@@ -23,7 +23,7 @@ public class SoundEffect extends Track
      * @param timesPlayed Number of times track has been played.
      * @param description A short description.
      */
-    public SoundEffect(String title, Duration duration, String description)
+    public SoundEffectTrack(String title, Duration duration, String description)
     {
         super(title, duration);
         this.description = description;

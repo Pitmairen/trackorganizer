@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
  * @version 0.1
  */
 
-public class Music extends Track
+public class MusicTrack extends Track
 {
     // Instance variables
     private String artist;
@@ -22,7 +22,7 @@ public class Music extends Track
      * @param duration Duration of the track.
      * @param artist Name of the artist..
      */
-    public Music(String title, String artist, Duration duration)
+    public MusicTrack(String title, String artist, Duration duration)
     {
         super(title, duration);
         this.artist = artist;

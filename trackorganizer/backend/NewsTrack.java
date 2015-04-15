@@ -10,7 +10,7 @@ import java.util.Date;
  * @author Kristian Honningsvag
  * @version 0.1
  */
-public class News extends Track {
+public class NewsTrack extends Track {
 
     // Instance variables    
     private String description;
@@ -28,7 +28,7 @@ public class News extends Track {
      * @param dateProduced The date the track was produced.
      * @param dateFirstAired The date the track was aired.
      */
-    public News(String title, Duration duration,  String description, String journalistName, Date dateProduced, Date dateFirstAired) {
+    public NewsTrack(String title, Duration duration,  String description, String journalistName, Date dateProduced, Date dateFirstAired) {
         super(title, duration);
         this.description = description;
         this.journalistName = journalistName;

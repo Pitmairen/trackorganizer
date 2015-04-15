@@ -59,7 +59,7 @@ public class CDTest {
     @Test
     public void testCDAddTrack() {
 
-        Track t1 = new Music("Artist1", "Song1", Duration.ofSeconds(100));
+        Track t1 = new MusicTrack("Artist1", "Song1", Duration.ofSeconds(100));
         
         cd.addTrack(t1);
         

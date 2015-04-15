@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
  * @version 0.1
  */
 
-public class Advertisement extends Track
+public class AdvertisementTrack extends Track
 {
     // Instance variables
     private String company;
@@ -24,7 +24,7 @@ public class Advertisement extends Track
      * @param company Name of the company.
      * @param product Name of the product.
      */
-    public Advertisement(String title, Duration duration, String company, String product)
+    public AdvertisementTrack(String title, Duration duration, String company, String product)
     {
         super(title, duration);
         this.company = company;

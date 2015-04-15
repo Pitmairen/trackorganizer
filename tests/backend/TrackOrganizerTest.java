@@ -61,7 +61,7 @@ public class TrackOrganizerTest {
         
         CD cd = new CD("Album1", "Artist1", Year.of(2014), "Sony", 10001);
         
-        Track t1 = new Music("Song1", "Artist1", Duration.ofSeconds(100));
+        Track t1 = new MusicTrack("Song1", "Artist1", Duration.ofSeconds(100));
         cd.addTrack(t1);
         
         trackOrganizer.addMedia(cd);
