@@ -83,14 +83,16 @@ public class TrackOrganizer {
         return result;
     }
 
+    
+
 
     /**
      * Adds a CD to the media collection.
      *
      * @param name Album title
      */
-    public void addCD(String name) {
-        addMedia(new CD(name));
+    public void addCD(String name, String artist, Year year, String label) {
+        addMedia(new CD(name, artist, year, label));
     }
 
     /**
@@ -100,7 +102,7 @@ public class TrackOrganizer {
      * @param format Format of the LP
      */
     public void addLP(String name, String format) {
-        addMedia(new LP(name, format));
+        //addMedia(new LP(name, format));
     }
 
     /**
@@ -110,7 +112,7 @@ public class TrackOrganizer {
      * @param format Digital or analog.
      */
     public void addTape(String name, String format) {
-        addMedia(new Tape(name, format));
+        //addMedia(new Tape(name, format));
     }
 
     /**
