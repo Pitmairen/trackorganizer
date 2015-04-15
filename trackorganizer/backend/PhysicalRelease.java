@@ -22,14 +22,14 @@ public class PhysicalRelease extends Media {
 
     /**
      * Constructor.
-     *
+     * @param title The name of the release.
      * @param artistName Artist name of the physical release.
      * @param releaseYear Year the release was released.
      * @param recordLabel The record label behind the release.
      * @param archiveNR The archive number where the release is stored.
      */
-    public PhysicalRelease(String artistName, Year releaseYear, String recordLabel, int archiveNR) {
-        super(artistName);
+    public PhysicalRelease(String title, String artistName, Year releaseYear, String recordLabel, int archiveNR) {
+        super(title);
         this.artistName = artistName;
         this.releaseYear = releaseYear;
         this.recordLabel = recordLabel;

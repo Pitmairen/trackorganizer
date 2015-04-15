@@ -21,31 +21,31 @@ public class LP extends PhysicalRelease
 
     /**
      * Constructor.
-     * 
+     * @param title The name of the LP
      * @param artistName
      * @param releaseYear
      * @param recordLabel
      * @param archiveNR
      * @param format Format of the LP.
      */
-    public LP(String artistName, Year releaseYear, String recordLabel, int archiveNR, String format)
+    public LP(String title, String artistName, Year releaseYear, String recordLabel, int archiveNR, String format)
     {
-        super(artistName, releaseYear, recordLabel, archiveNR);
+        super(title, artistName, releaseYear, recordLabel, archiveNR);
         this.format = format;
     }
 
     
      /**
      * Constructor.
-     * 
+     * @param title The name of the LP
      * @param artistName
      * @param releaseYear
      * @param recordLabel
      * @param format Format of the LP.
      */
-    public LP(String artistName, Year releaseYear, String recordLabel, String format)
+    public LP(String title, String artistName, Year releaseYear, String recordLabel, String format)
     {
-        this(artistName, releaseYear, recordLabel, LP.nextArchiveNumber++, format);
+        this(title, artistName, releaseYear, recordLabel, LP.nextArchiveNumber++, format);
     }
     
     /**
