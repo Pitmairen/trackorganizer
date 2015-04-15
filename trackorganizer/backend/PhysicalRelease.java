@@ -16,7 +16,6 @@ public class PhysicalRelease extends Media {
     private String artistName;
     private Year releaseYear;
     private String recordLabel;
-    private Duration totalDuration;
     private ArrayList<Track> tracks;
     private int archiveNR;
 
@@ -38,9 +37,8 @@ public class PhysicalRelease extends Media {
         this.tracks = new ArrayList<>();
     }
 
-//    public Duration calculateTotalDuration() {
-//
-//    }
+    
+
 
     //Getters
     /**
@@ -71,12 +69,15 @@ public class PhysicalRelease extends Media {
     }
 
     /**
-     * Returns the total duration of the release.
-     *
-     * @return totalDuration
+     * Returns the total duration of the tracks on the media.
+     * @return The total duration of the tracks.
      */
-    public Duration getTotalDuration() {
-        return totalDuration;
+    public Duration getTotalDuration(){
+        Duration total = Duration.ZERO;
+        for(Track track: tracks){
+            total = total.plus(track.getDuration());
+        }
+        return total;
     }
 
     /**
@@ -124,15 +125,6 @@ public class PhysicalRelease extends Media {
      */
     public void setRecordLabel(String recordLabel) {
         this.recordLabel = recordLabel;
-    }
-
-    /**
-     * Sets the total duration of the release.
-     *
-     * @param totalDuration
-     */
-    public void setTotalDuration(Duration totalDuration) {
-        this.totalDuration = totalDuration;
     }
 
     /**
