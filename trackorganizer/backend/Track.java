@@ -25,14 +25,12 @@ public class Track {
      *
      * @param title Title of the track.
      * @param duration Duration of the track.
-     * @param lastPlayed Date track was last played.
-     * @param timesPlayed Number of times track has been played.
      */
-    public Track(String title, Duration duration, LocalDateTime lastPlayed, int timesPlayed) {
+    public Track(String title, Duration duration) {
         this.title = title;
         this.duration = duration;
-        this.lastPlayed = lastPlayed;
-        this.timesPlayed = timesPlayed;
+        this.lastPlayed = null;
+        this.timesPlayed = 0;
     }
 
     //Getters

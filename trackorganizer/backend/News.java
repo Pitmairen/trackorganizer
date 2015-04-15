@@ -23,15 +23,13 @@ public class News extends Track {
      *
      * @param title Title of the track.
      * @param duration Duration of the track.
-     * @param lastPlayed Date track was last played.
-     * @param timesPlayed Number of times track has been played.
      * @param description A short description.
      * @param journalistName Name of the journalist..
      * @param dateProduced The date the track was produced.
      * @param dateFirstAired The date the track was aired.
      */
-    public News(String title, Duration duration, LocalDateTime lastPlayed, int timesPlayed, String description, String journalistName, Date dateProduced, Date dateFirstAired) {
-        super(title, duration, lastPlayed, timesPlayed);
+    public News(String title, Duration duration,  String description, String journalistName, Date dateProduced, Date dateFirstAired) {
+        super(title, duration);
         this.description = description;
         this.journalistName = journalistName;
     }

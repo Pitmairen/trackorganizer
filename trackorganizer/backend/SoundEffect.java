@@ -23,9 +23,9 @@ public class SoundEffect extends Track
      * @param timesPlayed Number of times track has been played.
      * @param description A short description.
      */
-    public SoundEffect(String title, Duration duration, LocalDateTime lastPlayed, int timesPlayed, String description)
+    public SoundEffect(String title, Duration duration, String description)
     {
-        super(title, duration, lastPlayed, timesPlayed);
+        super(title, duration);
         this.description = description;
     }
 

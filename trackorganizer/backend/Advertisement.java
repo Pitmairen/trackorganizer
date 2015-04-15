@@ -21,14 +21,12 @@ public class Advertisement extends Track
      * 
      * @param title Title of the track.
      * @param duration Duration of the track.
-     * @param lastPlayed Date track was last played.
-     * @param timesPlayed Number of times track has been played.
      * @param company Name of the company.
      * @param product Name of the product.
      */
-    public Advertisement(String title, Duration duration, LocalDateTime lastPlayed, int timesPlayed, String company, String product)
+    public Advertisement(String title, Duration duration, String company, String product)
     {
-        super(title, duration, lastPlayed, timesPlayed);
+        super(title, duration);
         this.company = company;
         this.product = product;
     }
