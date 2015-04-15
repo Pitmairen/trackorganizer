@@ -20,23 +20,6 @@ public class PhysicalRelease extends Media {
     private ArrayList<Track> tracks;
     private int archiveNR;
 
-    /**
-     * Constructor.
-     *
-     * @param artistName Artist name of the physical release.
-     * @param releaseYear Year the release was released.
-     * @param recordLabel The record label behind the release.
-     * @param tracks The tracks of the release
-     * @param archiveNR The archive number where the release is stored.
-     */
-    public PhysicalRelease(String artistName, Year releaseYear, String recordLabel, ArrayList<Track> tracks, int archiveNR) {
-        super(artistName);
-        this.artistName = artistName;
-        this.releaseYear = releaseYear;
-        this.recordLabel = recordLabel;
-        this.tracks = tracks;
-        this.archiveNR = archiveNR;
-    }
 
     /**
      * Constructor.
