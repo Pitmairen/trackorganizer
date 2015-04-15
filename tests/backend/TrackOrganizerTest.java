@@ -3,10 +3,7 @@ package backend;
 import java.time.Duration;
 import java.time.Year;
 import java.util.ArrayList;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -33,7 +30,7 @@ public class TrackOrganizerTest {
     @Test
     public void testAddCD() {
         String name = "Awesome mix, vol.2";
-        trackOrganizer.addCD(name);
+        trackOrganizer.addCD(name, "artist", Year.of(2012), "sony");
         assertEquals(name, trackOrganizer.findFirstName(name).getName());
     }
     
@@ -62,9 +59,9 @@ public class TrackOrganizerTest {
     
     private void createTracksForSearch(){
         
-        CD cd = new CD("Artist1", Year.of(2014), "Sony", 10001);
+        CD cd = new CD("Album1", "Artist1", Year.of(2014), "Sony", 10001);
         
-        Track t1 = new Music("Artist1", "Song1", Duration.ofSeconds(100));
+        Track t1 = new Music("Song1", "Artist1", Duration.ofSeconds(100));
         cd.addTrack(t1);
         
         trackOrganizer.addMedia(cd);

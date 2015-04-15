@@ -22,18 +22,18 @@ public class CDTest {
 
     @Before
     public void setUp() {
-        cd = new CD("Artist1", Year.of(2014), "Sony", 10001);
+        cd = new CD("Album1", "Artist1", Year.of(2014), "Sony", 10001);
     }
 
     
     @Test
     public void testCDName() {
 
-        assertEquals(cd.getName(), "Artist1");
+        assertEquals(cd.getName(), "Album1");
         
-        cd.setName("Artist2");
+        cd.setName("Album2");
         
-        assertEquals(cd.getName(), "Artist2");
+        assertEquals(cd.getName(), "Album2");
         
     }
     
