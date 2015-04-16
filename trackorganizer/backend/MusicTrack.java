@@ -28,7 +28,17 @@ public class MusicTrack extends Track
         this.artist = artist;
     }
     
-
+    /**
+     * Returns a description of the track
+     *
+     * @return A description of the track.
+     */
+    @Override
+    public String getDescription(){
+        return getArtist() + " - " + getTitle();
+    }
+    
+    
     /**
      * Returns artist name.
      * 

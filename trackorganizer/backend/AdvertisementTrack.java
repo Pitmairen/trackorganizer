@@ -32,6 +32,17 @@ public class AdvertisementTrack extends Track
     }
     
     /**
+     * Returns a description of the track
+     *
+     * @return A description of the track.
+     */
+    @Override
+    public String getDescription(){
+        return getCompany() + " - " + getProduct() + ": " + getTitle();
+    }
+    
+    
+    /**
      * Returns the name of the company.
      * 
      * @return Company name.

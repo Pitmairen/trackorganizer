@@ -33,6 +33,17 @@ public class Track {
         this.timesPlayed = 0;
     }
 
+    
+    /**
+     * Returns a description of the track
+     *
+     * @return A description of the track.
+     */
+    public String getDescription(){
+        return getTitle();
+    }
+    
+    
     //Getters
     /**
      * Returns track title.
@@ -43,6 +54,7 @@ public class Track {
         return title;
     }
 
+    
     /**
      * Returns the duration of the track.
      *
@@ -106,4 +118,7 @@ public class Track {
     public void setTimesPlayed(int timesPlayed) {
         this.timesPlayed = timesPlayed;
     }
+    
+    
+    
 }
