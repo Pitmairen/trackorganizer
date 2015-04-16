@@ -1,5 +1,14 @@
 /*
  * Command line user interface
+ *
+ * Usage:
+ * 
+ *  java -cp trackorganizer.jar cli.CLIApplication [arguments]
+ * 
+ *  e.g:
+ *  java -cp trackorganizer.jar cli.CLIApplication --help
+ *  java -cp trackorganizer.jar cli.CLIApplication -stt "Track title"
+ *
  */
 package cli;
 
