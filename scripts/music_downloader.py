@@ -26,7 +26,7 @@ def run_request(url):
 
 def findall_cd_releases(content):
 
-    return _cd_re.findall(content)
+    return set(_cd_re.findall(content))
 
 
 
