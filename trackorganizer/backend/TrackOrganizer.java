@@ -37,7 +37,7 @@ public class TrackOrganizer {
         Media searchHit = null;
         for (Media media : medias) {
             name = media.getName();
-            if (name == searchName) {
+            if (name.equals(searchName)) {
                 searchHit = media;
             }
         }
@@ -46,7 +46,7 @@ public class TrackOrganizer {
 
     /**
      * Searches through entire collection. Returns an array with the matching
-     * results.
+     * media.
      *
      * @param searchName Searchword.
      * @return Array with the matching results.
@@ -57,7 +57,7 @@ public class TrackOrganizer {
         Media searchHit = null;
         for (Media media : medias) {
             name = media.getName();
-            if (name == searchName) {
+            if (name.equals(searchName)) {
                 searchHits.add(media);
             }
         }
