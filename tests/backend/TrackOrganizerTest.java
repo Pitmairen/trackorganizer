@@ -43,7 +43,7 @@ public class TrackOrganizerTest {
         
         createTracksForSearch();
         
-        ArrayList<Track> res = trackOrganizer.findTracksByTitleExact("Song1");
+        ArrayList<Track> res = trackOrganizer.findTracksByTitleExact("song1");
         
 
         assertEquals(1, res.size());
@@ -55,15 +55,35 @@ public class TrackOrganizerTest {
         
     }
     
-    
+    /**
+     * Test search by title contains
+     */
+    @Test
+    public void testSearchByTitleContains() {
+        
+        createTracksForSearch();
+        
+        ArrayList<Track> res = trackOrganizer.findTracksByTitleContains("Number");
+        
+
+        assertEquals(1, res.size());
+        
+        assertEquals("Song number 2", res.get(0).getTitle());
+        
+        res = trackOrganizer.findTracksByTitleContains("Song99");
+        
+        assertEquals(0, res.size());
+        
+    }
     
     private void createTracksForSearch(){
         
         CD cd = new CD("Album1", "Artist1", Year.of(2014), "Sony", 10001);
         
-        Track t1 = new MusicTrack("Song1", "Artist1", Duration.ofSeconds(100));
-        cd.addTrack(t1);
-        
+
+        cd.addTrack(new MusicTrack("Song1", "Artist1", Duration.ofSeconds(100)));
+        cd.addTrack(new MusicTrack("Song number 2", "Artist2", Duration.ofSeconds(100)));
+
         trackOrganizer.addMedia(cd);
         
   

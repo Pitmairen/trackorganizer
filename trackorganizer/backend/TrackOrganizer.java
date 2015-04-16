@@ -85,6 +85,25 @@ public class TrackOrganizer {
         return result;
     }
 
+    /**
+     * Searches through entire collection. Returns an array with the matching
+     * tracks
+     *
+     * @param word The word to search for
+     * @return Array with the matching tracks
+     */
+    public ArrayList<Track> findTracksByTitleContains(String word) {
+        word = word.toLowerCase();
+        ArrayList<Track> result = new ArrayList<>();
+        for (Media media : medias) {
+            for(Track track: media.getTracks()){
+                if (track.getTitle().toLowerCase().contains(word)){
+                    result.add(track);
+                }
+            }
+        }
+        return result;
+    }
     
      /**
      * Searches through entire collection by the archive number.
