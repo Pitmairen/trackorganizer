@@ -73,10 +73,11 @@ public class TrackOrganizer {
      * @return Array with the matching tracks
      */
     public ArrayList<Track> findTracksByTitleExact(String title) {
+        title = title.toLowerCase();
         ArrayList<Track> result = new ArrayList<>();
         for (Media media : medias) {
             for(Track track: media.getTracks()){
-                if (track.getTitle().equals(title)){
+                if (track.getTitle().toLowerCase().equals(title)){
                     result.add(track);
                 }
             }
