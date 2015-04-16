@@ -3,6 +3,10 @@
  */
 package cli;
 
+import backend.SampleData;
+import backend.Track;
+import backend.TrackOrganizer;
+import java.util.ArrayList;
 import org.apache.commons.cli.CommandLine;
 
 
@@ -14,7 +18,7 @@ import org.apache.commons.cli.CommandLine;
 public class CLIApplication {
     
     CommandHandler mCommands = new CommandHandler();
-
+    TrackOrganizer mTrackOrganizer = new TrackOrganizer("TO");
     /**
      * Run the application
      * 
@@ -23,6 +27,10 @@ public class CLIApplication {
     public void run(String[] args){
         
         createCommands();
+        
+        SampleData samples = new SampleData();
+        samples.addCds(mTrackOrganizer);
+
         
         if(args.length == 0)
             mCommands.execute(new String[]{"-help"});
@@ -47,18 +55,34 @@ public class CLIApplication {
     
     private void createCommands(){
         
-        mCommands.addCommand("t", "test", "Testing", true, new TestCommand());
-     
+        mCommands.addCommand("stt", "search-track-title", 
+            "Search by track title", true, new SearchByTitleCommand());
+
     }
 
+    
+    private void formatTrackList(ArrayList<Track> tracks){
+        
+        System.out.println("Found " + tracks.size() + " tracks:");
+        for(Track t : tracks){
+            System.out.println(t.getTitle());
+        }
+        
+        
+        
+    }
+    
 
-    private class TestCommand extends Command{
+    private class SearchByTitleCommand extends Command{
     
         @Override
         public void execute(CommandLine line)
         {
                 
-            System.out.println("Test: " + line.getOptionValue("test", "default"));
+            ArrayList<Track> match = mTrackOrganizer.findTracksByTitleExact(
+                line.getOptionValue("search-track-title", ""));
+            
+            formatTrackList(match);
             
         }
         
