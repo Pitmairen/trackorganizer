@@ -17,22 +17,22 @@ import static org.junit.Assert.*;
  * @author tor-martin
  */
 public class DurationHandlerTest {
-    
+
     public DurationHandlerTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -41,39 +41,60 @@ public class DurationHandlerTest {
      * Test of formatDuration method, of class DurationHandler.
      */
     @Test
-    public void testFormatDuration() {
-        System.out.println("Testing the duration handler\n");
-        DurationHandler instance = new DurationHandler(0,0,3669);
+    public void testFormatDurationHMS() {
+        DurationHandler instance = new DurationHandler(5, 17, 363);
         System.out.println("Original string: " + instance.getUnformattedString());
-        
-        String expResult = "00:00:00";
-        
+
+        String expResult = "05:23:03";
+
         String result = instance.formatDuration();
-        System.out.println("Final String: " + instance.formatDuration());
+        System.out.println("Final String: " + result);
         assertEquals(expResult, result);
     }
-    
 
-    
+    @Test
+    public void testFormatDurationHM() {
+        DurationHandler instance = new DurationHandler(5, 17, 0);
+        System.out.println("Original string: " + instance.getUnformattedString());
+
+        String expResult = "05:17:00";
+
+        String result = instance.formatDuration();
+        System.out.println("Final String: " + result);
+        assertEquals(expResult, result);
+    }
+
+    @Test
+    public void testFormatDurationS() {
+        DurationHandler instance = new DurationHandler(0, 0, 3663);
+        System.out.println("Original string: " + instance.getUnformattedString());
+
+        String expResult = "01:01:03";
+
+        String result = instance.formatDuration();
+        System.out.println("Final String: " + result);
+        assertEquals(expResult, result);
+    }
+
     @Test
     public void testFormatDurationMinutes() {
 
-        DurationHandler instance = new DurationHandler(245);
-        
-        String expResult = "00:04:05"; // Or maybe 04:05
+        DurationHandler instance = new DurationHandler(365);
+
+        String expResult = "00:06:05"; // Or maybe 04:05
         String result = instance.formatDuration();
-        
+
         assertEquals(expResult, result);
     }
-    
+
     @Test
     public void testFormatDurationSeconds() {
 
         DurationHandler instance = new DurationHandler(34);
-        
+
         String expResult = "00:00:34";
         String result = instance.formatDuration();
-        
+
         assertEquals(expResult, result);
     }
 }

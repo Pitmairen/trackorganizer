@@ -9,6 +9,7 @@ import java.time.Duration;
 public class DurationHandler {
 
     private Duration duration;
+
     /**
      * Constructor
      *
@@ -44,23 +45,21 @@ public class DurationHandler {
 
     /**
      * Constructor
+     *
      * @param duration Takes a already existing duration.
      */
     DurationHandler(Duration duration) {
         this.duration = duration;
     }
-    
-    public static String durationToString(Duration d){
-        
+
+    public static String durationToString(Duration d) {
+
         DurationHandler h = new DurationHandler(d);
-        
+
         return h.formatDuration();
-        
+
     }
-    
-    
-    
-    
+
     /**
      * Returns the duration in a unformatted duration.
      *
@@ -104,10 +103,13 @@ public class DurationHandler {
         int endIndex = unformattedString.lastIndexOf(endBeforeLetter);
 
         if (endIndex != -1) {
-            value = unformattedString.substring(endIndex-2, endIndex);
-            System.out.println(value);
-            if(value.contains("T")||value.contains("H")||value.contains("M")||value.contains("S")){
-                value = "0" + unformattedString.substring(2, 3);
+            value = unformattedString.substring(endIndex - 2, endIndex);
+
+            if (value.contains("T") || value.contains("H") || value.contains("M") || value.contains("S")) {
+                value = value.replace("T", "0");
+                value = value.replace("H", "0");
+                value = value.replace("M", "0");
+                value = value.replace("S", "0");
             }
         } else {
             value = "00";
@@ -115,4 +117,5 @@ public class DurationHandler {
 
         return value;
     }
+
 }
