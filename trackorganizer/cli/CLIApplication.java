@@ -75,7 +75,7 @@ public class CLIApplication {
         
         System.out.println("Found " + tracks.size() + " tracks:");
         for(Track t : tracks){
-            System.out.println(t.getClass().getSimpleName() + ": " + t.getDescription());
+            System.out.println(t.getClass().getSimpleName() + ": " + t.getDescriptionString());
         }
         
         

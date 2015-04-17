@@ -31,12 +31,25 @@ public class AdvertisementTrack extends Track
         this.product = product;
     }
     
+    
     /**
      * Returns a description of the track
      *
      * @return A description of the track.
      */
     @Override
+    public String getDescriptionString(){
+        return getDescription() + ": "+ 
+            DurationHandler.durationToString(getDuration());
+    }
+    
+    
+    
+    /**
+     * Returns a description of the track
+     *
+     * @return A description of the track.
+     */
     public String getDescription(){
         return getCompany() + " - " + getProduct() + ": " + getTitle();
     }

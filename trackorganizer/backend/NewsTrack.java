@@ -34,6 +34,20 @@ public class NewsTrack extends Track {
         this.journalistName = journalistName;
     }
     
+    
+    
+    /**
+     * Returns a description of the track
+     *
+     * @return A description of the track.
+     */
+    @Override
+    public String getDescriptionString(){
+        return getJournalistName()+ " - " + getTitle() + ": " + 
+            DurationHandler.durationToString(getDuration());
+    }
+    
+    
     //Getters
     /**
      * Returns news content description.

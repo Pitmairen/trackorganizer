@@ -39,7 +39,7 @@ public class Track {
      *
      * @return A description of the track.
      */
-    public String getDescription(){
+    public String getDescriptionString(){
         return getTitle();
     }
     

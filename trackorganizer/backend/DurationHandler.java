@@ -9,7 +9,6 @@ import java.time.Duration;
 public class DurationHandler {
 
     private Duration duration;
-    
     /**
      * Constructor
      *
