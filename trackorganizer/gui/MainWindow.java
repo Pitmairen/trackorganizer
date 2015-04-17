@@ -4,12 +4,14 @@ package gui;
 import backend.SampleData;
 import backend.TrackOrganizer;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.*;
-
 
 public class MainWindow extends JFrame {
  
     TrackOrganizer trackOrganizer;
+    MediaModel mediaModel;
     
     public MainWindow()
     {
@@ -17,6 +19,8 @@ public class MainWindow extends JFrame {
            
         createTrackOrganizer();
 
+        mediaModel = new MediaModel(trackOrganizer);
+        
         makeFrame();
     }
 
@@ -25,6 +29,7 @@ public class MainWindow extends JFrame {
         trackOrganizer = new TrackOrganizer("Track organizer");
         SampleData samples = new SampleData();
         samples.addCds(trackOrganizer);
+       
         
     }
     
@@ -34,7 +39,15 @@ public class MainWindow extends JFrame {
         JPanel contentPane = (JPanel) this.getContentPane();
 
         
-        JTextField searchInput = new JTextField();
+        final JTextField searchInput = new JTextField();
+        
+        searchInput.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                mediaModel.setFilter(searchInput.getText());
+            }
+        });
+        
+        
         searchInput.setColumns(40);
         JButton newCDBtn = new JButton("Add CD");
         JButton deleteSelected = new JButton("Delete");
@@ -46,12 +59,12 @@ public class MainWindow extends JFrame {
         topPane.add(deleteSelected);
         
         
-        JTable tracklist = new JTable(new MediaModel(trackOrganizer));
-        
+        JTable tracklist = new JTable(mediaModel);
         
         
         contentPane.add(topPane, BorderLayout.PAGE_START);
         contentPane.add(new JScrollPane(tracklist));
+        
         
         this.pack();
         this.setVisible(true);
