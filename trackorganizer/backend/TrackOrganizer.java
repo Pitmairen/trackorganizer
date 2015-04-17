@@ -45,7 +45,7 @@ public class TrackOrganizer {
      * @param pred The predicate for the search
      * @return An array with the matching tracks.
      */
-    public ArrayList<Track> findTrack(Predicate pred) {
+    public ArrayList<Track> findTracks(Predicate pred) {
         
         ArrayList<Track> results = new ArrayList<>();
         for (Media media : medias) {
@@ -98,46 +98,6 @@ public class TrackOrganizer {
         return searchHits;
     }
     
-    
-     /**
-     * Searches through entire collection. Returns an array with the matching
-     * tracks
-     *
-     * @param title The title to search for.
-     * @return Array with the matching tracks
-     */
-    public ArrayList<Track> findTracksByTitleExact(String title) {
-        title = title.toLowerCase();
-        ArrayList<Track> result = new ArrayList<>();
-        for (Media media : medias) {
-            for(Track track: media.getTracks()){
-                if (track.getTitle().toLowerCase().equals(title)){
-                    result.add(track);
-                }
-            }
-        }
-        return result;
-    }
-
-    /**
-     * Searches through entire collection. Returns an array with the matching
-     * tracks
-     *
-     * @param word The word to search for
-     * @return Array with the matching tracks
-     */
-    public ArrayList<Track> findTracksByTitleContains(String word) {
-        word = word.toLowerCase();
-        ArrayList<Track> result = new ArrayList<>();
-        for (Media media : medias) {
-            for(Track track: media.getTracks()){
-                if (track.getTitle().toLowerCase().contains(word)){
-                    result.add(track);
-                }
-            }
-        }
-        return result;
-    }
     
      /**
      * Searches through entire collection by the archive number.

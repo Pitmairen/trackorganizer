@@ -13,6 +13,7 @@
 package cli;
 
 import backend.SampleData;
+import backend.SearchTracks;
 import backend.Track;
 import backend.TrackOrganizer;
 import java.util.ArrayList;
@@ -89,8 +90,9 @@ public class CLIApplication {
         public void execute(CommandLine line)
         {
                 
-            ArrayList<Track> match = mTrackOrganizer.findTracksByTitleExact(
-                line.getOptionValue("search-track-exact", ""));
+            ArrayList<Track> match = mTrackOrganizer.findTracks(
+                new SearchTracks.ByTitle(line.getOptionValue("search-track-exact", "")).exact()
+            );
             
             formatTrackList(match);
             
@@ -105,8 +107,9 @@ public class CLIApplication {
         public void execute(CommandLine line)
         {
                 
-            ArrayList<Track> match = mTrackOrganizer.findTracksByTitleContains(
-                line.getOptionValue("search-track-contains", ""));
+            ArrayList<Track> match = mTrackOrganizer.findTracks(
+                new SearchTracks.ByTitle(line.getOptionValue("search-track-contains", "")).contains()
+            );
             
             formatTrackList(match);
             
