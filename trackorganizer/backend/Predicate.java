@@ -1,0 +1,19 @@
+
+package backend;
+
+/**
+ * A predicate is used to search for tracks and media. 
+ */
+public abstract class Predicate {
+    
+    /**
+     * 
+     * Determine if a object is a match.
+     * 
+     * @param obj The object to check for match.
+     * @return Boolean indicating a match.
+     */
+    public abstract boolean isMatch(Object obj);
+    
+    
+}
