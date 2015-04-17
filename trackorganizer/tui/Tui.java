@@ -5,6 +5,11 @@
  */
 package tui;
 
+import backend.SampleData;
+import backend.SearchTracks;
+import backend.Track;
+import backend.TrackOrganizer;
+
 /**
  *
  * @author tor-martin
@@ -12,12 +17,15 @@ package tui;
 public class Tui {
 
     private Parser parser;
-
+    private TrackOrganizer to;
+    private SampleData sd;
+    
     public Tui() {
         parser = new Parser();
     }
 
     public void run() {
+        importArchive();
         info();
         boolean finished = false;
         while (!finished) {
@@ -53,33 +61,25 @@ public class Tui {
                 break;
 
             case ADDMEDIA:
-                //Insert function here
+                addMedia();
                 break;
 
             case REMOVEMEDIA:
-                //Insert function here
+                removeMedia();
                 break;
 
             case CHANGEMEDIA:
-                //Insert function here
+                changeMedia();
                 break;
-               
-            case SEARCHBYARCHIVENR:
-                //Insert function here
+
+            case SEARCHMEDIA:
+                searchMedia();
                 break;
-                
-            case SEARCHBYARTIST:
-                //Insert function here
+
+            case LISTCONTENT:
+                listContent();
                 break;
-                
-            case SEARCHBYTITLE:
-                //Insert function here
-                break;
-                
-            case LISTALLCONTENT:
-                //Insert function here
-                break;
-                
+
             case QUIT:
                 wantToQuit = quit(command);
                 break;
@@ -106,4 +106,31 @@ public class Tui {
         System.out.println("Your commands are:");
         parser.showCommands();
     }
+
+    private void addMedia() {
+
+    }
+
+    private void removeMedia() {
+
+    }
+
+    private void changeMedia() {
+
+    }
+
+    private void searchMedia() {
+
+    }
+
+    private void listContent() {
+
+    }
+    
+    private void importArchive(){
+        to = new TrackOrganizer("Archive");
+        //Not finished
+    }
 }
+
+

@@ -13,7 +13,7 @@ public enum CommandWord {
 
     // A value for each command word along with its
     // corresponding user interface string.
-    ADDMEDIA("addmedia"), REMOVEMEDIA("removemedia"), CHANGEMEDIA("changemedia"), SEARCHBYARCHIVENR("searchbyarchivenr"), SEARCHBYARTIST("searchbyartist"), SEARCHBYTITLE("searchbytitle"), LISTALLCONTENT("listallcontent"),QUIT("quit"), HELP("help"), UNKNOWN("?");
+    ADDMEDIA("addmedia"), REMOVEMEDIA("removemedia"), CHANGEMEDIA("changemedia"), SEARCHMEDIA("searchmedia"),  LISTCONTENT("listcontent"),QUIT("quit"), HELP("help"), UNKNOWN("?");
 
     // The command string.
     private String commandString;
