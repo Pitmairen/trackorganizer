@@ -43,9 +43,11 @@ public class DurationHandlerTest {
     @Test
     public void testFormatDuration() {
         System.out.println("Testing the duration handler\n");
-        DurationHandler instance = new DurationHandler(0,1,0);      // PT6H30M43S
+        DurationHandler instance = new DurationHandler(0,0,3669);
         System.out.println("Original string: " + instance.getUnformattedString());
-        String expResult = "00:02:43";
+        
+        String expResult = "00:00:00";
+        
         String result = instance.formatDuration();
         System.out.println("Final String: " + instance.formatDuration());
         assertEquals(expResult, result);

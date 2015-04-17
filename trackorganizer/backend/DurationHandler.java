@@ -9,8 +9,7 @@ import java.time.Duration;
 public class DurationHandler {
 
     private Duration duration;
-<<<<<<< HEAD
-
+    
     /**
      * Constructor
      *
@@ -40,14 +39,14 @@ public class DurationHandler {
      *
      * @param seconds The duration of the track/media in seconds.
      */
-=======
-    
-    
->>>>>>> origin/master
     DurationHandler(long seconds) {
         duration = Duration.ofSeconds(seconds);
     }
 
+    /**
+     * Constructor
+     * @param duration Takes a already existing duration.
+     */
     DurationHandler(Duration duration) {
         this.duration = duration;
     }
@@ -81,9 +80,9 @@ public class DurationHandler {
     public String formatDuration() {
         String hourValue = "", minuteValue = "", secondValue = "";
 
-        hourValue = formatValue(hourValue, "T", "H");
-        minuteValue = formatValue(minuteValue, "H", "M");
-        secondValue = formatValue(secondValue, "M", "S");
+        hourValue = formatValue(hourValue, "H");
+        minuteValue = formatValue(minuteValue, "M");
+        secondValue = formatValue(secondValue, "S");
 
         String formattedString = hourValue + ":" + minuteValue + ":" + secondValue;
 
@@ -99,7 +98,7 @@ public class DurationHandler {
      * @param endBeforeLetter The substring ends before this letter
      * @return value Returns the value formatted
      */
-    private String formatValue(String value, String startAfterLetter, String endBeforeLetter) {
+    private String formatValue(String value, String endBeforeLetter) {
 
         String unformattedString = duration.toString();  //Current format: PTnHnMnS
 
@@ -107,6 +106,7 @@ public class DurationHandler {
 
         if (endIndex != -1) {
             value = unformattedString.substring(endIndex-2, endIndex);
+            System.out.println(value);
             if(value.contains("T")||value.contains("H")||value.contains("M")||value.contains("S")){
                 value = "0" + unformattedString.substring(2, 3);
             }
@@ -114,30 +114,6 @@ public class DurationHandler {
             value = "00";
         }
 
-        
-        // System.out.println(startIndex);
-        //System.out.println(endIndex);
-//        if (endIndex != -1) {
-//            value = unformattedString.substring(startIndex, endIndex);
-//        } else {
-//            value = "00";
-//        }
-//        
-//        
-//        if (value.length() == 1) {
-//            value = "0" + value;
-//        }
-//
-//        if (value.length() > 2) {
-//            if (unformattedString.substring(0, 2).equals("PT") && !unformattedString.endsWith("S")) {
-//                value = unformattedString.substring(2, 4);
-//            }else if(unformattedString.endsWith("S")){
-//                value = unformattedString.substring(,);
-//            }else{
-//                value = unformattedString.substring(0, 2);
-//            }
-//        }
-        //System.out.println(value);
         return value;
     }
 }
