@@ -70,4 +70,45 @@ public class TrackOrganizer {
         medias.add(media);
     }
     
+    
+    /**
+     * Returns the number of media objects
+     * @return The number of media objects
+     */
+    public int getMediaCount(){
+        return medias.size();
+    }
+    
+    /**
+     * Returns the number of tracks.
+     * @return The number of tracks.
+     */
+    public int getTrackCount(){
+        
+        int total = 0;
+        for(Media m: medias){
+            total += m.getTracks().size();
+        }
+        return total;
+    }
+    
+     /**
+     * Returns the track at the specified index
+     * @return A track object
+     */
+    public Track getTrackAt(int index){
+        
+        int total = 0;
+        
+        for(Media m: medias){
+            
+            if (index < (total + m.getTracks().size())){
+                
+                return m.getTracks().get(index-total);
+            }
+            total += m.getTracks().size();
+        }
+        return null;
+    }
+    
 }
