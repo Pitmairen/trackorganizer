@@ -13,19 +13,24 @@ public class MediaModel extends AbstractTableModel {
     
     private String[] columnNames = {"Title", "Artist"};
    
-    TrackOrganizer trackOrganizer;
+    private TrackOrganizer trackOrganizer;
     
-    ArrayList<Track> filteredTracks = new ArrayList<>();
+    private ArrayList<Track> filteredTracks = new ArrayList<>();
+    private boolean isFiltered = false;
     
     public MediaModel(TrackOrganizer trackOrganizer){
         this.trackOrganizer = trackOrganizer;
     }
 
     public void setFilter(String filter){
-        
-        filteredTracks = trackOrganizer.findTracks(new SearchTracks.ByTitle(filter).contains());
+        if(filter.length() > 0){
+            filteredTracks = trackOrganizer.findTracks(new SearchTracks.ByTitle(filter).contains());
+            isFiltered = true;
+        }else{
+            filteredTracks.clear();
+            isFiltered = false;
+        }
         this.fireTableDataChanged();
-        
     }
     
     @Override
@@ -35,7 +40,7 @@ public class MediaModel extends AbstractTableModel {
 
     @Override
     public int getRowCount() {
-        if(filteredTracks.size() > 0){
+        if(isFiltered){
             return filteredTracks.size();
         }
         return trackOrganizer.getTrackCount();
@@ -52,7 +57,7 @@ public class MediaModel extends AbstractTableModel {
         
         Track track;
         
-        if(filteredTracks.size() > 0){
+        if(isFiltered){
             track = filteredTracks.get(row);
         }else{
             track = trackOrganizer.getTrackAt(row);

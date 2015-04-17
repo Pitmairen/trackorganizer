@@ -4,8 +4,9 @@ package gui;
 import backend.SampleData;
 import backend.TrackOrganizer;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import javax.swing.*;
 
 public class MainWindow extends JFrame {
@@ -39,13 +40,17 @@ public class MainWindow extends JFrame {
         JPanel contentPane = (JPanel) this.getContentPane();
 
         
-        final JTextField searchInput = new JTextField();
+        JTextField searchInput = new JTextField();
         
-        searchInput.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                mediaModel.setFilter(searchInput.getText());
+        searchInput.addKeyListener(new KeyAdapter() {
+            public void keyReleased(KeyEvent e) {
+                JTextField textField = (JTextField) e.getSource();
+                String text = textField.getText();
+                mediaModel.setFilter(text);
             }
         });
+        
+        
         
         
         searchInput.setColumns(40);
