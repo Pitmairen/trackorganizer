@@ -13,14 +13,14 @@ public class SearchMedia {
         private String searchString;
         // Constructor
         public ByName(String searchString) {
-            this.searchString = searchString;
+            this.searchString = searchString.toLowerCase();
         }
         // Method
         public boolean isMatch(Object obj) {
             boolean result = false;
             if (obj instanceof Media) {
                 Media media = (Media) obj;
-                if (media.getName().equals(searchString)) {
+                if (media.getName().toLowerCase().equals(searchString)) {
                     result = true;
                 }
             }
@@ -36,14 +36,14 @@ public class SearchMedia {
         private String searchString;
         // Constructor
         public ByArtist(String searchString) {
-            this.searchString = searchString;
+            this.searchString = searchString.toLowerCase();
         }
         // Method
         public boolean isMatch(Object obj) {
             boolean result = false;
             if (obj instanceof PhysicalRelease) {
                 PhysicalRelease physicalRelease = (PhysicalRelease) obj;
-                if (physicalRelease.getArtistName().equals(searchString)) {
+                if (physicalRelease.getArtistName().toLowerCase().equals(searchString)) {
                     result = true;
                 }
             }
@@ -56,9 +56,9 @@ public class SearchMedia {
      */
     public static class ByNR extends Predicate {
         // Variables
-        private Integer searchNR;
+        private int searchNR;
         // Constructor
-        public ByNR(Integer searchNR) {
+        public ByNR(int searchNR) {
             this.searchNR = searchNR;
         }
         // Method
@@ -66,7 +66,7 @@ public class SearchMedia {
             boolean result = false;
             if (obj instanceof PhysicalRelease) {
                 PhysicalRelease physicalRelease = (PhysicalRelease) obj;
-                if (physicalRelease.getArchiveNR().equals(searchNR)) {
+                if (physicalRelease.getArchiveNR() == (searchNR)) {
                     result = true;
                 }
             }

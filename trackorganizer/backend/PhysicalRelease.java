@@ -92,7 +92,7 @@ public class PhysicalRelease extends Media {
      *
      * @return archiveNR
      */
-    public Integer getArchiveNR() {
+    public int getArchiveNR() {
         return archiveNR;
     }
 
