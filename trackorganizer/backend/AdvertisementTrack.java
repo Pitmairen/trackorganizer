@@ -14,7 +14,8 @@ public class AdvertisementTrack extends Track
     private String product;
 
     /**
-     * Constructor.
+     * Constructo
+     * r.
      * 
      * @param title Title of the track.
      * @param duration Duration of the track.
