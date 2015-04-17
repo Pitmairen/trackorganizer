@@ -58,65 +58,6 @@ public class TrackOrganizer {
         return results;
     }
 
-
-    /**
-     * Searches through entire collection. Returns the first Media with the
-     * matching name.
-     *
-     * @param searchName Searchword.
-     * @return The media with the corresponding name.
-     */
-    public Media findFirstName(String searchName) {
-        String name = null;
-        Media searchHit = null;
-        for (Media media : medias) {
-            name = media.getName();
-            if (name.equals(searchName)) {
-                searchHit = media;
-            }
-        }
-        return searchHit;
-    }
-
-    /**
-     * Searches through entire collection. Returns an array with the matching
-     * media.
-     *
-     * @param searchName Searchword.
-     * @return Array with the matching results.
-     */
-    public ArrayList<Media> findAll(String searchName) {
-        String name = null;
-        ArrayList<Media> searchHits = null;
-        Media searchHit = null;
-        for (Media media : medias) {
-            name = media.getName();
-            if (name.equals(searchName)) {
-                searchHits.add(media);
-            }
-        }
-        return searchHits;
-    }
-    
-    
-     /**
-     * Searches through entire collection by the archive number.
-     *
-     * @param archiveNr The archive number
-     * @return The matching track or null if no track is found.
-     */
-    public PhysicalRelease findMediaByArchiveNumber(int archiveNr) {
-
-        for (Media media : medias) {
-            
-            if(media instanceof PhysicalRelease){
-                PhysicalRelease rel = (PhysicalRelease)media;
-                if(rel.getArchiveNR() == archiveNr)   
-                    return rel;
-            }
-        }
-        return null;
-    }
    
     
      /**

@@ -52,11 +52,6 @@ public class SearchTracks {
                     return res;
                 }
             };
-        }
-    
-
-        
+        }   
     }
-   
-    
 }

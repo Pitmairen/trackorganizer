@@ -1,8 +1,7 @@
 package backend;
 
-import java.time.Duration;
+
 import java.time.Year;
-import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -29,7 +28,8 @@ public class TrackOrganizerTest {
     public void testAddCD() {
         String name = "Awesome mix, vol.2";
         trackOrganizer.addMedia(new CD(name, "artist", Year.of(2012), "sony"));
-        assertEquals(name, trackOrganizer.findFirstName(name).getName());
+        
+        assertEquals(name, trackOrganizer.findMedia(new SearchMedia.ByName(name)).get(0).getName());
     }
     
 }
