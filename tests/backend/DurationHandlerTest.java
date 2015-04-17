@@ -42,12 +42,12 @@ public class DurationHandlerTest {
      */
     @Test
     public void testFormatDuration() {
-        System.out.println("Testing the duration handler");
-        DurationHandler instance = new DurationHandler(359999);
-        System.out.println(instance.getUnformattedString());
-        String expResult = "99:59:59";
+        System.out.println("Testing the duration handler\n");
+        DurationHandler instance = new DurationHandler(0,1,0);      // PT6H30M43S
+        System.out.println("Original string: " + instance.getUnformattedString());
+        String expResult = "00:02:43";
         String result = instance.formatDuration();
-        System.out.println(instance.formatDuration());
+        System.out.println("Final String: " + instance.formatDuration());
         assertEquals(expResult, result);
     }
     

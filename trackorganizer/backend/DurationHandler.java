@@ -10,13 +10,42 @@ public class DurationHandler {
 
     private Duration duration;
 
+    /**
+     * Constructor
+     *
+     * @param hours The number of hours the track/media lasts.
+     * @param minutes The number of minutes the track/media lasts, which has not
+     * been taken in account in the hour parameter.
+     * @param seconds The number of seconds the track/media lasts, which has not
+     * been taken in account in the hour or minute parameter.
+     */
+    DurationHandler(long hours, long minutes, long seconds) {
+        duration = Duration.ofHours(hours).plusMinutes(minutes).plusSeconds(seconds);
+    }
+
+    /**
+     * Constructor
+     *
+     * @param seconds The duration of the track/media in second.
+     * @param minutes The number of seconds the track/media lasts which has not
+     * been taken in account in the minute parameter.
+     */
+    DurationHandler(long minutes, long seconds) {
+        duration = Duration.ofMinutes(minutes).plusSeconds(seconds);
+    }
+
+    /**
+     * Constructor
+     *
+     * @param seconds The duration of the track/media in seconds.
+     */
     DurationHandler(long seconds) {
         duration = Duration.ofSeconds(seconds);
     }
 
     /**
-     * Returns the duration in a unformatted duration
-     * 
+     * Returns the duration in a unformatted duration.
+     *
      * @return duration.toString() Returns a unformatted duration.
      */
     public String getUnformattedString() {
@@ -24,8 +53,8 @@ public class DurationHandler {
     }
 
     /**
-     * Returns a string usable to display the duration of the different medias in a easily read format,
-     * ex: "04:53:21"
+     * Returns a string usable to display the duration of the different medias
+     * in a easily read format, ex: "04:53:21"
      *
      * @return formattedString Returns a string containing duration.
      */
@@ -54,21 +83,40 @@ public class DurationHandler {
 
         String unformattedString = duration.toString();  //Current format: PTnHnMnS
 
-        int startIndex = unformattedString.lastIndexOf(startAfterLetter) + 1;
         int endIndex = unformattedString.lastIndexOf(endBeforeLetter);
 
-       // System.out.println(startIndex);
+        if (endIndex != -1) {
+            value = unformattedString.substring(endIndex-2, endIndex);
+            if(value.contains("T")||value.contains("H")||value.contains("M")||value.contains("S")){
+                value = "0" + unformattedString.substring(2, 3);
+            }
+        } else {
+            value = "00";
+        }
+
+        
+        // System.out.println(startIndex);
         //System.out.println(endIndex);
-        value = unformattedString.substring(startIndex, endIndex);
-
-        if (value.length() == 1) {
-            value = "0" + value;
-        }
-
-        if (value.length() > 2) {
-            value = unformattedString.substring(0, 2);
-        }
-
+//        if (endIndex != -1) {
+//            value = unformattedString.substring(startIndex, endIndex);
+//        } else {
+//            value = "00";
+//        }
+//        
+//        
+//        if (value.length() == 1) {
+//            value = "0" + value;
+//        }
+//
+//        if (value.length() > 2) {
+//            if (unformattedString.substring(0, 2).equals("PT") && !unformattedString.endsWith("S")) {
+//                value = unformattedString.substring(2, 4);
+//            }else if(unformattedString.endsWith("S")){
+//                value = unformattedString.substring(,);
+//            }else{
+//                value = unformattedString.substring(0, 2);
+//            }
+//        }
         //System.out.println(value);
         return value;
     }
