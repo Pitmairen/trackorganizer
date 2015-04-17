@@ -9,6 +9,7 @@ import java.time.Duration;
 public class DurationHandler {
 
     private Duration duration;
+<<<<<<< HEAD
 
     /**
      * Constructor
@@ -39,10 +40,29 @@ public class DurationHandler {
      *
      * @param seconds The duration of the track/media in seconds.
      */
+=======
+    
+    
+>>>>>>> origin/master
     DurationHandler(long seconds) {
         duration = Duration.ofSeconds(seconds);
     }
 
+    DurationHandler(Duration duration) {
+        this.duration = duration;
+    }
+    
+    public static String durationToString(Duration d){
+        
+        DurationHandler h = new DurationHandler(d);
+        
+        return h.formatDuration();
+        
+    }
+    
+    
+    
+    
     /**
      * Returns the duration in a unformatted duration.
      *

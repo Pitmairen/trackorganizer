@@ -51,4 +51,27 @@ public class DurationHandlerTest {
         assertEquals(expResult, result);
     }
     
+
+    
+    @Test
+    public void testFormatDurationMinutes() {
+
+        DurationHandler instance = new DurationHandler(245);
+        
+        String expResult = "00:04:05"; // Or maybe 04:05
+        String result = instance.formatDuration();
+        
+        assertEquals(expResult, result);
+    }
+    
+    @Test
+    public void testFormatDurationSeconds() {
+
+        DurationHandler instance = new DurationHandler(34);
+        
+        String expResult = "00:00:34";
+        String result = instance.formatDuration();
+        
+        assertEquals(expResult, result);
+    }
 }

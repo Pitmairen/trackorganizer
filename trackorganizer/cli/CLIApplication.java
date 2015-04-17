@@ -64,9 +64,10 @@ public class CLIApplication {
     
     private void createCommands(){
         
-        mCommands.addCommand("stt", "search-track-title", 
-            "Search by track title", true, new SearchByTitleCommand());
-
+        mCommands.addCommand("ste", "search-track-exact", 
+            "Search by track title", true, new SearchByTitleExactCommand());
+        mCommands.addCommand("stc", "search-track-contains", 
+            "Search by track title contains word", true, new SearchByTitleContainsCommand());
     }
 
     
@@ -82,14 +83,30 @@ public class CLIApplication {
     }
     
 
-    private class SearchByTitleCommand extends Command{
+    private class SearchByTitleExactCommand extends Command{
     
         @Override
         public void execute(CommandLine line)
         {
                 
             ArrayList<Track> match = mTrackOrganizer.findTracksByTitleExact(
-                line.getOptionValue("search-track-title", ""));
+                line.getOptionValue("search-track-exact", ""));
+            
+            formatTrackList(match);
+            
+        }
+        
+    }
+    
+    
+    private class SearchByTitleContainsCommand extends Command{
+    
+        @Override
+        public void execute(CommandLine line)
+        {
+                
+            ArrayList<Track> match = mTrackOrganizer.findTracksByTitleContains(
+                line.getOptionValue("search-track-contains", ""));
             
             formatTrackList(match);
             

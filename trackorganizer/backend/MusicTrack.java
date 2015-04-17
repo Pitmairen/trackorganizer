@@ -35,7 +35,8 @@ public class MusicTrack extends Track
      */
     @Override
     public String getDescription(){
-        return getArtist() + " - " + getTitle();
+        return getArtist() + " - " + getTitle() + ": " + 
+            DurationHandler.durationToString(getDuration());
     }
     
     
