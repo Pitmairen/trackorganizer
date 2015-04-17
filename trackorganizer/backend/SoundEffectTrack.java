@@ -28,6 +28,18 @@ public class SoundEffectTrack extends Track
         super(title, duration);
         this.description = description;
     }
+    
+    
+     /**
+     * Returns a description of the track
+     *
+     * @return A description of the track.
+     */
+    @Override
+    public String getDescriptionString(){
+        return getTitle() + " - " + getDescription() + ": " + 
+            DurationHandler.durationToString(getDuration());
+    }
 
     /**
      * Returns sound effect description.
