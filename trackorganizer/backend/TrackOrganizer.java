@@ -117,46 +117,7 @@ public class TrackOrganizer {
         }
         return null;
     }
-    
-
-    /**
-     * Adds a CD to the media collection.
-     *
-     * @param name Album title
-     */
-    public void addCD(String name, String artist, Year year, String label) {
-        addMedia(new CD(name, artist, year, label));
-    }
-
-    /**
-     * Adds a LP to the media collection.
-     *
-     * @param name Album title
-     * @param format Format of the LP
-     */
-    public void addLP(String name, String format) {
-        //addMedia(new LP(name, format));
-    }
-
-    /**
-     * Adds a tape cassette to the media collection.
-     *
-     * @param name Name of the cassette.
-     * @param format Digital or analog.
-     */
-    public void addTape(String name, String format) {
-        //addMedia(new Tape(name, format));
-    }
-
-    /**
-     * Adds a hard drive to the media collection.
-     *
-     * @param name Name of the hard drive.
-     * @param format Digital or analog.
-     */
-    public void addTape(String name) {
-        addMedia(new HD(name));
-    }
+   
     
      /**
      * Adds a media to the media collection.

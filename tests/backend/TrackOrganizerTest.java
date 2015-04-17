@@ -28,7 +28,7 @@ public class TrackOrganizerTest {
     @Test
     public void testAddCD() {
         String name = "Awesome mix, vol.2";
-        trackOrganizer.addCD(name, "artist", Year.of(2012), "sony");
+        trackOrganizer.addMedia(new CD(name, "artist", Year.of(2012), "sony"));
         assertEquals(name, trackOrganizer.findFirstName(name).getName());
     }
     
