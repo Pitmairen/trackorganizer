@@ -3,6 +3,10 @@ package backend;
 import java.time.Duration;
 import java.time.Year;
 
+/**
+ * This class contains sample data.
+ */
+
 public class SampleData{
 
     public void addCds(TrackOrganizer to){

@@ -6,9 +6,6 @@ import java.util.Date;
 
 /**
  * Represents news content.
- *
- * @author Kristian Honningsvag
- * @version 0.1
  */
 public class NewsTrack extends Track {
 

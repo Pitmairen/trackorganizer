@@ -13,8 +13,7 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 
 /**
- *
- * @author Per Myren
+ * DESCRIPTION NEEDED
  */
 public class CDTest {
     

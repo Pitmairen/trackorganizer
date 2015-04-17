@@ -14,8 +14,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- *
- * @author 100174
+ * DESCRIPTION NEEDED
  */
 public class NewsTrackTest {
     

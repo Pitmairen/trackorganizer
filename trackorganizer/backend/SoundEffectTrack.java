@@ -5,9 +5,6 @@ import java.time.LocalDateTime;
 
 /**
  * Represents sound effect content.
- * 
- * @author Kristian Honningsvag
- * @version 0.1
  */
 
 public class SoundEffectTrack extends Track

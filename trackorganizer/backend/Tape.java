@@ -7,9 +7,6 @@ import java.util.ArrayList;
 
 /**
  * Represents a cassette tape.
- * 
- * @author Kristian Honningsvag
- * @version 0.1
  */
 
 public class Tape extends PhysicalRelease

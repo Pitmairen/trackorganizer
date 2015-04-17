@@ -4,9 +4,6 @@ import java.util.ArrayList;
 
 /**
  * Represents a media container.
- * 
- * @author Kristian Honningsvag
- * @version 0.1
  */
 
 public abstract class Media

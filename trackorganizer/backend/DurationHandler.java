@@ -3,8 +3,7 @@ package backend;
 import java.time.Duration;
 
 /**
- *
- * @author Tor-Martin Holen
+ * Creates strings containing the length of the different medias.
  */
 public class DurationHandler {
 

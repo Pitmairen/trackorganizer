@@ -5,9 +5,6 @@ import java.time.LocalDateTime;
 
 /**
  * Represents advertisement content.
- * 
- * @author Kristian Honningsvag
- * @version 0.1
  */
 
 public class AdvertisementTrack extends Track

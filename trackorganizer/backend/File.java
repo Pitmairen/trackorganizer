@@ -2,9 +2,6 @@ package backend;
 
 /**
  * Represents an audio file.
- * 
- * @author Kristian Honningsvag
- * @version 0.1
  */
 
 public class File

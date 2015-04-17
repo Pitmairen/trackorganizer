@@ -9,8 +9,6 @@ import static org.junit.Assert.*;
 
 /**
  * Tests for the TrackOrganizer class.
- *
- * @author hasirak
  */
 public class TrackOrganizerTest {
 

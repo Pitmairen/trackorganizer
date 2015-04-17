@@ -4,9 +4,6 @@ import java.util.ArrayList;
 
 /**
  * Represents a hard drive used for storing audio files.
- *
- * @author Kristian Honningsvag
- * @version 0.1
  */
 public class HD extends Media {
 

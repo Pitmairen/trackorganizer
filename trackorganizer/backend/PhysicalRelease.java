@@ -6,9 +6,6 @@ import java.util.ArrayList;
 
 /**
  * Represents physical releases like CD's and vinyl LP's.
- *
- * @author Kristian Honningsvag
- * @version 0.1
  */
 public class PhysicalRelease extends Media {
 

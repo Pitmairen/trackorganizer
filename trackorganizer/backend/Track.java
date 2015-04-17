@@ -7,9 +7,6 @@ import java.time.Duration;
 
 /**
  * Represents an audio track. It can be any kind of audio content.
- *
- * @author Kristian Honningsvag
- * @version 0.1
  */
 public class Track {
 
