@@ -4,7 +4,7 @@ package backend;
 /**
  * A predicate is used to search for tracks and media. 
  */
-public abstract class Predicate {
+public interface Predicate {
     
     /**
      * 
@@ -13,7 +13,7 @@ public abstract class Predicate {
      * @param obj The object to check for match.
      * @return Boolean indicating a match.
      */
-    public abstract boolean isMatch(Object obj);
+    public boolean isMatch(Object obj);
     
     
 }

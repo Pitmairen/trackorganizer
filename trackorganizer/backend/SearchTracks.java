@@ -24,15 +24,12 @@ public class SearchTracks {
          */
         public Predicate contains(){
             
-            return new Predicate(){
-                @Override
-                public boolean isMatch(Object obj){
-                    boolean res = false;
-                    if (obj instanceof Track){
-                        res = ((Track)obj).getTitle().toLowerCase().contains(word);
-                    }
-                    return res;
+            return (Object obj) -> {
+                boolean res = false;
+                if (obj instanceof Track) {
+                    res = ((Track) obj).getTitle().toLowerCase().contains(word);
                 }
+                return res;
             };
             
         }
@@ -42,16 +39,15 @@ public class SearchTracks {
          * @return The predicate
          */
         public Predicate exact() {
-            return new Predicate(){
-                @Override
-                public boolean isMatch(Object obj){
-                    boolean res = false;
-                    if (obj instanceof Track){
-                        res = ((Track)obj).getTitle().toLowerCase().equals(word);
-                    }
-                    return res;
+            
+            return (Object obj) -> {
+                boolean res = false;
+                if (obj instanceof Track){
+                    res = ((Track)obj).getTitle().toLowerCase().equals(word);
                 }
+                return res;
             };
+            
         }   
     }
 }
