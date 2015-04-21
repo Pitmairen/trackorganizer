@@ -8,6 +8,7 @@ import backend.SearchTracks;
 import backend.Track;
 import backend.TrackOrganizer;
 import java.util.ArrayList;
+import java.util.Arrays;
 import javax.swing.table.AbstractTableModel;
 
 /**
@@ -86,14 +87,20 @@ public class TrackListModel extends AbstractTableModel {
      */
     public void deleteRows(int[] rows){
         
-         for(int i: rows){
-             System.out.println(i);
+         Arrays.sort(rows);
+        
+         for(int i=0; i < rows.length; i++){
+             
+             // Delete in reverse order to prevent invalid indexes.
+             int deleteIndex = rows[rows.length - 1 - i];
+             
+             System.out.println(deleteIndex);
              Track track;
              if(mIsFiltered){
-                 track = mFilteredTracks.get(i);
-                 mFilteredTracks.remove(i);
+                 track = mFilteredTracks.get(deleteIndex);
+                 mFilteredTracks.remove(deleteIndex);
              }else{
-                 track = mTrackOrganizer.getTrackAt(i);
+                 track = mTrackOrganizer.getTrackAt(deleteIndex);
              }
              
              track.getMedia().removeTrack(track);
