@@ -60,5 +60,14 @@ public class HD extends Media {
         
    
     }
-    
+   
+        
+   /**
+     * Remove a track from this media
+     * 
+     * @param track The track to remove.
+    */
+    public void removeTrack(Track track){
+        
+    }
 }

@@ -16,7 +16,8 @@ public class Track {
     private Duration duration;
 
     private int timesPlayed;
-
+    private Media media;
+    
     /**
      * Constructor.
      *
@@ -32,7 +33,8 @@ public class Track {
 
     
     /**
-     * Returns a description of the track
+     * Returns a description of the track.
+     * Used in the user interface.
      *
      * @return A description of the track.
      */
@@ -117,5 +119,23 @@ public class Track {
     }
     
     
+    /**
+     * Returns the media object containing this track. 
+     * @return A media object
+     */
+    public Media getMedia()
+    {
+        return media;
+    }
+
+    
+    /**
+     * Sets the media object containing this track.
+     * @param media The media objects.
+     */
+    public void setMedia(Media media)
+    {
+        this.media = media;
+    }
     
 }

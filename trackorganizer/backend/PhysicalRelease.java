@@ -84,7 +84,7 @@ public class PhysicalRelease extends Media {
      */
     @Override
     public ArrayList<Track> getTracks() {
-        return tracks;
+        return new ArrayList<>(tracks);
     }
 
     /**
@@ -150,7 +150,18 @@ public class PhysicalRelease extends Media {
      */
     @Override
     public void addTrack(Track track){
+        track.setMedia(this);
         tracks.add(track);
     }
-
+    
+    
+    /**
+     * Remove a track from this media
+     * 
+     * @param track The track to remove.
+    */
+    @Override
+    public void removeTrack(Track track){
+        tracks.remove(track);
+    }
 }

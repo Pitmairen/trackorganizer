@@ -49,11 +49,7 @@ public class TrackOrganizer {
         
         ArrayList<Track> results = new ArrayList<>();
         for (Media media : medias) {
-            for(Track track: media.getTracks()){            
-                if (pred.isMatch(track)){
-                    results.add(track);
-                }
-            }
+            SearchTracks.filterTrackList(media.getTracks(), results, pred);
         } 
         return results;
     }
@@ -92,6 +88,17 @@ public class TrackOrganizer {
         return total;
     }
     
+    
+    /**
+     * Returns the media list
+     * @return The media list
+     */
+    public ArrayList<Media> getMediaList(){
+        
+        return new ArrayList<>(medias);
+    }
+    
+    
      /**
      * Returns the track at the specified index
      * @return A track object
@@ -109,6 +116,14 @@ public class TrackOrganizer {
             total += m.getTracks().size();
         }
         return null;
+    }
+    
+    
+    public void deleteTracks(ArrayList<Track> tracks)
+    {
+        for(Track t: tracks){
+            t.getMedia().removeTrack(t);
+        }
     }
     
 }

@@ -9,6 +9,47 @@ import java.time.Year;
 
 public class SampleData{
 
+    
+    public void fillMedia(TrackOrganizer to){
+        
+        addCds(to);
+        addLPs(to);
+        
+    }
+    
+    
+    
+    public void addLPs(TrackOrganizer to){
+        LP lp;
+        
+        lp = new LP("Dinosaurs Rule", "Led Zeppelin", Year.of(1967), "The Home(r) Entertainment Network", "8-track");
+        lp.addTrack(new MusicTrack("Train Kept A Rollin'", "Led Zeppelin", Duration.ofSeconds(159)));
+        lp.addTrack(new MusicTrack("Nobody's Fault But Mine", "Led Zeppelin", Duration.ofSeconds(226)));
+        lp.addTrack(new MusicTrack("Black Dog", "Led Zeppelin", Duration.ofSeconds(212)));
+        lp.addTrack(new MusicTrack("In The Evening", "Led Zeppelin", Duration.ofSeconds(245)));
+        lp.addTrack(new MusicTrack("The Rain Song", "Led Zeppelin", Duration.ofSeconds(215)));
+        lp.addTrack(new MusicTrack("Hot Dog", "Led Zeppelin", Duration.ofSeconds(213)));
+        lp.addTrack(new MusicTrack("All My Love", "Led Zeppelin", Duration.ofSeconds(189)));
+        lp.addTrack(new MusicTrack("Trampled Underfoot", "Led Zeppelin", Duration.ofSeconds(203)));
+        lp.addTrack(new MusicTrack("Since I've Been Loving You", "Led Zeppelin", Duration.ofSeconds(240)));
+        lp.addTrack(new MusicTrack("Archilles Last Stand", "Led Zeppelin", Duration.ofSeconds(230)));
+        lp.addTrack(new MusicTrack("White Summer", "Led Zeppelin", Duration.ofSeconds(194)));
+        lp.addTrack(new MusicTrack("Black Mountain Side", "Led Zeppelin", Duration.ofSeconds(240)));
+        lp.addTrack(new MusicTrack("Kashmir", "Led Zeppelin", Duration.ofSeconds(235)));
+        lp.addTrack(new MusicTrack("Stairway To Heaven", "Led Zeppelin", Duration.ofSeconds(243)));
+        lp.addTrack(new MusicTrack("Whole Lotta Love", "Led Zeppelin", Duration.ofSeconds(158)));
+        lp.addTrack(new MusicTrack("Heartbreaker", "Led Zeppelin", Duration.ofSeconds(156)));
+        to.addMedia(lp);
+        
+    }
+    
+    
+    
+        
+    
+    
+    
+    
     public void addCds(TrackOrganizer to){
         CD cd;
         

@@ -2,10 +2,32 @@
 
 package backend;
 
+import java.util.ArrayList;
+
 
 public class SearchTracks {
    
-     
+    /**
+     * Filters a list of tracks.
+     *
+     * @param source  The source list.
+     * @param results The result of the filtering.
+     * @param pred    The filter predicate.
+     */
+    public static void filterTrackList(ArrayList<Track> source,
+                                                   ArrayList<Track> results,
+                                                   Predicate pred){
+ 
+           for(Track track: source){            
+                if (pred.isMatch(track)){
+                    results.add(track);
+                }
+            }
+
+       
+    }
+    
+    
     /**
      * Container for title search
      */

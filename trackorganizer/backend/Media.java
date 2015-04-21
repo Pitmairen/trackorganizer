@@ -9,8 +9,8 @@ import java.util.ArrayList;
 public abstract class Media
 {
     // Instance variables
-    String name;
-
+    private String name;
+    
     /**
      * Constructor.
      * 
@@ -30,6 +30,7 @@ public abstract class Media
     {
         return name;
     }
+    
 
     /**
      * Sets the name of the media container.
@@ -41,6 +42,7 @@ public abstract class Media
         this.name = name;
     }
     
+
     
     /**
      * Returns the tracks associated with this media.
@@ -56,4 +58,13 @@ public abstract class Media
      * @param track The track to add
      */
     public abstract void addTrack(Track track);
+    
+    
+    /**
+     * Remove a track from this media
+     * 
+     * @param track The track to remove.
+    */
+    public abstract void removeTrack(Track track);
+    
 }
