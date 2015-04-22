@@ -5,8 +5,6 @@ import backend.DurationHandler;
 import backend.Media;
 import backend.PhysicalRelease;
 import backend.Predicate;
-import backend.SearchMedia;
-import backend.Track;
 import backend.TrackOrganizer;
 import java.util.ArrayList;
 import java.util.Arrays;
