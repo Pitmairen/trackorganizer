@@ -20,7 +20,7 @@ public class SearchMedia {
             boolean result = false;
             if (obj instanceof Media) {
                 Media media = (Media) obj;
-                if (media.getName().toLowerCase().equals(searchString)) {
+                if (media.getName().toLowerCase().contains(searchString)) {
                     result = true;
                 }
             }
@@ -43,7 +43,7 @@ public class SearchMedia {
             boolean result = false;
             if (obj instanceof PhysicalRelease) {
                 PhysicalRelease physicalRelease = (PhysicalRelease) obj;
-                if (physicalRelease.getArtistName().toLowerCase().equals(searchString)) {
+                if (physicalRelease.getArtistName().toLowerCase().contains(searchString)) {
                     result = true;
                 }
             }
