@@ -4,6 +4,7 @@ package gui;
 import backend.DurationHandler;
 import backend.Media;
 import backend.PhysicalRelease;
+import backend.Predicate;
 import backend.SearchMedia;
 import backend.Track;
 import backend.TrackOrganizer;
@@ -31,11 +32,11 @@ public class MediaListModel extends AbstractTableModel
 
     /**
      * Filters the content of the model.
-     * @param filter The filter string
+     * @param filter The filter predicate
      */
-    public void setFilter(String filter){
-        if(filter.length() > 0){
-            setMediaList(mTrackOrganizer.findMedia(new SearchMedia.ByName(filter)));
+    public void setFilter(Predicate filter){
+        if(filter != null){
+            setMediaList(mTrackOrganizer.findMedia(filter));
         }else{
             setMediaList(null);
         }

@@ -4,6 +4,7 @@ package gui;
 import backend.DurationHandler;
 import backend.Media;
 import backend.MusicTrack;
+import backend.Predicate;
 import backend.SearchTracks;
 import backend.Track;
 import backend.TrackOrganizer;
@@ -37,15 +38,15 @@ public class TrackListModel extends AbstractTableModel {
      *
      * @param filter The filter string
      */
-    public void setFilter(String filter){
-        if(filter.length() > 0){
+    public void setFilter(Predicate filter){
+        if(filter != null){
             
             if(mCurrentMedia != null){
                ArrayList<Track> tracks = new ArrayList<>();
-               SearchTracks.filterTrackList(mCurrentMedia.getTracks(), tracks, new SearchTracks.ByTitle(filter).contains());
+               SearchTracks.filterTrackList(mCurrentMedia.getTracks(), tracks, filter);
                setTrackList(tracks);
             }else{
-               setTrackList(mTrackOrganizer.findTracks(new SearchTracks.ByTitle(filter).contains()));
+               setTrackList(mTrackOrganizer.findTracks(filter));
             }
         }else{
             if(mCurrentMedia != null)
