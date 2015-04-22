@@ -9,7 +9,7 @@ public class File
     // Instance variables
     private Track track;
     private String filePath;
-    private int filesize;
+    private int fileSize;
 
     /**
      * Constructor.
@@ -17,10 +17,11 @@ public class File
      * @param track The audio track.
      * @param filePath The file path.
      */
-    public File(Track track, String filePath)
+    public File(Track track, String filePath, int fileSize)
     {
         this.track = track;
         this.filePath = filePath;
+        this.fileSize = fileSize;
     }
 
     /**
@@ -68,7 +69,7 @@ public class File
      * @return 
      */
     public int getFilesize() {
-        return filesize;
+        return fileSize;
     }
 
     /**
@@ -76,6 +77,6 @@ public class File
      * @param filesize 
      */
     public void setFilesize(int filesize) {
-        this.filesize = filesize;
+        this.fileSize = filesize;
     }
 }

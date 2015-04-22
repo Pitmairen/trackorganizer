@@ -67,4 +67,12 @@ public abstract class Media
     */
     public abstract void removeTrack(Track track);
     
+    
+    /**
+     * Returns the tracks at the specified index.
+     * @param index The track index
+     * @return A Track object.
+     */
+    public abstract Track getTrackAt(int index);
+    
 }

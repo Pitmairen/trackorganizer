@@ -164,4 +164,15 @@ public class PhysicalRelease extends Media {
     public void removeTrack(Track track){
         tracks.remove(track);
     }
+    
+    
+    
+    /**
+     * Returns the tracks at the specified index.
+     * @param index The track index
+     * @return A Track object.
+     */
+    public Track getTrackAt(int index){
+        return tracks.get(index);
+    }
 }

@@ -1,6 +1,7 @@
 package backend;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Represents a hard drive used for storing audio files.
@@ -45,8 +46,11 @@ public class HD extends Media {
      */
     @Override
     public ArrayList<Track> getTracks(){
-        // Dummy value for now
-        return new ArrayList<>();
+        ArrayList<Track> tracks = new ArrayList<>();
+        for(File f: files){
+            tracks.add(f.getTrack());
+        }
+        return tracks;
     }
    
     
@@ -57,9 +61,21 @@ public class HD extends Media {
      */
     @Override
     public void addTrack(Track track){
-        
+                   
+        throw new UnsupportedOperationException("You must add a file to a HD.");
    
     }
+    
+    
+    /**
+     * Adds a file to the HD
+     * @param file The file to add.
+     */
+    public void addFile(File file){
+        files.add(file);
+    }
+    
+    
    
         
    /**
@@ -69,5 +85,22 @@ public class HD extends Media {
     */
     public void removeTrack(Track track){
         
+        Iterator<File> it = files.iterator();
+        while(it.hasNext()){
+            File file = it.next();
+            if(track == file.getTrack()){
+                it.remove();
+                return;
+            }
+        }
+    }
+    
+    /**
+     * Returns the tracks at the specified index.
+     * @param index The track index
+     * @return A Track object.
+     */
+    public Track getTrackAt(int index){
+        return files.get(index).getTrack();
     }
 }
