@@ -5,8 +5,10 @@ import backend.DurationHandler;
 import backend.Media;
 import backend.PhysicalRelease;
 import backend.SearchMedia;
+import backend.Track;
 import backend.TrackOrganizer;
 import java.util.ArrayList;
+import java.util.Arrays;
 import javax.swing.table.AbstractTableModel;
 
 /**
@@ -49,6 +51,34 @@ public class MediaListModel extends AbstractTableModel
         mIsFiltered = medialist != null;
 
         this.fireTableDataChanged();
+    } 
+    
+    /**
+     * Removes the specified rows.
+     * 
+     * @param rows The row indexes to remove.
+     */
+    public void deleteRows(int[] rows){
+        
+         Arrays.sort(rows);
+        
+         for(int i=0; i < rows.length; i++){
+             
+             // Delete in reverse order to prevent invalid indexes.
+             int deleteIndex = rows[rows.length - 1 - i];
+             
+             Media media;
+             if(mIsFiltered){
+                 media = mFilteredMedia.get(deleteIndex);
+                 mFilteredMedia.remove(deleteIndex);
+             }else{
+                 media = mTrackOrganizer.getMediaAt(deleteIndex);
+             }
+             
+             mTrackOrganizer.deleteMedia(media);
+                    
+         }
+        
     }
     
     

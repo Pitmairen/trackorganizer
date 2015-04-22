@@ -139,6 +139,10 @@ public class MainWindow extends JFrame
             deleteSelectedTracks();
         });
         
+        mDeleteMedia.addActionListener((ActionEvent e) -> {
+            deleteSelectedMedias();
+        });
+        
         mMediaFilter.addKeyListener(new KeyAdapter() {
             public void keyReleased(KeyEvent e) {
                 filterMediaTable((JTextField) e.getSource());
@@ -218,6 +222,16 @@ public class MainWindow extends JFrame
         int[] rows = mTrackTable.getSelectedRows();
         mTrackModel.deleteRows(rows);
         mTrackModel.fireTableDataChanged();
+
+    }
+    
+    private void deleteSelectedMedias(){
+        
+        int[] rows = mMediaTable.getSelectedRows();
+        mMediaModel.deleteRows(rows);
+        
+        mMediaModel.fireTableDataChanged();
+        showAllTracks();
 
     }
     

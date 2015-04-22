@@ -118,12 +118,33 @@ public class TrackOrganizer {
         return null;
     }
     
+     /**
+     * Returns the media at the specified index
+     * @return A media object
+     */
+    public Media getMediaAt(int index){
+        
+        return medias.get(index);
+    }
     
+    /**
+     * Delete the specified tracks.
+     * @param tracks The tracks to delete.
+     */
     public void deleteTracks(ArrayList<Track> tracks)
     {
         for(Track t: tracks){
             t.getMedia().removeTrack(t);
         }
     }
+  
     
+     /**
+     * Delete a media object from the organizer.
+     * @param media The media to remove.
+     */   
+    public void deleteMedia(Media media)
+    {
+        medias.remove(media);
+    }
 }
