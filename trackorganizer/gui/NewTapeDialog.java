@@ -35,7 +35,7 @@ public class NewTapeDialog extends MediaDialog
         super("New Tape", frame);
 
         // Add placeholders for the input fields.
-        PromptSupport.setPrompt("CD Title", mTitle);
+        PromptSupport.setPrompt("Tape Title", mTitle);
         PromptSupport.setPrompt("Artist", mArtistName);
         PromptSupport.setPrompt("Release year", mReleaseYear);
         PromptSupport.setPrompt("Record label", mRecordLabel);

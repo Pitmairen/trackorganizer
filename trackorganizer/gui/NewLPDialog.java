@@ -37,7 +37,7 @@ public class NewLPDialog extends MediaDialog
     public NewLPDialog(JFrame frame){
         super("New LP", frame);
         
-        PromptSupport.setPrompt("CD Title", mTitle);
+        PromptSupport.setPrompt("LP Title", mTitle);
         PromptSupport.setPrompt("Artist", mArtistName);
         PromptSupport.setPrompt("Release year", mReleaseYear);
         PromptSupport.setPrompt("Record label", mRecordLabel);
