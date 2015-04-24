@@ -21,6 +21,9 @@ import javax.swing.JPopupMenu;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import org.jdesktop.xswingx.PromptSupport;
 
 
@@ -83,7 +86,7 @@ public class MainWindow extends JFrame
         PromptSupport.setPrompt("Search media", mMediaFilter);
         PromptSupport.setPrompt("Search tracks", mTrackFilter);
         
-        
+
         Filter[] trackFilters = {
             new FilterTracksByTitle(), new FilterTracksByArtist(),
         };
@@ -109,6 +112,7 @@ public class MainWindow extends JFrame
 
         };
         
+        mMediaTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         mMediaTable.setRowHeight(68);
         mMediaTable.getColumnModel().getColumn(0).setMaxWidth(72);
         mMediaTable.getColumnModel().getColumn(0).setMinWidth(72);
@@ -172,23 +176,31 @@ public class MainWindow extends JFrame
         });
         
         mMediaFilter.addKeyListener(new KeyAdapter() {
+            @Override
             public void keyReleased(KeyEvent e) {
                 filterMediaTable((JTextField) e.getSource());
             }
         });
         
         mTrackFilter.addKeyListener(new KeyAdapter() {
+            @Override
             public void keyReleased(KeyEvent e) {
                 filterTrackTable((JTextField) e.getSource());
             }
         });
+        
+        mMediaTable.getSelectionModel().addListSelectionListener((ListSelectionEvent e) -> {
+            
+            ListSelectionModel lm = (ListSelectionModel)e.getSource();
+            
+            if(lm.getValueIsAdjusting())
+                return;
 
-        mMediaTable.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent evt){
-                handlesMediaTableClick(evt);
-            }
+            handlesMediaTableSelection(lm);
+
+
         });
+        
         
         
         JFrame frame = this;
@@ -240,13 +252,16 @@ public class MainWindow extends JFrame
         }
     }
     
-    private void handlesMediaTableClick(MouseEvent evt){
-        int row = mMediaTable.rowAtPoint(evt.getPoint());
-        int col = mMediaTable.columnAtPoint(evt.getPoint());
-        if (row >= 0 && col >= 0) {
+    private void handlesMediaTableSelection(ListSelectionModel lm){
+        
+        if (lm.isSelectionEmpty()) {
+            showAllTracks();
+        } else {
+            int row = lm.getMinSelectionIndex();
             Media m = mTrackOrganizer.getMediaList().get(row);
             showMediaTracks(m);
         }
+
     }
     
     private void showMediaTracks(Media media){
@@ -270,7 +285,6 @@ public class MainWindow extends JFrame
         mMediaModel.deleteRows(rows);
         
         mMediaModel.fireTableDataChanged();
-        showAllTracks();
 
     }
     
@@ -278,6 +292,7 @@ public class MainWindow extends JFrame
         mTrackModel.setMedia(null);
         mTrackModel.setFilter(null);
         mShowAllTracks.setEnabled(false);
+        mMediaTable.clearSelection();
         filterTrackTable(mTrackFilter);
     }
     
@@ -295,7 +310,6 @@ public class MainWindow extends JFrame
         }
         
     }
-    
     
 
     private abstract class Filter{
