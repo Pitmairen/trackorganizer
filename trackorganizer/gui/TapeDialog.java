@@ -1,9 +1,8 @@
 
 package gui;
 
-
-import backend.LP;
 import backend.Media;
+import backend.Tape;
 import java.awt.GridLayout;
 import java.time.Year;
 import java.util.ArrayList;
@@ -13,51 +12,92 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import org.jdesktop.xswingx.PromptSupport;
 
-/**
- * Dialog for creating new LPs.
- */
-public class NewLPDialog extends MediaDialog
+
+public class TapeDialog extends MediaDialog
 {
-    
     private JTextField mTitle = new JTextField(20);
     private JTextField mArtistName = new JTextField(20);
     private JTextField mReleaseYear = new JTextField(20);
     private JTextField mRecordLabel = new JTextField(20);
     private JTextField mArchiveNR =  new JTextField(20);
     private JTextField mType =  new JTextField(20);
-        
+    
     private JLabel mTitleLabel = new JLabel("Title");
     private JLabel mArtistNameLabel = new JLabel("Artist");
     private JLabel mReleaseYearLabel = new JLabel("Year");
     private JLabel mRecordLabelLabel = new JLabel("Record Label");
     private JLabel mArchiveNRLabel =  new JLabel("Archive number");
-    private JLabel mTypeLabel =  new JLabel("LP type");
+    private JLabel mTypeLabel =  new JLabel("Tape type");
+
     
-    
-    public NewLPDialog(JFrame frame){
-        super("New LP", frame);
+    public TapeDialog(JFrame frame){
         
-        PromptSupport.setPrompt("LP Title", mTitle);
+        super("New Tape", frame);
+
+        // Add placeholders for the input fields.
+        PromptSupport.setPrompt("Tape Title", mTitle);
         PromptSupport.setPrompt("Artist", mArtistName);
         PromptSupport.setPrompt("Release year", mReleaseYear);
         PromptSupport.setPrompt("Record label", mRecordLabel);
         PromptSupport.setPrompt("Archive number (10000 <= n < 20000)", mArchiveNR);
         PromptSupport.setPrompt("Type", mType);
+
     }
     
     /**
-     * Creates a new LP object from the user input.
-     * @return a new LP object.
+     * Creates a new Tape from the user input
+     * @return 
      */
     @Override
     public Media createMediaObject()
     {
-        return new LP(mTitle.getText(),
+        return new Tape(mTitle.getText(),
                       mArtistName.getText(),
                       Year.of(Integer.parseInt(mReleaseYear.getText())),
                       mRecordLabel.getText(),
                       Integer.parseInt(mArchiveNR.getText()),
                        mType.getText());
+    }
+
+
+        /**
+     * Update the media object
+     */
+    @Override
+    public void updateMediaObject()
+    {
+        if(!(getMediaObject() instanceof Tape))
+            return;        
+        
+        Tape tape = (Tape)getMediaObject();
+        
+        tape.setName(mTitle.getText());
+        tape.setArtistName(mArtistName.getText());
+        tape.setReleaseYear(Year.of(Integer.parseInt(mReleaseYear.getText())));
+        tape.setRecordLabel(mRecordLabel.getText());
+        tape.setArchiveNR(Integer.parseInt(mArchiveNR.getText()));
+        tape.setTapeType(mType.getText());
+        
+    }
+    
+    
+     /**
+     * Load media content.
+     */
+    @Override
+    protected void loadMediaContent(){
+        
+        if(!(getMediaObject() instanceof Tape))
+            return;        
+        
+        Tape tape = (Tape)getMediaObject();
+        
+        mTitle.setText(tape.getName());
+        mArtistName.setText(tape.getArtistName());
+        mReleaseYear.setText(tape.getReleaseYear().toString());
+        mRecordLabel.setText(tape.getRecordLabel());
+        mArchiveNR.setText(Integer.toString(tape.getArchiveNR()));
+        mType.setText(tape.getTapeType());
     }
     
     
@@ -66,11 +106,11 @@ public class NewLPDialog extends MediaDialog
     {
         ArrayList<String> errors = new ArrayList<String>();
         if(mTitle.getText().length() == 0)
-            errors.add("You must input a title.");
+            errors.add("The tape must have a title.");
         if(mArtistName.getText().length() == 0)
-            errors.add("The lp must have an artist.");
+            errors.add("The tape must have an artist.");
         if(mRecordLabel.getText().length() == 0)
-            errors.add("The lp must have an record label.");
+            errors.add("The tape must have an record label.");
         
         String year = mReleaseYear.getText();
         try{
@@ -82,16 +122,13 @@ public class NewLPDialog extends MediaDialog
         String nrStr = mArchiveNR.getText();
         try{
             int nrInt = Integer.parseInt(nrStr);
-            if(!(nrInt >= 20000 && nrInt < 30000))
-                errors.add("Archive number must be in the range 20000-29999");
+            if(!(nrInt >= 30000 && nrInt < 40000))
+                errors.add("Archive number must be in the range 30000-39999");
             
         } catch(NumberFormatException e){
             errors.add("Archive number must be an integer.");
         }
-        
-        if(mType.getText().length() == 0)
-            errors.add("The lp must have a type.");
-        
+
         return errors;
     } 
 
@@ -115,11 +152,12 @@ public class NewLPDialog extends MediaDialog
         content.add(mArchiveNRLabel);
 
         content.add(mArchiveNR);
-        
         content.add(mTypeLabel);
 
         content.add(mType);
+        
         return content;
         
     }
+    
 }

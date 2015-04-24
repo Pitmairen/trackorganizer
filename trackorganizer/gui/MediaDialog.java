@@ -21,7 +21,7 @@ public abstract class MediaDialog {
     
     private JDialog mDialog;
     private Media mMedia;
-    private JButton mCreate = new JButton("Create");
+    private JButton mCreate = new JButton("Save");
     private JButton mCancel = new JButton("Cancel");
     private boolean mIsValid = false;
     
@@ -47,6 +47,7 @@ public abstract class MediaDialog {
      */
     public void setMediaObject(Media media){
         mMedia = media;
+        loadMediaContent();
     }
     
     /**
@@ -60,9 +61,9 @@ public abstract class MediaDialog {
    
     /**
      * Returns true or false depending on if the input from the user was valid.
-     * @return boolean indicating if a new media object should be created.
+     * @return boolean indicating if the user input is valid.
      */
-    public boolean shouldCreateMedia(){
+    public boolean inputIsValid(){
         return mIsValid;
     }
     
@@ -71,7 +72,17 @@ public abstract class MediaDialog {
      * @return A new media object.
      */
     public abstract Media createMediaObject();
+   
+     /**
+     * Update media object
+     */
+    public abstract void updateMediaObject();
     
+    
+     /**
+     * Load media content.
+     */
+    protected abstract void loadMediaContent();
     
     /**
      * Creates the dialog GUI components

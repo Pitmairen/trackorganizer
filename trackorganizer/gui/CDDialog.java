@@ -1,8 +1,8 @@
 
 package gui;
 
+import backend.CD;
 import backend.Media;
-import backend.Tape;
 import java.awt.GridLayout;
 import java.time.Year;
 import java.util.ArrayList;
@@ -12,51 +12,90 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import org.jdesktop.xswingx.PromptSupport;
 
-
-public class NewTapeDialog extends MediaDialog
+/**
+ * Dialog for creating new CDs.
+ */
+public class CDDialog extends MediaDialog
 {
+    
     private JTextField mTitle = new JTextField(20);
     private JTextField mArtistName = new JTextField(20);
     private JTextField mReleaseYear = new JTextField(20);
     private JTextField mRecordLabel = new JTextField(20);
     private JTextField mArchiveNR =  new JTextField(20);
-    private JTextField mType =  new JTextField(20);
     
     private JLabel mTitleLabel = new JLabel("Title");
     private JLabel mArtistNameLabel = new JLabel("Artist");
     private JLabel mReleaseYearLabel = new JLabel("Year");
     private JLabel mRecordLabelLabel = new JLabel("Record Label");
     private JLabel mArchiveNRLabel =  new JLabel("Archive number");
-    private JLabel mTypeLabel =  new JLabel("Tape type");
-
     
-    public NewTapeDialog(JFrame frame){
+    
+    public CDDialog(JFrame frame){
         
-        super("New Tape", frame);
+        super("New CD", frame);
 
         // Add placeholders for the input fields.
-        PromptSupport.setPrompt("Tape Title", mTitle);
+        PromptSupport.setPrompt("CD Title", mTitle);
         PromptSupport.setPrompt("Artist", mArtistName);
         PromptSupport.setPrompt("Release year", mReleaseYear);
         PromptSupport.setPrompt("Record label", mRecordLabel);
         PromptSupport.setPrompt("Archive number (10000 <= n < 20000)", mArchiveNR);
-        PromptSupport.setPrompt("Type", mType);
-
+       
     }
     
     /**
-     * Creates a new Tape from the user input
+     * Creates a new CD from the user input
      * @return 
      */
     @Override
     public Media createMediaObject()
     {
-        return new Tape(mTitle.getText(),
+        return new CD(mTitle.getText(),
                       mArtistName.getText(),
                       Year.of(Integer.parseInt(mReleaseYear.getText())),
                       mRecordLabel.getText(),
-                      Integer.parseInt(mArchiveNR.getText()),
-                       mType.getText());
+                      Integer.parseInt(mArchiveNR.getText()));
+    }
+    
+    
+    /**
+     * Update the media object
+     */
+    @Override
+    public void updateMediaObject()
+    {
+        if(!(getMediaObject() instanceof CD))
+            return;        
+        
+        CD cd = (CD)getMediaObject();
+        
+        cd.setName(mTitle.getText());
+        cd.setArtistName(mArtistName.getText());
+        cd.setReleaseYear(Year.of(Integer.parseInt(mReleaseYear.getText())));
+        cd.setRecordLabel(mRecordLabel.getText());
+        cd.setArchiveNR(Integer.parseInt(mArchiveNR.getText()));
+
+    }
+    
+    
+     /**
+     * Load media content.
+     */
+    @Override
+    protected void loadMediaContent(){
+        
+        if(!(getMediaObject() instanceof CD))
+            return;        
+        
+        CD cd = (CD)getMediaObject();
+        
+        mTitle.setText(cd.getName());
+        mArtistName.setText(cd.getArtistName());
+        mReleaseYear.setText(cd.getReleaseYear().toString());
+        mRecordLabel.setText(cd.getRecordLabel());
+        mArchiveNR.setText(Integer.toString(cd.getArchiveNR()));
+        
     }
 
     
@@ -65,11 +104,11 @@ public class NewTapeDialog extends MediaDialog
     {
         ArrayList<String> errors = new ArrayList<String>();
         if(mTitle.getText().length() == 0)
-            errors.add("The tape must have a title.");
+            errors.add("The cd must have a title.");
         if(mArtistName.getText().length() == 0)
-            errors.add("The tape must have an artist.");
+            errors.add("The cd must have an artist.");
         if(mRecordLabel.getText().length() == 0)
-            errors.add("The tape must have an record label.");
+            errors.add("The cd must have an record label.");
         
         String year = mReleaseYear.getText();
         try{
@@ -81,8 +120,8 @@ public class NewTapeDialog extends MediaDialog
         String nrStr = mArchiveNR.getText();
         try{
             int nrInt = Integer.parseInt(nrStr);
-            if(!(nrInt >= 30000 && nrInt < 40000))
-                errors.add("Archive number must be in the range 30000-39999");
+            if(!(nrInt >= 10000 && nrInt < 20000))
+                errors.add("Archive number must be in the range 10000-19999");
             
         } catch(NumberFormatException e){
             errors.add("Archive number must be an integer.");
@@ -97,7 +136,7 @@ public class NewTapeDialog extends MediaDialog
     {
         JPanel content = new JPanel();
         
-        content.setLayout(new GridLayout(6, 2));
+        content.setLayout(new GridLayout(5, 2));
         content.add(mTitleLabel);
         content.add(mTitle);
         content.add(mArtistNameLabel);
@@ -111,9 +150,6 @@ public class NewTapeDialog extends MediaDialog
         content.add(mArchiveNRLabel);
 
         content.add(mArchiveNR);
-        content.add(mTypeLabel);
-
-        content.add(mType);
         
         return content;
         

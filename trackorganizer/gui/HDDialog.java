@@ -12,12 +12,12 @@ import javax.swing.JTextField;
 import org.jdesktop.xswingx.PromptSupport;
 
 
-public class NewHDDialog extends MediaDialog {
+public class HDDialog extends MediaDialog {
     
     private JTextField mName = new JTextField(20);
     private JLabel mNameLabel = new JLabel("Name");
     
-    public NewHDDialog(JFrame frame) {
+    public HDDialog(JFrame frame) {
 
         super("New HD", frame);
 
@@ -37,6 +37,37 @@ public class NewHDDialog extends MediaDialog {
         return new HD(mName.getText());
     }
     
+    /**
+     * Update the media object
+     */
+    @Override
+    public void updateMediaObject()
+    {
+        if(!(getMediaObject() instanceof HD))
+            return;        
+        
+        HD hd = (HD)getMediaObject();
+        
+        hd.setName(mName.getText());
+
+    }
+    
+    
+     /**
+     * Load media content.
+     */
+    @Override
+    protected void loadMediaContent(){
+        
+        if(!(getMediaObject() instanceof HD))
+            return;        
+        
+        HD hd = (HD)getMediaObject();
+        
+        mName.setText(hd.getName());
+
+        
+    }
     
     
     @Override
