@@ -108,10 +108,11 @@ public abstract class MediaDialog {
     private void attachEventListeners(){
         
         mCreate.addActionListener((ActionEvent e) -> {
-            System.out.println("Create");
             onCreate();
         });
-    
+        mCancel.addActionListener((ActionEvent e) -> {
+            mDialog.setVisible(false);
+        });
     }
     
     private void onCreate(){

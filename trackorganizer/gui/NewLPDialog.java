@@ -56,6 +56,7 @@ public class NewLPDialog extends MediaDialog
                       mArtistName.getText(),
                       Year.of(Integer.parseInt(mReleaseYear.getText())),
                       mRecordLabel.getText(),
+                      Integer.parseInt(mArchiveNR.getText()),
                        mType.getText());
     }
     

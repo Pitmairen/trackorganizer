@@ -212,7 +212,7 @@ public class MainWindow extends JFrame
                 handleNewMediaDialog(new NewLPDialog(frame));
         });
         mNewMediaMenu.add("Tape").addActionListener((ActionEvent e) -> {
-
+                handleNewMediaDialog(new NewTapeDialog(frame));
         });
         mNewMediaMenu.add("HD").addActionListener((ActionEvent e) -> {
  

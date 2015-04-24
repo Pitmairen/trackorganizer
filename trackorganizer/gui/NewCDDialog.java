@@ -54,7 +54,8 @@ public class NewCDDialog extends MediaDialog
         return new CD(mTitle.getText(),
                       mArtistName.getText(),
                       Year.of(Integer.parseInt(mReleaseYear.getText())),
-                      mRecordLabel.getText());
+                      mRecordLabel.getText(),
+                      Integer.parseInt(mArchiveNR.getText()));
     }
 
     
