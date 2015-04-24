@@ -9,14 +9,12 @@ import backend.SampleData;
 import backend.SearchMedia;
 import backend.SearchTracks;
 import backend.Tape;
+import backend.Track;
 import backend.TrackOrganizer;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -28,7 +26,6 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 import org.jdesktop.xswingx.PromptSupport;
 
 
@@ -47,9 +44,12 @@ public class MainWindow extends JFrame
     
     private JButton mNewMedia = new JButton("Add Media");
     private JButton mDeleteMedia = new JButton("Delete Media");
-    private JButton mDeleteTrack = new JButton("Delete Track");
-    private JButton mShowAllTracks = new JButton("Show All Tracks");
     private JButton mEditMedia = new JButton("Edit Media");
+    private JButton mDeleteTrack = new JButton("Delete Track");
+    private JButton mNewTrack = new JButton("New Track");
+
+    private JButton mShowAllTracks = new JButton("Show All Tracks");
+
     
     
     private JComboBox mTrackFilterType;
@@ -109,6 +109,7 @@ public class MainWindow extends JFrame
         
         mShowAllTracks.setEnabled(false);
         mEditMedia.setEnabled(false);
+        mNewTrack.setEnabled(false);
         
         mTrackTable = new JTable(mTrackModel);
         
@@ -154,6 +155,7 @@ public class MainWindow extends JFrame
         JPanel trackButtons = new JPanel();
         trackButtons.setLayout(new FlowLayout(FlowLayout.LEADING));
         trackButtons.add(mDeleteTrack);
+        trackButtons.add(mNewTrack);
         trackButtons.add(mShowAllTracks);
         trackPanel.add(trackButtons);
         
@@ -238,6 +240,9 @@ public class MainWindow extends JFrame
         });
         
  
+        mNewTrack.addActionListener((ActionEvent e) -> {
+                 handleNewTrackDialog(new MusicTrackDialog(frame));
+        });
         
         mNewMedia.addActionListener((ActionEvent e) -> {
             showNewMediaMenu();
@@ -272,13 +277,14 @@ public class MainWindow extends JFrame
             Filter filter = (Filter) mTrackFilterType.getSelectedItem();
             mTrackModel.setFilter(filter.createPredicate(filterStr));
         }else{
+            mTrackFilter.setText("");
             mTrackModel.setFilter(null);
         }
     }
     
     private void handlesMediaTableSelection(ListSelectionModel lm){
         mEditMedia.setEnabled(!lm.isSelectionEmpty());
-        
+        mNewTrack.setEnabled(!lm.isSelectionEmpty());
         if (lm.isSelectionEmpty()) {
             showAllTracks();
         } else {
@@ -345,6 +351,18 @@ public class MainWindow extends JFrame
             mMediaModel.fireTableDataChanged();
         }
         
+    }
+    
+    
+    private void handleNewTrackDialog(TrackDialog dialog) {
+
+        dialog.show();
+        if (dialog.inputIsValid()) {
+            Track t = dialog.createTrackObject();
+            getSelectedMedia().addTrack(t);
+            filterTrackTable("");
+        }
+
     }
     
     
