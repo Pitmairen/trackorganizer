@@ -8,6 +8,7 @@ import backend.SearchTracks;
 import backend.TrackOrganizer;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
@@ -66,6 +67,7 @@ public class MainWindow extends JFrame
         setupEventHandlers();
         
         this.setVisible(true);
+        this.setResizable(false);
     }
 
     private void createTrackOrganizerObjects()
@@ -178,15 +180,24 @@ public class MainWindow extends JFrame
         mMediaFilter.addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
-                filterMediaTable((JTextField) e.getSource());
+                filterMediaTable(((JTextField) e.getSource()).getText());
             }
         });
         
         mTrackFilter.addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
-                filterTrackTable((JTextField) e.getSource());
+                filterTrackTable(((JTextField) e.getSource()).getText());
             }
+        });
+        
+        
+        mTrackFilterType.addActionListener ((ActionEvent e) -> {
+            filterTrackTable(mTrackFilter.getText());
+        });
+        
+        mMediaFilterType.addActionListener ((ActionEvent e) -> {
+            filterMediaTable(mMediaFilter.getText());
         });
         
         mMediaTable.getSelectionModel().addListSelectionListener((ListSelectionEvent e) -> {
@@ -228,12 +239,11 @@ public class MainWindow extends JFrame
 
     }
 
-    private void filterMediaTable(JTextField textField){
+    private void filterMediaTable(String filterStr){
         
-        String text = textField.getText();
-        if (text.length() > 0) {
+        if (filterStr.length() > 0) {
             Filter filter = (Filter) mMediaFilterType.getSelectedItem();
-            mMediaModel.setFilter(filter.createPredicate(text));
+            mMediaModel.setFilter(filter.createPredicate(filterStr));
         } else {
             mMediaModel.setFilter(null);
         }
@@ -241,12 +251,11 @@ public class MainWindow extends JFrame
     }
     
     
-    private void filterTrackTable(JTextField textField){
+    private void filterTrackTable(String filterStr){
         
-        String text = textField.getText();
-        if(text.length() > 0){
+        if(filterStr.length() > 0){
             Filter filter = (Filter) mTrackFilterType.getSelectedItem();
-            mTrackModel.setFilter(filter.createPredicate(text));
+            mTrackModel.setFilter(filter.createPredicate(filterStr));
         }else{
             mTrackModel.setFilter(null);
         }
@@ -268,7 +277,7 @@ public class MainWindow extends JFrame
         mTrackModel.setMedia(media);
         mTrackModel.setTrackList(media.getTracks());
         mShowAllTracks.setEnabled(true);
-        filterTrackTable(mTrackFilter);
+        filterTrackTable(mTrackFilter.getText());
   
     }
     private void deleteSelectedTracks(){
@@ -293,7 +302,7 @@ public class MainWindow extends JFrame
         mTrackModel.setFilter(null);
         mShowAllTracks.setEnabled(false);
         mMediaTable.clearSelection();
-        filterTrackTable(mTrackFilter);
+        filterTrackTable(mTrackFilter.getText());
     }
     
     private void showNewMediaMenu(){
