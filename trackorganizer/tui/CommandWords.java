@@ -5,7 +5,11 @@
  */
 package tui;
 
-import java.util.HashMap;
+import backend.Media;
+import backend.SampleData;
+import backend.Track;
+import backend.TrackOrganizer;
+import java.util.ArrayList;
 
 /**
  *
@@ -13,56 +17,97 @@ import java.util.HashMap;
  */
 public class CommandWords {
 
-    // A mapping between a command word and the CommandWord
-    // associated with it.
-
-    private HashMap<String, CommandWord> validCommands;
+    private ArrayList<String> tasks;
+    private ArrayList<String> mediaTypes;
+    private ArrayList<String> trackTypes;
+    
+    private TrackOrganizer to;
+    private SampleData sd;
+    private ArrayList<Media> tracks;
+    private Track track;
 
     /**
      * Constructor - initialise the command words.
      */
     public CommandWords() {
-        validCommands = new HashMap<String, CommandWord>();
-        for (CommandWord command : CommandWord.values()) {
-            if (command != CommandWord.UNKNOWN) {
-                validCommands.put(command.toString(), command);
-            }
+        tasks = new ArrayList<String>();
+        addTasks();
+        mediaTypes = new ArrayList<String>();
+        addMediaTypes();
+        trackTypes = new ArrayList<String>();
+        addTrackTypes();
+
+        to = new TrackOrganizer("Test");
+        
+        sd = new SampleData();
+        sd.fillMedia(to);
+        
+        tracks = new ArrayList<Media>();
+        tracks = to.getMediaList();
+        
+    }
+
+    public void addMedia() {
+
+    }
+
+    public void removeMedia() {
+
+    }
+
+    public void changeMedia() {
+
+    }
+
+    public void searchMedia() {
+
+    }
+
+    public void listContent() {
+        for (int a = 0; a < tracks.size(); a++) {
+            track = to.getTrackAt(a);
+            System.out.println((a + 1) + ". " + track.getDescriptionString());
         }
     }
 
-    /**
-     * Find the CommandWord associated with a command word.
-     *
-     * @param commandWord The word to look up.
-     * @return The CommandWord correspondng to commandWord, or UNKNOWN if it is
-     * not a valid command word.
-     */
-    public CommandWord getCommandWord(String commandWord) {
-        CommandWord command = validCommands.get(commandWord);
-        if (command != null) {
-            return command;
-        } else {
-            return CommandWord.UNKNOWN;
+    public void help() {
+        System.out.println("Type number to execute corresponding task");
+        for (int a = 0; a < tasks.size(); a++) {
+            System.out.println(tasks.get(a));
         }
     }
 
-    /**
-     * Check whether a given String is a valid command word.
-     *
-     * @param aString
-     * @return true if it is, false if it isn't.
-     */
-    public boolean isCommand(String aString) {
-        return validCommands.containsKey(aString);
+    public boolean quit() {
+        System.out.println("--- Exiting archive ---");
+        return true;
     }
 
-    /**
-     * Print all valid commands to System.out.
-     */
-    public void showAll() {
-        validCommands.keySet().stream().forEach((command) -> {
-            System.out.println("  " + command);
-        });
-        System.out.println();
+    public int getNumberOfTasks() {
+        return tasks.size();
+    }
+
+    private void addTasks() {
+        tasks.add("   1. Add Media");
+        tasks.add("   2. Remove Media");
+        tasks.add("   3. Change Media");
+        tasks.add("   4. Search Media");
+        tasks.add("   5. List Content");
+        tasks.add("   6. Help");
+        tasks.add("   7. Quit");
+    }
+
+    private void addMediaTypes() {
+        mediaTypes.add("1. HD");
+        mediaTypes.add("2. CD");
+        mediaTypes.add("3. LP");
+        mediaTypes.add("4. Tape");
+    }
+    
+    private void addTrackTypes(){
+        trackTypes.add("1. Music Track");
+        trackTypes.add("2. Sound Effect Track");
+        trackTypes.add("3. News Track");
+        trackTypes.add("4. Advertisement Track");
     }
 }
+  

@@ -5,6 +5,7 @@
  */
 package tui;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -24,40 +25,56 @@ public class Parser {
         reader = new Scanner(System.in);
     }
 
-    /**
-     * @return The next command from the user.
-     */
-    public Command getCommand() {
-        String inputLine;   // will hold the full input line
-        String word1 = null;
-        String word2 = null;
+    public boolean getCommand() {
+        boolean result = false;
 
-        System.out.print("> ");     // print prompt
+        System.out.print("> ");
+        int selectedFunction = getUserMenuSelection(commands.getNumberOfTasks());
 
-        inputLine = reader.nextLine();
-
-        // Find up to two words on the line.
-        Scanner tokenizer = new Scanner(inputLine);
-        if (tokenizer.hasNext()) {
-            word1 = tokenizer.next();      // get first word
-            if (tokenizer.hasNext()) {
-                word2 = tokenizer.next();      // get second word
-                // note: we just ignore the rest of the input line.
-            }
+        if (selectedFunction == 1) {
+            
         }
 
-        return new Command(commands.getCommandWord(word1), word2);
+        if (selectedFunction == 5) {
+            commands.listContent();
+        }
+
+        if (selectedFunction == 6) {
+            commands.help();
+        }
+
+        if (selectedFunction == 7) {
+            result = commands.quit();
+        }
+
+        return result;
     }
 
-    /**
-     * Print out a list of valid command words.
-     */
-    public void showCommands() {
-        commands.showAll();
+    private int getUserMenuSelection(int max) {
+        boolean validInput = false;
+        int selection = 0;
+
+        while (!validInput) {
+            try {
+                selection = reader.nextInt();
+                if ((selection <= max) && (selection > 0)) {
+                    validInput = true;
+                } else {
+                    System.out.print("You must provide a number between 1 and "
+                            + max + "\n>");
+                }
+            } catch (InputMismatchException ime) {
+                System.out.print("Your input must be an integer (a positiv number)\n>");
+                // Empty the Scanner
+                reader.next();
+            }
+        }
+        return selection;
     }
+
 }
 
-
+//addmedia, removemedia, changemedia, searchmedia, listcontent, quit, help, unknown
 //Search by archiveNR
 //Search by Tracks by title
 //Search Tracks by artist 
