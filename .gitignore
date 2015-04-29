@@ -25,3 +25,5 @@ hs_err_pid*
 # exceptions
 
 !3rdparty/commons-cli-1.2.jar
+!3rdparty/prompt.jar
+!3rdparty/org-netbeans-swing-outline.jar
