@@ -52,12 +52,28 @@ public class MusicTrackDialog extends TrackDialog {
     
     @Override
     public void updateTrackObject() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(!(getTrackObject() instanceof MusicTrack))
+            return;        
+        MusicTrack t = (MusicTrack)getTrackObject();
+        
+        t.setTitle(mTitle.getText());
+        t.setArtist(mArtistName.getText());
+        t.setDuration(Duration.ofSeconds(Integer.parseInt(mDuration.getText())));
+
+
     }
 
     @Override
     protected void loadTrackContent() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       if(!(getTrackObject() instanceof MusicTrack))
+            return;        
+         
+        MusicTrack t = (MusicTrack)getTrackObject();
+        
+        mTitle.setText(t.getTitle());
+        mArtistName.setText(t.getArtist());
+        mDuration.setText(Long.toString(t.getDuration().getSeconds()));
+        
     }
 
     @Override

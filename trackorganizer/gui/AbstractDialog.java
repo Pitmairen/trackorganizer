@@ -31,7 +31,7 @@ public abstract class AbstractDialog {
     public AbstractDialog(String title, JFrame frame){
         
         mDialog = new JDialog(frame, title, true);
-        
+        mDialog.setLocationRelativeTo(frame);
     }
     
     

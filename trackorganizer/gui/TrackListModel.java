@@ -32,6 +32,23 @@ public class TrackListModel extends AbstractTableModel {
         this.mTrackOrganizer = trackOrganizer;
     }
 
+
+    /**
+     * Returns the track at the specified row.
+     * @param row the row number
+     * @return A track object.
+     */
+    public Track getTrackAt(int row){
+        Track track;
+        if(mIsFiltered){
+            track = mFilteredTracks.get(row);
+        }else{
+            track = mTrackOrganizer.getTrackAt(row);
+
+        }
+        return track;
+    }
+    
     
     /**
      * Filters the content of the model.
@@ -95,7 +112,6 @@ public class TrackListModel extends AbstractTableModel {
              // Delete in reverse order to prevent invalid indexes.
              int deleteIndex = rows[rows.length - 1 - i];
              
-             System.out.println(deleteIndex);
              Track track;
              if(mIsFiltered){
                  track = mFilteredTracks.get(deleteIndex);
@@ -134,14 +150,7 @@ public class TrackListModel extends AbstractTableModel {
     @Override
     public Object getValueAt(int row, int col) {
         
-        Track track;
-        
-        if(mIsFiltered){
-            track = mFilteredTracks.get(row);
-        }else{
-            track = mTrackOrganizer.getTrackAt(row);
-
-        }
+        Track track = getTrackAt(row);
         
         switch(col){
             case 0:
