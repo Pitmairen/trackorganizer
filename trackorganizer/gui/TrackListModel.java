@@ -112,7 +112,6 @@ public class TrackListModel extends AbstractTableModel {
              // Delete in reverse order to prevent invalid indexes.
              int deleteIndex = rows[rows.length - 1 - i];
              
-             System.out.println(deleteIndex);
              Track track;
              if(mIsFiltered){
                  track = mFilteredTracks.get(deleteIndex);
