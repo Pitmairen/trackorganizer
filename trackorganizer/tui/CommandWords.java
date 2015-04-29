@@ -10,6 +10,7 @@ import backend.SampleData;
 import backend.Track;
 import backend.TrackOrganizer;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  *
@@ -20,7 +21,7 @@ public class CommandWords {
     private ArrayList<String> tasks;
     private ArrayList<String> mediaTypes;
     private ArrayList<String> trackTypes;
-    
+
     private TrackOrganizer to;
     private SampleData sd;
     private ArrayList<Media> tracks;
@@ -38,17 +39,23 @@ public class CommandWords {
         addTrackTypes();
 
         to = new TrackOrganizer("Test");
-        
+
         sd = new SampleData();
         sd.fillMedia(to);
-        
+
         tracks = new ArrayList<Media>();
         tracks = to.getMediaList();
-        
+
     }
 
-    public void addMedia() {
+    public int mediaStage1(String action) {
+        System.out.println("Select the type of media to " + action);
+        return printInfo(mediaTypes);
+    }
 
+    public int mediaStage2(String action) {
+        System.out.println("Select the type of track to " + action);
+        return printInfo(trackTypes);
     }
 
     public void removeMedia() {
@@ -72,9 +79,7 @@ public class CommandWords {
 
     public void help() {
         System.out.println("Type number to execute corresponding task");
-        for (int a = 0; a < tasks.size(); a++) {
-            System.out.println(tasks.get(a));
-        }
+        printInfo(tasks);
     }
 
     public boolean quit() {
@@ -97,17 +102,38 @@ public class CommandWords {
     }
 
     private void addMediaTypes() {
-        mediaTypes.add("1. HD");
-        mediaTypes.add("2. CD");
-        mediaTypes.add("3. LP");
-        mediaTypes.add("4. Tape");
+        mediaTypes.add("   1. HD");
+        mediaTypes.add("   2. CD");
+        mediaTypes.add("   3. LP");
+        mediaTypes.add("   4. Tape");
     }
-    
-    private void addTrackTypes(){
-        trackTypes.add("1. Music Track");
-        trackTypes.add("2. Sound Effect Track");
-        trackTypes.add("3. News Track");
-        trackTypes.add("4. Advertisement Track");
+
+    private void addTrackTypes() {
+        trackTypes.add("   1. Music");
+        trackTypes.add("   2. SFX");
+        trackTypes.add("   3. News");
+        trackTypes.add("   4. Advertisement");
+    }
+
+    private int printInfo(ArrayList<String> arrayStrings) {
+        for (String arrayString : arrayStrings) {
+            System.out.println(arrayString);
+        }
+        System.out.print("> ");
+        return arrayStrings.size();
+    }
+
+    public String typeSelected(int number, String res1, String res2, String res3, String res4) {
+        String result = "";
+        if (number == 1) {
+            result = res1;
+        } else if (number == 2) {
+            result = res2;
+        } else if (number == 3) {
+            result = res3;
+        } else if (number == 4) {
+            result = res4;
+        }
+        return result;
     }
 }
-  

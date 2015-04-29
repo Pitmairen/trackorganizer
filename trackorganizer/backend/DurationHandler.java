@@ -18,7 +18,7 @@ public class DurationHandler {
      * @param seconds The number of seconds the track/media lasts, which has not
      * been taken in account in the hour or minute parameter.
      */
-    DurationHandler(long hours, long minutes, long seconds) {
+    public DurationHandler(long hours, long minutes, long seconds) {
         duration = Duration.ofHours(hours).plusMinutes(minutes).plusSeconds(seconds);
     }
 
@@ -29,7 +29,7 @@ public class DurationHandler {
      * @param minutes The number of seconds the track/media lasts which has not
      * been taken in account in the minute parameter.
      */
-    DurationHandler(long minutes, long seconds) {
+    public DurationHandler(long minutes, long seconds) {
         duration = Duration.ofMinutes(minutes).plusSeconds(seconds);
     }
 
@@ -38,7 +38,7 @@ public class DurationHandler {
      *
      * @param seconds The duration of the track/media in seconds.
      */
-    DurationHandler(long seconds) {
+    public DurationHandler(long seconds) {
         duration = Duration.ofSeconds(seconds);
     }
 
@@ -47,7 +47,7 @@ public class DurationHandler {
      *
      * @param duration Takes a already existing duration.
      */
-    DurationHandler(Duration duration) {
+    public DurationHandler(Duration duration) {
         this.duration = duration;
     }
 
@@ -115,6 +115,10 @@ public class DurationHandler {
         }
 
         return value;
+    }
+
+   public Duration  getDuration() {
+        return duration;
     }
 
 }
