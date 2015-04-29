@@ -12,6 +12,7 @@
  */
 package cli;
 
+import backend.Media;
 import backend.SampleData;
 import backend.SearchTracks;
 import backend.Track;
@@ -65,10 +66,18 @@ public class CLIApplication {
     
     private void createCommands(){
         
+        mCommands.addCommand("lm", "list-all-media", 
+            "List all the medium in the archive", false, new ListAllMediaCommand());
+        
+        mCommands.addCommand("lt", "list-all-tracks", 
+            "List all the tracks in the archive", false, new ListAllTracksCommand());
+        
         mCommands.addCommand("ste", "search-track-exact", 
             "Search by track title", true, new SearchByTitleExactCommand());
         mCommands.addCommand("stc", "search-track-contains", 
             "Search by track title contains word", true, new SearchByTitleContainsCommand());
+        
+
     }
 
     
@@ -77,6 +86,18 @@ public class CLIApplication {
         System.out.println("Found " + tracks.size() + " tracks:");
         for(Track t : tracks){
             System.out.println(t.getClass().getSimpleName() + ": " + t.getDescriptionString());
+        }
+        
+        
+        
+    }
+    
+    
+    private void formatMediaList(ArrayList<Media> medialist){
+        
+        System.out.println("Found " + medialist.size() + " medium:");
+        for(Media m : medialist){
+            System.out.println(m.getClass().getSimpleName() + ": " + m.getName());
         }
         
         
@@ -112,6 +133,37 @@ public class CLIApplication {
             );
             
             formatTrackList(match);
+            
+        }
+        
+    }
+    
+    
+    private class ListAllTracksCommand extends Command{
+    
+        @Override
+        public void execute(CommandLine line)
+        {
+                
+            ArrayList<Track> allTracks = mTrackOrganizer.findTracks((Object o) ->{
+                return true;});
+            
+            formatTrackList(allTracks);
+            
+        }
+        
+    }
+    
+    
+    private class ListAllMediaCommand extends Command{
+    
+        @Override
+        public void execute(CommandLine line)
+        {
+                
+            ArrayList<Media> mediaList = mTrackOrganizer.getMediaList();
+            
+            formatMediaList(mediaList);
             
         }
         
