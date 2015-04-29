@@ -1,9 +1,7 @@
 package backend;
 
-
 import java.time.LocalDateTime;
 import java.time.Duration;
-
 
 /**
  * Represents an audio track. It can be any kind of audio content.
@@ -17,7 +15,7 @@ public class Track {
 
     private int timesPlayed;
     private Media media;
-    
+
     /**
      * Constructor.
      *
@@ -31,19 +29,15 @@ public class Track {
         this.timesPlayed = 0;
     }
 
-    
     /**
-     * Returns a description of the track.
-     * Used in the user interface.
+     * Returns a description of the track. Used in the user interface.
      *
      * @return A description of the track.
      */
-    public String getDescriptionString(){
+    public String getDescriptionString() {
         return getTitle();
     }
-    
-    
-    //Getters
+
     /**
      * Returns track title.
      *
@@ -53,7 +47,6 @@ public class Track {
         return title;
     }
 
-    
     /**
      * Returns the duration of the track.
      *
@@ -81,7 +74,6 @@ public class Track {
         return timesPlayed;
     }
 
-    //Setters
     /**
      * Sets the track title.
      *
@@ -90,7 +82,7 @@ public class Track {
     public void setTitle(String title) {
         this.title = title;
     }
-    
+
     /**
      * Sets the duration of the track.
      *
@@ -117,25 +109,22 @@ public class Track {
     public void setTimesPlayed(int timesPlayed) {
         this.timesPlayed = timesPlayed;
     }
-    
-    
+
     /**
-     * Returns the media object containing this track. 
+     * Returns the media object containing this track.
+     *
      * @return A media object
      */
-    public Media getMedia()
-    {
+    public Media getMedia() {
         return media;
     }
 
-    
     /**
      * Sets the media object containing this track.
+     *
      * @param media The media objects.
      */
-    public void setMedia(Media media)
-    {
+    public void setMedia(Media media) {
         this.media = media;
     }
-    
 }

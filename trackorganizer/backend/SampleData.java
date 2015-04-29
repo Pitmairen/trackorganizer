@@ -1,27 +1,22 @@
-
 package backend;
+
 import java.time.Duration;
 import java.time.Year;
 
 /**
  * This class contains sample data.
  */
+public class SampleData {
 
-public class SampleData{
+    public void fillMedia(TrackOrganizer to) {
 
-    
-    public void fillMedia(TrackOrganizer to){
-        
         addCds(to);
         addLPs(to);
-        
     }
-    
-    
-    
-    public void addLPs(TrackOrganizer to){
+
+    public void addLPs(TrackOrganizer to) {
         LP lp;
-        
+
         lp = new LP("Dinosaurs Rule", "Led Zeppelin", Year.of(1967), "The Home(r) Entertainment Network", "8-track");
         lp.addTrack(new MusicTrack("Train Kept A Rollin'", "Led Zeppelin", Duration.ofSeconds(159)));
         lp.addTrack(new MusicTrack("Nobody's Fault But Mine", "Led Zeppelin", Duration.ofSeconds(226)));
@@ -40,21 +35,13 @@ public class SampleData{
         lp.addTrack(new MusicTrack("Whole Lotta Love", "Led Zeppelin", Duration.ofSeconds(158)));
         lp.addTrack(new MusicTrack("Heartbreaker", "Led Zeppelin", Duration.ofSeconds(156)));
         to.addMedia(lp);
-        
     }
-    
-    
-    
-        
-    
-    
-    
-    
-    public void addCds(TrackOrganizer to){
+
+    public void addCds(TrackOrganizer to) {
         CD cd;
-        
+
         cd = new CD("Dinosaurs Rule", "Led Zeppelin", Year.of(1967), "The Home(r) Entertainment Network");
-                cd.addTrack(new MusicTrack("Train Kept A Rollin'", "Led Zeppelin", Duration.ofSeconds(159)));
+        cd.addTrack(new MusicTrack("Train Kept A Rollin'", "Led Zeppelin", Duration.ofSeconds(159)));
         cd.addTrack(new MusicTrack("Nobody's Fault But Mine", "Led Zeppelin", Duration.ofSeconds(226)));
         cd.addTrack(new MusicTrack("Black Dog", "Led Zeppelin", Duration.ofSeconds(212)));
         cd.addTrack(new MusicTrack("In The Evening", "Led Zeppelin", Duration.ofSeconds(245)));
@@ -73,7 +60,7 @@ public class SampleData{
         to.addMedia(cd);
 
         cd = new CD("Time Pieces - The Best Of Eric Clapton", "Eric Clapton", Year.of(1954), "Polydor");
-                cd.addTrack(new MusicTrack("I Shot The Sheriff", "Eric Clapton", Duration.ofSeconds(153)));
+        cd.addTrack(new MusicTrack("I Shot The Sheriff", "Eric Clapton", Duration.ofSeconds(153)));
         cd.addTrack(new MusicTrack("After Midnight", "Eric Clapton", Duration.ofSeconds(246)));
         cd.addTrack(new MusicTrack("Knockin' On Heaven's Door", "Eric Clapton", Duration.ofSeconds(161)));
         cd.addTrack(new MusicTrack("Wonderful Tonight", "Eric Clapton", Duration.ofSeconds(180)));
@@ -87,7 +74,7 @@ public class SampleData{
         to.addMedia(cd);
 
         cd = new CD("Creo En Mí", "Natalia Jiménez", Year.of(2015), "Sony Music Latin");
-                cd.addTrack(new MusicTrack("Creo En Mí", "Natalia Jiménez", Duration.ofSeconds(193)));
+        cd.addTrack(new MusicTrack("Creo En Mí", "Natalia Jiménez", Duration.ofSeconds(193)));
         cd.addTrack(new MusicTrack("Quédate Con Ella", "Natalia Jiménez", Duration.ofSeconds(215)));
         cd.addTrack(new MusicTrack("Tú No Me Quieres Más", "Natalia Jiménez", Duration.ofSeconds(189)));
         cd.addTrack(new MusicTrack("Escapar", "Natalia Jiménez", Duration.ofSeconds(250)));
@@ -101,7 +88,7 @@ public class SampleData{
         to.addMedia(cd);
 
         cd = new CD("Pretty Hate Machine", "Nine Inch Nails", Year.of(2002), "Interscope Records");
-                cd.addTrack(new MusicTrack("Head Like A Hole", "Nine Inch Nails", Duration.ofSeconds(224)));
+        cd.addTrack(new MusicTrack("Head Like A Hole", "Nine Inch Nails", Duration.ofSeconds(224)));
         cd.addTrack(new MusicTrack("Terrible Lie", "Nine Inch Nails", Duration.ofSeconds(168)));
         cd.addTrack(new MusicTrack("Down In It", "Nine Inch Nails", Duration.ofSeconds(188)));
         cd.addTrack(new MusicTrack("Sanctified", "Nine Inch Nails", Duration.ofSeconds(245)));
@@ -114,7 +101,7 @@ public class SampleData{
         to.addMedia(cd);
 
         cd = new CD("One For The M6", "Led Zeppelin", Year.of(1975), "The Home(r) Entertainment Network");
-                cd.addTrack(new MusicTrack("Over The Hills And Far Away", "Led Zeppelin", Duration.ofSeconds(186)));
+        cd.addTrack(new MusicTrack("Over The Hills And Far Away", "Led Zeppelin", Duration.ofSeconds(186)));
         cd.addTrack(new MusicTrack("Black Dog", "Led Zeppelin", Duration.ofSeconds(230)));
         cd.addTrack(new MusicTrack("Misty Mountain Hop", "Led Zeppelin", Duration.ofSeconds(198)));
         cd.addTrack(new MusicTrack("Since I've Been Loving You", "Led Zeppelin", Duration.ofSeconds(162)));
@@ -130,7 +117,7 @@ public class SampleData{
         to.addMedia(cd);
 
         cd = new CD("Dancing In The Sheets", "Shalamar", Year.of(1980), "Unidisc");
-                cd.addTrack(new MusicTrack("Dancing In The Sheets", "Shalamar", Duration.ofSeconds(160)));
+        cd.addTrack(new MusicTrack("Dancing In The Sheets", "Shalamar", Duration.ofSeconds(160)));
         cd.addTrack(new MusicTrack("Uptown Festival (Medley)", "Shalamar", Duration.ofSeconds(150)));
         cd.addTrack(new MusicTrack("Going To A Go-go", "Shalamar", Duration.ofSeconds(227)));
         cd.addTrack(new MusicTrack("I Can't Help Myself (Sugar Pie, Honey Bunch)", "Shalamar", Duration.ofSeconds(186)));
@@ -145,7 +132,7 @@ public class SampleData{
         to.addMedia(cd);
 
         cd = new CD("Memories Of The Future", "Jaded Star", Year.of(2015), "Sensory");
-                cd.addTrack(new MusicTrack("The Mask", "Jaded Star", Duration.ofSeconds(155)));
+        cd.addTrack(new MusicTrack("The Mask", "Jaded Star", Duration.ofSeconds(155)));
         cd.addTrack(new MusicTrack("Wake Up", "Jaded Star", Duration.ofSeconds(213)));
         cd.addTrack(new MusicTrack("Keep On Fighting", "Jaded Star", Duration.ofSeconds(234)));
         cd.addTrack(new MusicTrack("Stars", "Jaded Star", Duration.ofSeconds(150)));
@@ -158,7 +145,7 @@ public class SampleData{
         to.addMedia(cd);
 
         cd = new CD("Crazy Love Records 2", "Various", Year.of(2001), "Crazy Love Records");
-                cd.addTrack(new MusicTrack("Wrecking Dead Psychos", "Various", Duration.ofSeconds(250)));
+        cd.addTrack(new MusicTrack("Wrecking Dead Psychos", "Various", Duration.ofSeconds(250)));
         cd.addTrack(new MusicTrack("Porn Star", "Various", Duration.ofSeconds(204)));
         cd.addTrack(new MusicTrack("The Grim Ripper", "Various", Duration.ofSeconds(201)));
         cd.addTrack(new MusicTrack("Going Deadside", "Various", Duration.ofSeconds(246)));
@@ -172,7 +159,7 @@ public class SampleData{
         to.addMedia(cd);
 
         cd = new CD("Deep Forest", "Deep Forest", Year.of(1992), "Columbia");
-                cd.addTrack(new MusicTrack("Deep Forest", "Deep Forest", Duration.ofSeconds(177)));
+        cd.addTrack(new MusicTrack("Deep Forest", "Deep Forest", Duration.ofSeconds(177)));
         cd.addTrack(new MusicTrack("Sweet Lullaby", "Deep Forest", Duration.ofSeconds(208)));
         cd.addTrack(new MusicTrack("Hunting", "Deep Forest", Duration.ofSeconds(167)));
         cd.addTrack(new MusicTrack("Night Bird", "Deep Forest", Duration.ofSeconds(177)));
@@ -185,11 +172,11 @@ public class SampleData{
         to.addMedia(cd);
 
         cd = new CD("Blow Me (One Last Kiss)", "P!nk", Year.of(2012), "Sony Music");
-                cd.addTrack(new MusicTrack("Blow Me (One Last Kiss)", "P!nk", Duration.ofSeconds(157)));
+        cd.addTrack(new MusicTrack("Blow Me (One Last Kiss)", "P!nk", Duration.ofSeconds(157)));
         to.addMedia(cd);
 
         cd = new CD("Mercury Falling", "Sting", Year.of(1996), "A&amp;M Records");
-                cd.addTrack(new MusicTrack("The Hounds Of Winter", "Sting", Duration.ofSeconds(175)));
+        cd.addTrack(new MusicTrack("The Hounds Of Winter", "Sting", Duration.ofSeconds(175)));
         cd.addTrack(new MusicTrack("I Hung My Head", "Sting", Duration.ofSeconds(238)));
         cd.addTrack(new MusicTrack("Let Your Soul Be Your Pilot", "Sting", Duration.ofSeconds(162)));
         cd.addTrack(new MusicTrack("I Was Brought To My Senses", "Sting", Duration.ofSeconds(234)));
@@ -202,14 +189,14 @@ public class SampleData{
         to.addMedia(cd);
 
         cd = new CD("Des Maux", "Explicit Clowns", Year.of(2003), "Not On Label (Explicit Clowns)");
-                cd.addTrack(new MusicTrack("Un Monde Sans Furie", "Explicit Clowns", Duration.ofSeconds(225)));
+        cd.addTrack(new MusicTrack("Un Monde Sans Furie", "Explicit Clowns", Duration.ofSeconds(225)));
         cd.addTrack(new MusicTrack("Inside The Circus", "Explicit Clowns", Duration.ofSeconds(186)));
         cd.addTrack(new MusicTrack("Vasectomia", "Explicit Clowns", Duration.ofSeconds(237)));
         cd.addTrack(new MusicTrack("Morbide", "Explicit Clowns", Duration.ofSeconds(175)));
         to.addMedia(cd);
 
         cd = new CD("Bye, Bye Baby", "Janis Joplin", Year.of(1992), "On Stage");
-                cd.addTrack(new MusicTrack("Down On Me", "Janis Joplin", Duration.ofSeconds(248)));
+        cd.addTrack(new MusicTrack("Down On Me", "Janis Joplin", Duration.ofSeconds(248)));
         cd.addTrack(new MusicTrack("Bye, Bye Baby", "Janis Joplin", Duration.ofSeconds(200)));
         cd.addTrack(new MusicTrack("Piece Of My Heart", "Janis Joplin", Duration.ofSeconds(244)));
         cd.addTrack(new MusicTrack("Road Block", "Janis Joplin", Duration.ofSeconds(188)));
@@ -224,7 +211,7 @@ public class SampleData{
         to.addMedia(cd);
 
         cd = new CD("Quand On Se Donne...", "Francis Martin", Year.of(1992), "Sony Musique");
-                cd.addTrack(new MusicTrack("Rock It", "Francis Martin", Duration.ofSeconds(201)));
+        cd.addTrack(new MusicTrack("Rock It", "Francis Martin", Duration.ofSeconds(201)));
         cd.addTrack(new MusicTrack("Fou De Toi", "Francis Martin", Duration.ofSeconds(232)));
         cd.addTrack(new MusicTrack("Dis-Moi Pourquoi", "Francis Martin", Duration.ofSeconds(222)));
         cd.addTrack(new MusicTrack("Quand On Se Donne (À Une Femme D'Expérience)", "Francis Martin", Duration.ofSeconds(154)));
@@ -237,7 +224,7 @@ public class SampleData{
         to.addMedia(cd);
 
         cd = new CD("Ricchi &amp; Poveri", "Ricchi & Poveri", Year.of(2003), "Warner Strategic Marketing Italy");
-                cd.addTrack(new MusicTrack("Questo Amore", "Ricchi & Poveri", Duration.ofSeconds(162)));
+        cd.addTrack(new MusicTrack("Questo Amore", "Ricchi & Poveri", Duration.ofSeconds(162)));
         cd.addTrack(new MusicTrack("Un Diadema Di Ciliege", "Ricchi & Poveri", Duration.ofSeconds(238)));
         cd.addTrack(new MusicTrack("Mama", "Ricchi & Poveri", Duration.ofSeconds(155)));
         cd.addTrack(new MusicTrack("E Poi...L'Amore", "Ricchi & Poveri", Duration.ofSeconds(223)));
@@ -250,7 +237,7 @@ public class SampleData{
         to.addMedia(cd);
 
         cd = new CD("Lady In Red - A Collection Of Great Ballads 2", "Various", Year.of(1996), "Not On Label");
-                cd.addTrack(new MusicTrack("More Than I Can Say", "Various", Duration.ofSeconds(165)));
+        cd.addTrack(new MusicTrack("More Than I Can Say", "Various", Duration.ofSeconds(165)));
         cd.addTrack(new MusicTrack("Paris Night", "Various", Duration.ofSeconds(186)));
         cd.addTrack(new MusicTrack("Joe Le Taxi", "Various", Duration.ofSeconds(180)));
         cd.addTrack(new MusicTrack("Nothing's Gonna Change My Love For You", "Various", Duration.ofSeconds(212)));
@@ -271,7 +258,7 @@ public class SampleData{
         to.addMedia(cd);
 
         cd = new CD("An Evening With All Mighty Senators", "All Mighty Senators", Year.of(1996), "Dog Eat Dog Records (2)");
-                cd.addTrack(new MusicTrack("Race Car", "All Mighty Senators", Duration.ofSeconds(204)));
+        cd.addTrack(new MusicTrack("Race Car", "All Mighty Senators", Duration.ofSeconds(204)));
         cd.addTrack(new MusicTrack("E-Jam", "All Mighty Senators", Duration.ofSeconds(188)));
         cd.addTrack(new MusicTrack("G-Jam", "All Mighty Senators", Duration.ofSeconds(170)));
         cd.addTrack(new MusicTrack("Black Tie", "All Mighty Senators", Duration.ofSeconds(228)));
@@ -281,7 +268,7 @@ public class SampleData{
         to.addMedia(cd);
 
         cd = new CD("Hotter Than The Hindenburg", "Led Zeppelin", Year.of(1992), "The Home(r) Entertainment Network");
-                cd.addTrack(new MusicTrack("The Train Kept A-Rollin'", "Led Zeppelin", Duration.ofSeconds(176)));
+        cd.addTrack(new MusicTrack("The Train Kept A-Rollin'", "Led Zeppelin", Duration.ofSeconds(176)));
         cd.addTrack(new MusicTrack("Nobody's Fault But Mine", "Led Zeppelin", Duration.ofSeconds(226)));
         cd.addTrack(new MusicTrack("Black Dog", "Led Zeppelin", Duration.ofSeconds(210)));
         cd.addTrack(new MusicTrack("In The Evening", "Led Zeppelin", Duration.ofSeconds(226)));
@@ -301,7 +288,7 @@ public class SampleData{
         to.addMedia(cd);
 
         cd = new CD("Essential Joey Arias, The", "Joey Arias", Year.of(2015), "Not On Label");
-                cd.addTrack(new MusicTrack("Hard Day's Night", "Joey Arias", Duration.ofSeconds(165)));
+        cd.addTrack(new MusicTrack("Hard Day's Night", "Joey Arias", Duration.ofSeconds(165)));
         cd.addTrack(new MusicTrack("Dream Lover", "Joey Arias", Duration.ofSeconds(208)));
         cd.addTrack(new MusicTrack("You'll Be There", "Joey Arias", Duration.ofSeconds(178)));
         cd.addTrack(new MusicTrack("You've Changed", "Joey Arias", Duration.ofSeconds(160)));
@@ -316,7 +303,7 @@ public class SampleData{
         to.addMedia(cd);
 
         cd = new CD("Let&#39;s Spend A Quiet Night", "Mychal Marcel", Year.of(1994), "Mychen Ja");
-                cd.addTrack(new MusicTrack("Let's Spend A Quiet Night", "Mychal Marcel", Duration.ofSeconds(212)));
+        cd.addTrack(new MusicTrack("Let's Spend A Quiet Night", "Mychal Marcel", Duration.ofSeconds(212)));
         cd.addTrack(new MusicTrack("Come Here", "Mychal Marcel", Duration.ofSeconds(232)));
         cd.addTrack(new MusicTrack("Reprise (Interlude)", "Mychal Marcel", Duration.ofSeconds(210)));
         cd.addTrack(new MusicTrack("You Know (I Wanna Get Witcha)", "Mychal Marcel", Duration.ofSeconds(220)));
@@ -327,7 +314,7 @@ public class SampleData{
         to.addMedia(cd);
 
         cd = new CD("16 Suomalaista Kestosuosikkia", "Tapio Heinonen", Year.of(1998), "Bellevue Entertainment");
-                cd.addTrack(new MusicTrack("Vanha Tie", "Tapio Heinonen", Duration.ofSeconds(184)));
+        cd.addTrack(new MusicTrack("Vanha Tie", "Tapio Heinonen", Duration.ofSeconds(184)));
         cd.addTrack(new MusicTrack("Tieni Länteen Toi", "Tapio Heinonen", Duration.ofSeconds(219)));
         cd.addTrack(new MusicTrack("Sotilaan Paluu (Philadelphia 1776)", "Tapio Heinonen", Duration.ofSeconds(224)));
         cd.addTrack(new MusicTrack("Kuusamo", "Tapio Heinonen", Duration.ofSeconds(155)));
@@ -346,7 +333,7 @@ public class SampleData{
         to.addMedia(cd);
 
         cd = new CD("Plan A!", "Thomas Godoj", Year.of(2008), "Sony BMG Music Entertainment");
-                cd.addTrack(new MusicTrack("Love Is You", "Thomas Godoj", Duration.ofSeconds(213)));
+        cd.addTrack(new MusicTrack("Love Is You", "Thomas Godoj", Duration.ofSeconds(213)));
         cd.addTrack(new MusicTrack("Not The Only One", "Thomas Godoj", Duration.ofSeconds(241)));
         cd.addTrack(new MusicTrack("Autopilot", "Thomas Godoj", Duration.ofSeconds(209)));
         cd.addTrack(new MusicTrack("Too Young To Grow Old", "Thomas Godoj", Duration.ofSeconds(170)));
@@ -363,7 +350,7 @@ public class SampleData{
         to.addMedia(cd);
 
         cd = new CD("Malinkého Ptáčka", "Buty", Year.of(1996), "Ariola");
-                cd.addTrack(new MusicTrack("Dokouřit", "Buty", Duration.ofSeconds(201)));
+        cd.addTrack(new MusicTrack("Dokouřit", "Buty", Duration.ofSeconds(201)));
         cd.addTrack(new MusicTrack("Malinkého Ptáčka II.", "Buty", Duration.ofSeconds(180)));
         cd.addTrack(new MusicTrack("Malinkého Ptáčka I. (Album Dřevo)", "Buty", Duration.ofSeconds(215)));
         cd.addTrack(new MusicTrack("Motyłe", "Buty", Duration.ofSeconds(180)));
@@ -372,7 +359,7 @@ public class SampleData{
         to.addMedia(cd);
 
         cd = new CD("Close To You", "David Cobb (3)", Year.of(1991), "Gold Castle");
-                cd.addTrack(new MusicTrack("Step By Step", "David Cobb (3)", Duration.ofSeconds(212)));
+        cd.addTrack(new MusicTrack("Step By Step", "David Cobb (3)", Duration.ofSeconds(212)));
         cd.addTrack(new MusicTrack("Found A Love", "David Cobb (3)", Duration.ofSeconds(218)));
         cd.addTrack(new MusicTrack("Been Born Again", "David Cobb (3)", Duration.ofSeconds(218)));
         cd.addTrack(new MusicTrack("Listen (Interlude)", "David Cobb (3)", Duration.ofSeconds(210)));

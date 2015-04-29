@@ -16,9 +16,9 @@ public class PhysicalRelease extends Media {
     private ArrayList<Track> tracks;
     private int archiveNR;
 
-
     /**
      * Constructor.
+     *
      * @param title The name of the release.
      * @param artistName Artist name of the physical release.
      * @param releaseYear Year the release was released.
@@ -34,10 +34,6 @@ public class PhysicalRelease extends Media {
         this.tracks = new ArrayList<>();
     }
 
-    
-
-
-    //Getters
     /**
      * Returns the artist name of the release.
      *
@@ -67,11 +63,12 @@ public class PhysicalRelease extends Media {
 
     /**
      * Returns the total duration of the tracks on the media.
+     *
      * @return The total duration of the tracks.
      */
-    public Duration getTotalDuration(){
+    public Duration getTotalDuration() {
         Duration total = Duration.ZERO;
-        for(Track track: tracks){
+        for (Track track : tracks) {
             total = total.plus(track.getDuration());
         }
         return total;
@@ -96,7 +93,6 @@ public class PhysicalRelease extends Media {
         return archiveNR;
     }
 
-    //Setters
     /**
      * Sets the name of the artist who made the release.
      *
@@ -141,38 +137,35 @@ public class PhysicalRelease extends Media {
     public void setArchiveNR(int archiveNR) {
         this.archiveNR = archiveNR;
     }
-    
-    
+
     /**
      * Adds a track to this media.
-     * 
+     *
      * @param track The track to add
      */
     @Override
-    public void addTrack(Track track){
+    public void addTrack(Track track) {
         track.setMedia(this);
         tracks.add(track);
     }
-    
-    
+
     /**
      * Remove a track from this media
-     * 
+     *
      * @param track The track to remove.
-    */
+     */
     @Override
-    public void removeTrack(Track track){
+    public void removeTrack(Track track) {
         tracks.remove(track);
     }
-    
-    
-    
+
     /**
      * Returns the tracks at the specified index.
+     *
      * @param index The track index
      * @return A Track object.
      */
-    public Track getTrackAt(int index){
+    public Track getTrackAt(int index) {
         return tracks.get(index);
     }
 }

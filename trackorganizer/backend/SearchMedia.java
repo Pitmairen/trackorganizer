@@ -9,12 +9,15 @@ public class SearchMedia {
      * Search by name of media.
      */
     public static class ByName implements Predicate {
+
         // Variables
         private String searchString;
+
         // Constructor
         public ByName(String searchString) {
             this.searchString = searchString.toLowerCase();
         }
+
         // Method
         public boolean isMatch(Object obj) {
             boolean result = false;
@@ -32,12 +35,15 @@ public class SearchMedia {
      * Search by artist.
      */
     public static class ByArtist implements Predicate {
+
         // Variables
         private String searchString;
+
         // Constructor
         public ByArtist(String searchString) {
             this.searchString = searchString.toLowerCase();
         }
+
         // Method
         public boolean isMatch(Object obj) {
             boolean result = false;
@@ -50,17 +56,20 @@ public class SearchMedia {
             return result;
         }
     }
-    
-     /**
+
+    /**
      * Search by archive nr.
      */
     public static class ByNR implements Predicate {
+
         // Variables
         private int searchNR;
+
         // Constructor
         public ByNR(int searchNR) {
             this.searchNR = searchNR;
         }
+
         // Method
         public boolean isMatch(Object obj) {
             boolean result = false;
