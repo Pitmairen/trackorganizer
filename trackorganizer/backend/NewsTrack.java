@@ -1,7 +1,6 @@
 package backend;
 
 import java.time.Duration;
-import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -25,27 +24,23 @@ public class NewsTrack extends Track {
      * @param dateProduced The date the track was produced.
      * @param dateFirstAired The date the track was aired.
      */
-    public NewsTrack(String title, Duration duration,  String description, String journalistName, Date dateProduced, Date dateFirstAired) {
+    public NewsTrack(String title, Duration duration, String description, String journalistName, Date dateProduced, Date dateFirstAired) {
         super(title, duration);
         this.description = description;
         this.journalistName = journalistName;
     }
-    
-    
-    
+
     /**
      * Returns a description of the track
      *
      * @return A description of the track.
      */
     @Override
-    public String getDescriptionString(){
-        return getJournalistName()+ " - " + getTitle() + ": " + 
-            DurationHandler.durationToString(getDuration());
+    public String getDescriptionString() {
+        return getJournalistName() + " - " + getTitle() + ": "
+                + DurationHandler.durationToString(getDuration());
     }
-    
-    
-    //Getters
+
     /**
      * Returns news content description.
      *
@@ -66,6 +61,7 @@ public class NewsTrack extends Track {
 
     /**
      * Returns the date the news track was produced
+     *
      * @return dateProduced
      */
     public Date getDateProduced() {
@@ -74,13 +70,13 @@ public class NewsTrack extends Track {
 
     /**
      * Returns the date the news track first aired
-     * @return 
+     *
+     * @return
      */
     public Date getDateFirstAired() {
         return dateFirstAired;
     }
 
-    //Setters
     /**
      * Sets the name of the journalist.
      *
@@ -101,7 +97,8 @@ public class NewsTrack extends Track {
 
     /**
      * Sets the date the news track was first produced.
-     * @param dateProduced 
+     *
+     * @param dateProduced
      */
     public void setDateProduced(Date dateProduced) {
         this.dateProduced = dateProduced;
@@ -109,7 +106,8 @@ public class NewsTrack extends Track {
 
     /**
      * Returns the date the news track first aired.
-     * @param dateFirstAired 
+     *
+     * @param dateFirstAired
      */
     public void setDateFirstAired(Date dateFirstAired) {
         this.dateFirstAired = dateFirstAired;

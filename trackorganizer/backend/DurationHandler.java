@@ -7,6 +7,7 @@ import java.time.Duration;
  */
 public class DurationHandler {
 
+    // Instance variables
     private Duration duration;
 
     /**
@@ -56,7 +57,6 @@ public class DurationHandler {
         DurationHandler h = new DurationHandler(d);
 
         return h.formatDuration();
-
     }
 
     /**
@@ -113,8 +113,6 @@ public class DurationHandler {
         } else {
             value = "00";
         }
-
         return value;
     }
-
 }

@@ -3,9 +3,8 @@ package backend;
 /**
  * Represents an audio file.
  */
+public class File {
 
-public class File
-{
     // Instance variables
     private Track track;
     private String filePath;
@@ -13,12 +12,11 @@ public class File
 
     /**
      * Constructor.
-     * 
+     *
      * @param track The audio track.
      * @param filePath The file path.
      */
-    public File(Track track, String filePath, int fileSize)
-    {
+    public File(Track track, String filePath, int fileSize) {
         this.track = track;
         this.filePath = filePath;
         this.fileSize = fileSize;
@@ -26,47 +24,44 @@ public class File
 
     /**
      * Returns track.
-     * 
+     *
      * @return Track
      */
-    public Track getTrack()
-    {
+    public Track getTrack() {
         return track;
     }
 
     /**
      * Sets the track.
-     * 
+     *
      * @param track The track..
      */
-    public void setTrack(Track track)
-    {
+    public void setTrack(Track track) {
         this.track = track;
     }
 
     /**
      * Returns file path.
-     * 
+     *
      * @return File path
      */
-    public String getFilePath()
-    {
+    public String getFilePath() {
         return filePath;
     }
 
     /**
      * Sets the file path.
-     * 
+     *
      * @param filePath The file path.
      */
-    public void setFilePath(String filePath)
-    {
+    public void setFilePath(String filePath) {
         this.filePath = filePath;
     }
-    
+
     /**
      * Returns the file size of the file.
-     * @return 
+     *
+     * @return
      */
     public int getFilesize() {
         return fileSize;
@@ -74,7 +69,8 @@ public class File
 
     /**
      * Sets the file size of the file.
-     * @param filesize 
+     *
+     * @param filesize
      */
     public void setFilesize(int filesize) {
         this.fileSize = filesize;
