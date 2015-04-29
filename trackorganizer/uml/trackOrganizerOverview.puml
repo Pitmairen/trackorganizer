@@ -1,0 +1,279 @@
+@startuml
+abstract class backend.Media
+abstract class cli.Command
+abstract class gui.AbstractDialog
+abstract class gui.MediaDialog
+abstract class gui.TrackDialog
+annotation java.lang.Override
+class backend.AdvertisementTrack
+class backend.CD
+class backend.DurationHandler
+class backend.File
+class backend.HD
+class backend.LP
+class backend.MusicTrack
+class backend.NewsTrack
+class backend.PhysicalRelease
+class backend.SampleData
+class backend.SearchMedia
+class backend.SearchTracks
+class backend.SoundEffectTrack
+class backend.Tape
+class backend.Track
+class backend.TrackOrganizer
+class cli.CLIApplication
+class cli.CommandHandler
+class gui.CDDialog
+class gui.GUIApp
+class gui.HDDialog
+class gui.IconLoader
+class gui.LPDialog
+class gui.MainWindow
+class gui.MediaListModel
+class gui.MusicTrackDialog
+class gui.TapeDialog
+class gui.TrackListModel
+class java.awt.BorderLayout
+class java.awt.FlowLayout
+class java.awt.GridLayout
+class java.awt.event.ActionEvent
+class java.awt.event.KeyAdapter
+class java.awt.event.KeyEvent
+class java.time.Duration
+class java.time.LocalDateTime
+class java.time.Year
+class java.util.ArrayList
+class java.util.Arrays
+class java.util.Date
+class java.util.HashMap
+class java.util.InputMismatchException
+class java.util.Iterator
+class java.util.Scanner
+class javax.swing.BoxLayout
+class javax.swing.ImageIcon
+class javax.swing.JButton
+class javax.swing.JComboBox
+class javax.swing.JDialog
+class javax.swing.JFrame
+class javax.swing.JLabel
+class javax.swing.JOptionPane
+class javax.swing.JPanel
+class javax.swing.JPopupMenu
+class javax.swing.JScrollPane
+class javax.swing.JTable
+class javax.swing.JTextField
+class javax.swing.ListSelectionModel
+class javax.swing.event.ListSelectionEvent
+class javax.swing.table.AbstractTableModel
+class org.apache.commons.cli.CommandLine
+class org.apache.commons.cli.CommandLineParser
+class org.apache.commons.cli.GnuParser
+class org.apache.commons.cli.HelpFormatter
+class org.apache.commons.cli.Options
+class org.apache.commons.cli.ParseException
+class org.jdesktop.xswingx.PromptSupport
+class tui.CommandWords
+class tui.Parser
+class tui.Tui
+class tui.TuiMain
+interface backend.Predicate
+backend.Media ..> java.util.ArrayList
+cli.Command ..> org.apache.commons.cli.CommandLine
+gui.AbstractDialog ..> java.awt.BorderLayout
+gui.AbstractDialog ..> java.awt.FlowLayout
+gui.AbstractDialog ..> java.awt.event.ActionEvent
+gui.AbstractDialog ..> java.util.ArrayList
+gui.AbstractDialog ..> javax.swing.JButton
+gui.AbstractDialog ..> javax.swing.JDialog
+gui.AbstractDialog ..> javax.swing.JFrame
+gui.AbstractDialog ..> javax.swing.JOptionPane
+gui.AbstractDialog ..> javax.swing.JPanel
+gui.MediaDialog ..> backend.Media
+gui.MediaDialog --|> gui.AbstractDialog
+gui.MediaDialog ..> javax.swing.JFrame
+gui.TrackDialog ..> backend.Media
+gui.TrackDialog --|> gui.AbstractDialog
+gui.TrackDialog ..> backend.Track
+gui.TrackDialog ..> javax.swing.JFrame
+backend.AdvertisementTrack ..> java.lang.Override
+backend.AdvertisementTrack --|> backend.Track
+backend.AdvertisementTrack ..> java.time.Duration
+backend.AdvertisementTrack ..> java.time.LocalDateTime
+backend.CD --|> backend.PhysicalRelease
+backend.CD ..> java.time.Duration
+backend.CD ..> java.time.Year
+backend.CD ..> java.util.ArrayList
+backend.DurationHandler ..> java.time.Duration
+backend.HD --|> backend.Media
+backend.HD ..> java.lang.Override
+backend.HD ..> java.util.ArrayList
+backend.HD ..> java.util.Iterator
+backend.LP --|> backend.PhysicalRelease
+backend.LP ..> java.time.Duration
+backend.LP ..> java.time.Year
+backend.LP ..> java.util.ArrayList
+backend.MusicTrack ..> java.lang.Override
+backend.MusicTrack --|> backend.Track
+backend.MusicTrack ..> java.time.Duration
+backend.MusicTrack ..> java.time.LocalDateTime
+backend.NewsTrack ..> java.lang.Override
+backend.NewsTrack --|> backend.Track
+backend.NewsTrack ..> java.time.Duration
+backend.NewsTrack ..> java.time.LocalDateTime
+backend.NewsTrack ..> java.util.Date
+backend.PhysicalRelease --|> backend.Media
+backend.PhysicalRelease ..> java.lang.Override
+backend.PhysicalRelease ..> java.time.Duration
+backend.PhysicalRelease ..> java.time.Year
+backend.PhysicalRelease ..> java.util.ArrayList
+backend.SampleData ..> java.time.Duration
+backend.SampleData ..> java.time.Year
+backend.SearchTracks ..> java.util.ArrayList
+backend.SoundEffectTrack ..> java.lang.Override
+backend.SoundEffectTrack --|> backend.Track
+backend.SoundEffectTrack ..> java.time.Duration
+backend.SoundEffectTrack ..> java.time.LocalDateTime
+backend.Tape --|> backend.PhysicalRelease
+backend.Tape ..> java.time.Duration
+backend.Tape ..> java.time.Year
+backend.Tape ..> java.util.ArrayList
+backend.Track ..> java.time.Duration
+backend.Track ..> java.time.LocalDateTime
+backend.TrackOrganizer ..> java.time.Year
+backend.TrackOrganizer ..> java.util.ArrayList
+cli.CLIApplication ..> java.lang.Override
+cli.CLIApplication ..> backend.SampleData
+cli.CLIApplication ..> backend.SearchTracks
+cli.CLIApplication ..> backend.Track
+cli.CLIApplication ..> backend.TrackOrganizer
+cli.CLIApplication ..> java.util.ArrayList
+cli.CLIApplication ..> org.apache.commons.cli.CommandLine
+cli.CommandHandler ..> java.lang.Override
+cli.CommandHandler ..> java.util.HashMap
+cli.CommandHandler ..> org.apache.commons.cli.CommandLine
+cli.CommandHandler ..> org.apache.commons.cli.CommandLineParser
+cli.CommandHandler ..> org.apache.commons.cli.GnuParser
+cli.CommandHandler ..> org.apache.commons.cli.HelpFormatter
+cli.CommandHandler ..> org.apache.commons.cli.Options
+cli.CommandHandler ..> org.apache.commons.cli.ParseException
+gui.CDDialog ..> backend.Media
+gui.CDDialog --|> gui.MediaDialog
+gui.CDDialog ..> java.lang.Override
+gui.CDDialog ..> backend.CD
+gui.CDDialog ..> java.awt.GridLayout
+gui.CDDialog ..> java.time.Year
+gui.CDDialog ..> java.util.ArrayList
+gui.CDDialog ..> javax.swing.JFrame
+gui.CDDialog ..> javax.swing.JLabel
+gui.CDDialog ..> javax.swing.JPanel
+gui.CDDialog ..> javax.swing.JTextField
+gui.CDDialog ..> org.jdesktop.xswingx.PromptSupport
+gui.HDDialog ..> backend.Media
+gui.HDDialog --|> gui.MediaDialog
+gui.HDDialog ..> java.lang.Override
+gui.HDDialog ..> backend.HD
+gui.HDDialog ..> java.awt.GridLayout
+gui.HDDialog ..> java.util.ArrayList
+gui.HDDialog ..> javax.swing.JFrame
+gui.HDDialog ..> javax.swing.JLabel
+gui.HDDialog ..> javax.swing.JPanel
+gui.HDDialog ..> javax.swing.JTextField
+gui.HDDialog ..> org.jdesktop.xswingx.PromptSupport
+gui.IconLoader ..> backend.CD
+gui.IconLoader ..> backend.HD
+gui.IconLoader ..> backend.LP
+gui.IconLoader ..> backend.Tape
+gui.IconLoader ..> java.util.HashMap
+gui.IconLoader ..> javax.swing.ImageIcon
+gui.LPDialog ..> backend.Media
+gui.LPDialog --|> gui.MediaDialog
+gui.LPDialog ..> java.lang.Override
+gui.LPDialog ..> backend.LP
+gui.LPDialog ..> java.awt.GridLayout
+gui.LPDialog ..> java.time.Year
+gui.LPDialog ..> java.util.ArrayList
+gui.LPDialog ..> javax.swing.JFrame
+gui.LPDialog ..> javax.swing.JLabel
+gui.LPDialog ..> javax.swing.JPanel
+gui.LPDialog ..> javax.swing.JTextField
+gui.LPDialog ..> org.jdesktop.xswingx.PromptSupport
+gui.MainWindow ..> backend.Media
+gui.MainWindow ..> java.lang.Override
+gui.MainWindow ..> backend.CD
+gui.MainWindow ..> backend.HD
+gui.MainWindow ..> backend.LP
+gui.MainWindow ..> backend.SampleData
+gui.MainWindow ..> backend.SearchMedia
+gui.MainWindow ..> backend.SearchTracks
+gui.MainWindow ..> backend.Tape
+gui.MainWindow ..> backend.Track
+gui.MainWindow ..> backend.TrackOrganizer
+gui.MainWindow ..> java.awt.FlowLayout
+gui.MainWindow ..> java.awt.event.ActionEvent
+gui.MainWindow ..> java.awt.event.KeyAdapter
+gui.MainWindow ..> java.awt.event.KeyEvent
+gui.MainWindow ..> javax.swing.BoxLayout
+gui.MainWindow ..> javax.swing.JButton
+gui.MainWindow ..> javax.swing.JComboBox
+gui.MainWindow --|> javax.swing.JFrame
+gui.MainWindow ..> javax.swing.JPanel
+gui.MainWindow ..> javax.swing.JPopupMenu
+gui.MainWindow ..> javax.swing.JScrollPane
+gui.MainWindow ..> javax.swing.JTable
+gui.MainWindow ..> javax.swing.JTextField
+gui.MainWindow ..> javax.swing.ListSelectionModel
+gui.MainWindow ..> javax.swing.event.ListSelectionEvent
+gui.MainWindow ..> org.jdesktop.xswingx.PromptSupport
+gui.MainWindow ..> backend.Predicate
+gui.MediaListModel ..> backend.Media
+gui.MediaListModel ..> java.lang.Override
+gui.MediaListModel ..> backend.DurationHandler
+gui.MediaListModel ..> backend.PhysicalRelease
+gui.MediaListModel ..> backend.TrackOrganizer
+gui.MediaListModel ..> java.util.ArrayList
+gui.MediaListModel ..> java.util.Arrays
+gui.MediaListModel --|> javax.swing.table.AbstractTableModel
+gui.MediaListModel ..> backend.Predicate
+gui.MusicTrackDialog --|> gui.TrackDialog
+gui.MusicTrackDialog ..> java.lang.Override
+gui.MusicTrackDialog ..> backend.MusicTrack
+gui.MusicTrackDialog ..> backend.Track
+gui.MusicTrackDialog ..> java.awt.GridLayout
+gui.MusicTrackDialog ..> java.time.Duration
+gui.MusicTrackDialog ..> java.util.ArrayList
+gui.MusicTrackDialog ..> javax.swing.JFrame
+gui.MusicTrackDialog ..> javax.swing.JLabel
+gui.MusicTrackDialog ..> javax.swing.JPanel
+gui.MusicTrackDialog ..> javax.swing.JTextField
+gui.MusicTrackDialog ..> org.jdesktop.xswingx.PromptSupport
+gui.TapeDialog ..> backend.Media
+gui.TapeDialog --|> gui.MediaDialog
+gui.TapeDialog ..> java.lang.Override
+gui.TapeDialog ..> backend.Tape
+gui.TapeDialog ..> java.awt.GridLayout
+gui.TapeDialog ..> java.time.Year
+gui.TapeDialog ..> java.util.ArrayList
+gui.TapeDialog ..> javax.swing.JFrame
+gui.TapeDialog ..> javax.swing.JLabel
+gui.TapeDialog ..> javax.swing.JPanel
+gui.TapeDialog ..> javax.swing.JTextField
+gui.TapeDialog ..> org.jdesktop.xswingx.PromptSupport
+gui.TrackListModel ..> backend.Media
+gui.TrackListModel ..> java.lang.Override
+gui.TrackListModel ..> backend.DurationHandler
+gui.TrackListModel ..> backend.MusicTrack
+gui.TrackListModel ..> backend.SearchTracks
+gui.TrackListModel ..> backend.Track
+gui.TrackListModel ..> backend.TrackOrganizer
+gui.TrackListModel ..> java.util.ArrayList
+gui.TrackListModel ..> java.util.Arrays
+gui.TrackListModel --|> javax.swing.table.AbstractTableModel
+gui.TrackListModel ..> backend.Predicate
+tui.CommandWords ..> backend.Media
+tui.CommandWords ..> backend.SampleData
+tui.CommandWords ..> backend.Track
+tui.CommandWords ..> backend.TrackOrganizer
+tui.CommandWords ..> java.util.ArrayList
+tui.Parser ..> java.util.InputMismatchException
+tui.Parser ..> java.util.Scanner
+@enduml
