@@ -4,6 +4,7 @@ import backend.CD;
 import backend.HD;
 import backend.LP;
 import backend.Media;
+import backend.MusicTrack;
 import backend.Predicate;
 import backend.SampleData;
 import backend.SearchMedia;
@@ -12,9 +13,12 @@ import backend.Tape;
 import backend.Track;
 import backend.TrackOrganizer;
 import java.awt.FlowLayout;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -222,6 +226,16 @@ public class MainWindow extends JFrame
 
         });
         
+        mTrackTable.addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent me) {
+                JTable table = (JTable) me.getSource();
+                Point p = me.getPoint();
+                int row = table.rowAtPoint(p);
+                if (me.getClickCount() == 2) {
+                    handleTrackListDoubleClick(row);
+                }
+            }
+        });
         
         
         JFrame frame = this;
@@ -354,6 +368,22 @@ public class MainWindow extends JFrame
     }
     
     
+    private void handleTrackListDoubleClick(int row){
+        
+        
+        Track track = mTrackModel.getTrackAt(row);
+        TrackDialog dialog = getEditDialogForTrack(track);
+        
+        dialog.show();
+        
+        if (dialog.inputIsValid()) {
+            dialog.updateTrackObject();
+            mTrackModel.fireTableDataChanged();
+        }
+        
+    }
+    
+    
     private void handleNewTrackDialog(TrackDialog dialog) {
 
         dialog.show();
@@ -396,7 +426,20 @@ public class MainWindow extends JFrame
     }
     
 
-
+    private TrackDialog getEditDialogForTrack(Track track){
+        
+        TrackDialog d = null;
+        if(track instanceof MusicTrack)
+            d = new MusicTrackDialog(this);
+        
+        if(d != null)
+            d.setMediaObject(track);
+        
+        
+        return d;
+    }
+    
+    
     private abstract class Filter{
         
         public abstract Predicate createPredicate(String query);

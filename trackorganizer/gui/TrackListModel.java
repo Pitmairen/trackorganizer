@@ -33,6 +33,18 @@ public class TrackListModel extends AbstractTableModel {
     }
 
     
+    public Track getTrackAt(int row){
+        Track track;
+        if(mIsFiltered){
+            track = mFilteredTracks.get(row);
+        }else{
+            track = mTrackOrganizer.getTrackAt(row);
+
+        }
+        return track;
+    }
+    
+    
     /**
      * Filters the content of the model.
      *
@@ -134,14 +146,7 @@ public class TrackListModel extends AbstractTableModel {
     @Override
     public Object getValueAt(int row, int col) {
         
-        Track track;
-        
-        if(mIsFiltered){
-            track = mFilteredTracks.get(row);
-        }else{
-            track = mTrackOrganizer.getTrackAt(row);
-
-        }
+        Track track = getTrackAt(row);
         
         switch(col){
             case 0:
