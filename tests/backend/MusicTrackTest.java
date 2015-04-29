@@ -1,5 +1,6 @@
 package backend;
 
+import java.time.Duration;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -14,7 +15,7 @@ public class MusicTrackTest {
      */
     @Test
     public void gettersANDsetters() {
-     MusicTrack dummyTest = new MusicTrack("Deeper Underground","Jamiroquay", duration)
+     MusicTrack dummyTest = new MusicTrack("Deeper Underground","Jamiroquay", Duration.ofSeconds(32));
       
     }
 
