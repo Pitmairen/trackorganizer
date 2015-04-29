@@ -32,7 +32,12 @@ public class TrackListModel extends AbstractTableModel {
         this.mTrackOrganizer = trackOrganizer;
     }
 
-    
+
+    /**
+     * Returns the track at the specified row.
+     * @param row the row number
+     * @return A track object.
+     */
     public Track getTrackAt(int row){
         Track track;
         if(mIsFiltered){
