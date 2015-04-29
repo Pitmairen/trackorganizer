@@ -403,7 +403,7 @@ public class MainWindow extends JFrame
     
     private Media getSelectedMedia() {
         int row = getSelectedMediaRow();
-        return mTrackOrganizer.getMediaList().get(row);
+        return mMediaModel.getMediaAt(row);
     }
     
     

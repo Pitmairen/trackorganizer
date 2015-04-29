@@ -27,6 +27,26 @@ public class MediaListModel extends AbstractTableModel
     public MediaListModel(TrackOrganizer trackOrganizer){
         this.mTrackOrganizer = trackOrganizer;
     }
+    
+    
+    /**
+     * Returns the media at the specified row.
+     * @param row the row number
+     * @return A media object.
+     */
+    public Media getMediaAt(int row){
+        
+        Media media;
+        
+        if(mIsFiltered){
+            media = mFilteredMedia.get(row);
+        }else{
+            media = mTrackOrganizer.getMediaList().get(row);
+        }
+        
+        return media;
+        
+    }
 
     /**
      * Filters the content of the model.
@@ -105,13 +125,7 @@ public class MediaListModel extends AbstractTableModel
     @Override
     public Object getValueAt(int row, int col) {
         
-        Media media;
-        
-        if(mIsFiltered){
-            media = mFilteredMedia.get(row);
-        }else{
-            media = mTrackOrganizer.getMediaList().get(row);
-        }
+        Media media = getMediaAt(row);
         
         switch(col){
             case 0:
