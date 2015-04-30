@@ -10,11 +10,11 @@
 *.ctxt
 *.bluej
 
-build.xml
-manifest.mf
+#build.xml
+#manifest.mf
 
 # Folders
-nbproject
+nbproject/private
 doc
 build
 dist
