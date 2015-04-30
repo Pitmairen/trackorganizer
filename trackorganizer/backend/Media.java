@@ -36,6 +36,10 @@ public abstract class Media {
     public void setName(String name) {
         this.name = name;
     }
+    
+    public String getDescriptionString(){
+        return getName();
+    }
 
     /**
      * Returns the tracks associated with this media.

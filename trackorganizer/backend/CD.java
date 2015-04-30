@@ -1,5 +1,6 @@
 package backend;
 
+import java.time.Duration;
 import java.time.Year;
 
 /**
@@ -33,5 +34,9 @@ public class CD extends PhysicalRelease {
      */
     public CD(String title, String artistName, Year releaseYear, String recordLabel) {
         this(title, artistName, releaseYear, recordLabel, nextArchiveNumber++);
+    }
+    
+   public String getDescriptionString(){
+        return getArtistName()+ " - " + getName() + " - " + DurationHandler.durationToString(getTotalDuration());
     }
 }

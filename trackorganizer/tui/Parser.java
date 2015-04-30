@@ -5,8 +5,15 @@
  */
 package tui;
 
+import backend.CD;
 import backend.DurationHandler;
+import backend.Media;
+import backend.MusicTrack;
+import backend.Track;
+import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.year;
 import java.time.Duration;
+import java.time.Year;
+import java.time.YearMonth;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -43,7 +50,10 @@ public class Parser {
             System.out.println("Enter duration in seconds:");
             long timeLasting = getDurationInput();
             DurationHandler duration = new DurationHandler(timeLasting);
-            System.out.println(artistName + ", " + songTitle + " , " + duration.formatDuration());
+            System.out.println("Added:" + songTitle + ", " + artistName + " , " + duration.formatDuration());
+            Media uncategorized = new CD("uncategorized","various", null, "various", 0);
+            uncategorized.addTrack( new MusicTrack(songTitle, artistName, duration.getDuration()));
+            commands.addToTrackOrganizer(uncategorized);
 
         } else if (selectedFunction == 2) {
             String selectedMediaType = mediaTypeSelection(selectedFunction, "add");
@@ -54,8 +64,9 @@ public class Parser {
             String selectedTrackType = trackTypeSelection(selectedFunction, "add");
 
         } else if (selectedFunction == 4) {
-            String selectedMediaType = mediaTypeSelection(selectedFunction, "add");
-            String selectedTrackType = trackTypeSelection(selectedFunction, "add");
+            System.out.println("Enter your artist search");
+            String search = getTextInput();
+            commands.searchMedia(search);
 
         } else if (selectedFunction == 5) {
             commands.listContent();

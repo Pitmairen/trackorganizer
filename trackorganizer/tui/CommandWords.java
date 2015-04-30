@@ -7,6 +7,7 @@ package tui;
 
 import backend.Media;
 import backend.SampleData;
+import backend.SearchMedia;
 import backend.Track;
 import backend.TrackOrganizer;
 import java.util.ArrayList;
@@ -66,14 +67,24 @@ public class CommandWords {
 
     }
 
-    public void searchMedia() {
-
+    public void searchMedia(String search) {
+       ArrayList<Media> searchResult = to.findMedia(new SearchMedia.ByArtist(search));
+        listMedia(searchResult);
     }
 
     public void listContent() {
-        for (int a = 0; a < tracks.size(); a++) {
-            track = to.getTrackAt(a);
-            System.out.println((a + 1) + ". " + track.getDescriptionString());
+        listMedia(to.getMediaList());
+    }
+    
+    private void listMedia(ArrayList<Media> mediaList){
+        
+        for(Media media: mediaList){
+            int counter = 1;
+            System.out.println(media.getDescriptionString());
+            for(Track aTrack: media.getTracks()){
+                System.out.println("   " + counter + ". " + aTrack.getDescriptionString());
+                counter++;
+            }
         }
     }
 
@@ -135,5 +146,9 @@ public class CommandWords {
             result = res4;
         }
         return result;
+    }
+    
+    public void addToTrackOrganizer(Media itemToAdd){
+        to.addMedia(itemToAdd);
     }
 }
