@@ -10,11 +10,11 @@
 *.ctxt
 *.bluej
 
-build.xml
-manifest.mf
+#build.xml
+#manifest.mf
 
 # Folders
-nbproject
+nbproject/private
 doc
 build
 dist
@@ -26,4 +26,3 @@ hs_err_pid*
 
 !3rdparty/commons-cli-1.2.jar
 !3rdparty/prompt.jar
-!3rdparty/org-netbeans-swing-outline.jar
